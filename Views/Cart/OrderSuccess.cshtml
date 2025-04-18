@@ -1,0 +1,277 @@
+@model MyWebApp.Models.CheckoutViewModel
+
+<div class="order-confirmation-section py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Success Header -->
+                <div class="text-center mb-5">
+                    <div class="success-icon mb-4">
+                        <i class="fas fa-check-circle fa-5x text-success"></i>
+                    </div>
+                    <h1 class="fw-bold mb-3 text-success">ĐẶT HÀNG THÀNH CÔNG!</h1>
+                    <p class="lead text-muted">Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.</p>
+                    <div class="order-number-badge d-inline-block mt-3">
+                        <span class="badge bg-secondary fs-5 p-3">Mã đơn hàng: #@Model.Id</span>
+                    </div>
+                </div>
+
+                <!-- Order Summary Card -->
+                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                    <div class="card-header bg-success text-white py-3">
+                        <h3 class="mb-0">
+                            <i class="fas fa-receipt me-2"></i>Thông tin đơn hàng
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Họ tên người nhận:</span>
+                                    <span>@Model.FullName</span>
+                                </div>
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Số điện thoại:</span>
+                                    <span>@Model.PhoneNumber</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Địa chỉ giao hàng:</span>
+                                    <span>@Model.Address</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="fw-bold text-dark">Phương thức thanh toán:</span>
+                                    <span class="badge
+                                    @(Model.PaymentMethod == PaymentMethod.COD ? "bg-warning" :
+                                    Model.PaymentMethod == PaymentMethod.BankTransfer ? "bg-info" :
+                                    "bg-danger")">
+                                    @Model.PaymentMethod
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Details Card -->
+                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                    <div class="card-header bg-success text-white py-3">
+                        <h3 class="mb-0">
+                            <i class="fas fa-list-alt me-2"></i>Chi tiết đơn hàng
+                        </h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="ps-4">Sản phẩm</th>
+                                        <th class="text-center">Số lượng</th>
+                                        <th class="text-end pe-4">Đơn giá</th>
+                                        <th class="text-end pe-4">Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ChiTietHoaDon)
+                                    {
+                                        <tr>
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="img-thumbnail me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                                    <span>@item.Product.Name</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">@item.SoLuong</td>
+                                            <td class="text-end pe-4">@item.DonGia.ToString("N0") đ</td>
+                                            <td class="text-end pe-4 fw-bold">@((item.Product.Price * item.SoLuong).ToString("N0")) đ</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Amount Card -->
+                <div class="card border-0 shadow-sm rounded-3 bg-light">
+                    <div class="card-body p-4">
+                        <div class="row justify-content-end">
+                            <div class="col-md-5">
+                                @* <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Tạm tính:</span>
+                                    <span>@Model.SubTotal.ToString("N0") đ</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Phí vận chuyển:</span>
+                                    <span>@Model.ShippingFee.ToString("N0") đ</span>
+                                </div>
+                                @if (Model.DiscountAmount > 0)
+                                {
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="fw-bold">Giảm giá:</span>
+                                        <span class="text-success">-@Model.DiscountAmount.ToString("N0") đ</span>
+                                    </div>
+                                } *@
+                                <hr class="my-2">
+                                <div class="d-flex justify-content-between fw-bold fs-5">
+                                    <span>Tổng cộng:</span>
+                                    <span class="text-danger">@Model.TotalAmount.ToString("N0") đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="next-steps mt-5 text-center">
+                    <h4 class="fw-bold mb-4">
+                        <i class="fas fa-clipboard-check me-2 text-success"></i>Bước tiếp theo
+                    </h4>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="steps">
+                                <div class="step mb-4">
+                                    <div class="step-icon bg-success text-white">
+                                        <i class="fas fa-shipping-fast"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5 class="fw-bold">Xác nhận đơn hàng</h5>
+                                        <p class="text-muted mb-0">Chúng tôi sẽ gọi điện xác nhận đơn hàng trong vòng 30 phút</p>
+                                    </div>
+                                </div>
+                                <div class="step mb-4">
+                                    <div class="step-icon bg-success text-white">
+                                        <i class="fas fa-truck"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5 class="fw-bold">Vận chuyển</h5>
+                                        <p class="text-muted mb-0">Đơn hàng sẽ được giao trong 1-2 ngày làm việc</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-icon bg-success text-white">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5 class="fw-bold">Nhận hàng</h5>
+                                        <p class="text-muted mb-0">Kiểm tra hàng hóa trước khi thanh toán (nếu có)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Information -->
+                <div class="support-card mt-5 card border-0 shadow-sm rounded-3">
+                    <div class="card-body text-center py-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-headset me-2 text-success"></i>Cần hỗ trợ thêm?
+                        </h5>
+                        <p class="mb-4">Chúng tôi luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào</p>
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <div class="support-item mx-3 my-2">
+                                <i class="fas fa-phone-alt me-2 text-success"></i>
+                                <span>Hotline: <strong>0901 234 567</strong></span>
+                            </div>
+                            <div class="support-item mx-3 my-2">
+                                <i class="fab fa-facebook-messenger me-2 text-success"></i>
+                                <span>Messenger: <strong>PHATLEE</strong></span>
+                            </div>
+                            <div class="support-item mx-3 my-2">
+                                <i class="fas fa-envelope me-2 text-success"></i>
+                                <span>Email: <strong>support@phatlee.com</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue Shopping Button -->
+                <div class="text-center mt-5">
+                    <a href="/" class="btn btn-success btn-lg px-5 py-3">
+                        <i class="fas fa-shopping-bag me-2"></i>Tiếp tục mua sắm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .order-confirmation-section {
+            background-color: #f8f9fa;
+        }
+
+        .success-icon {
+            animation: bounceIn 1s;
+        }
+
+        .order-number-badge .badge {
+            border-radius: 50px;
+        }
+
+        .info-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .steps {
+            position: relative;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .step-content {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .support-card {
+            background-color: #fff;
+        }
+
+        .support-item {
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border-radius: 50px;
+        }
+
+        @@keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+}

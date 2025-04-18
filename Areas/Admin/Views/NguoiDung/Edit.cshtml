@@ -1,0 +1,26 @@
+﻿@model MyWebApp.Models.ApplicationUser
+@using Microsoft.AspNetCore.Identity
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-area="Admin" asp-controller="NguoiDung" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <select name="role" asp-items="@ViewBag.Roles">
+                @foreach (var i in @ViewBag.Roles)
+                {
+                    <option value="@i.Id">@i.Name</option>
+                }
+                
+            </select>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

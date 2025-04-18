@@ -1,0 +1,210 @@
+@model MyWebApp.Models.CheckoutViewModel
+
+<div class="momo-payment-section py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Header Section -->
+                <div class="text-center mb-5">
+                    <div class="momo-logo mb-3">
+                        <i class="fab fa-momo fa-4x text-danger"></i>
+                    </div>
+                    <h1 class="fw-bold mb-3 text-danger">THANH TOÁN QUA VÍ MoMo</h1>
+                    <p class="lead text-muted">Quét mã QR bên dưới bằng ứng dụng MoMo để hoàn tất thanh toán</p>
+                </div>
+
+                <!-- Main Payment Card -->
+                <div class="card border-0 shadow-lg rounded-3 overflow-hidden">
+                    <div class="card-header bg-danger text-white py-3">
+                        <h3 class="mb-0 text-center">
+                            <i class="fas fa-qrcode me-2"></i>MÃ QR THANH TOÁN
+                        </h3>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5">
+                        <div class="row align-items-center">
+                            <!-- QR Code Section -->
+                            <div class="col-md-6 text-center mb-4 mb-md-0">
+                                <div class="qr-container p-3 bg-white rounded-3 shadow-sm d-inline-block">
+                                    <img src="~/images/momo-qr-code.jpg" alt="QR MoMo" class="img-fluid" style="max-height: 250px;"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Payment Details -->
+                            <div class="col-md-6">
+                                <div class="payment-details">
+                                    <div class="detail-item mb-4">
+                                        <h5 class="fw-bold text-danger mb-3">
+                                            <i class="fas fa-receipt me-2"></i>Thông tin thanh toán
+                                        </h5>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <span class="fw-bold">Mã đơn hàng:</span>
+                                                <span class="badge bg-secondary">HD-@Model.Id</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <span class="fw-bold">Số tiền:</span>
+                                                <span class="text-danger fw-bold fs-4">@Model.TotalAmount.ToString("N0") đ</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <span class="fw-bold">Nội dung:</span>
+                                                <span>HD-@Model.Id</span>
+                                            </li>
+                                            <li>
+                                                <span class="fw-bold">Thời hạn:</span>
+                                                <span id="countdown-timer" class="text-danger fw-bold">15:00</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="steps">
+                                        <div class="step mb-3">
+                                            <div class="step-icon bg-danger text-white">
+                                                <i class="fas fa-1"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <p class="mb-0">Mở ứng dụng MoMo và chọn "Quét mã"</p>
+                                            </div>
+                                        </div>
+                                        <div class="step mb-3">
+                                            <div class="step-icon bg-danger text-white">
+                                                <i class="fas fa-2"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <p class="mb-0">Quét mã QR bên cạnh</p>
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <div class="step-icon bg-danger text-white">
+                                                <i class="fas fa-3"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <p class="mb-0">Xác nhận thanh toán</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Information -->
+                <div class="support-card mt-4 card border-0 shadow-sm rounded-3">
+                    <div class="card-body text-center py-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-headset me-2 text-danger"></i>Cần hỗ trợ thanh toán?
+                        </h5>
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <div class="support-item mx-3 my-2">
+                                <i class="fas fa-phone-alt me-2 text-danger"></i>
+                                <span>Hotline: <strong>0901 234 567</strong></span>
+                            </div>
+                            <div class="support-item mx-3 my-2">
+                                <i class="fab fa-facebook-messenger me-2 text-danger"></i>
+                                <span>Messenger: <strong>PHATLEE</strong></span>
+                            </div>
+                            <div class="support-item mx-3 my-2">
+                                <i class="fab fa-zalo me-2 text-danger"></i>
+                                <span>Zalo: <strong>PHATLEE Support</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .momo-payment-section {
+            background-color: #f8f9fa;
+        }
+        
+        .momo-logo {
+            animation: pulse 2s infinite;
+        }
+        
+        .qr-container {
+            border: 1px solid #eee;
+        }
+        
+        .detail-item {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .steps {
+            margin-top: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .step-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .support-card {
+            background-color: #fff;
+        }
+        
+        .support-item {
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border-radius: 50px;
+        }
+        
+        @@keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .badge {
+            font-size: 0.9em;
+            padding: 0.35em 0.65em;
+        }
+    </style>
+}
+
+@section Scripts {
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let timeLeft = 15 * 60; // 15 phút (tính bằng giây)
+        const timerDisplay = document.getElementById("countdown-timer");
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                timerDisplay.textContent = "Đã hết hạn!";
+                timerDisplay.classList.remove("text-danger");
+                timerDisplay.classList.add("text-muted");
+            }
+            timeLeft--;
+        }
+
+        updateTimer(); // gọi lần đầu
+        const timer = setInterval(updateTimer, 1000);
+    });
+</script>
+}

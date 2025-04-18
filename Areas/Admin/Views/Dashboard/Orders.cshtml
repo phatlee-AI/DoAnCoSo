@@ -1,0 +1,187 @@
+@model List<MyWebApp.Areas.Admin.Models.ViewModels.DonHangMoiNhatVM>
+
+@{
+    ViewData["Title"] = "Tất cả đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="orders-management">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0">Quản lý đơn hàng</h2>
+            <p class="text-muted mb-0">Danh sách tất cả đơn hàng trong hệ thống</p>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary">
+                <i class="fas fa-download me-2"></i>Xuất Excel
+            </button>
+        </div>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white border-0 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-bold">
+                    <i class="fas fa-shopping-bag me-2 text-primary"></i>Tất cả đơn hàng
+                </h5>
+                <div class="input-group" style="width: 300px;">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm đơn hàng...">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Mã đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th class="text-end pe-4">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var don in Model)
+                        {
+                            <tr>
+                                <td class="ps-4 fw-bold">#@don.Id</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <i class="fas fa-user-circle fa-lg text-muted"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-0">@don.TenNguoiNhan</h6>
+                                            @* <small class="text-muted">@don.SoDienThoai</small> *@
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@don.NgayLap.ToString("dd/MM/yyyy")</td>
+                                <td class="fw-bold">@don.TongTien.ToString("N0") đ</td>
+                                <td>
+                                    <span class="badge @GetStatusBadgeClass(don.Status) py-2 px-3">
+                                        @don.Status
+                                    </span>
+                                </td>
+                                <td class="text-end pe-4">
+                                    @if (don.Status == "Chờ xác nhận" || don.Status == "Chờ thanh toán")
+                                    {
+                                        <form asp-action="ConfirmOrder" asp-controller="Dashboard" asp-route-id="@don.Id" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-success me-2">
+                                                <i class="fas fa-check me-1"></i>Xác nhận
+                                            </button>
+                                        </form>
+                                    }
+                                    <a href="@Url.Action("Detail", "Dashboard", new { id = don.Id })" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye me-1"></i>Chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-white border-0 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="text-muted">Hiển thị 1 đến 10 của @Model.Count đơn hàng</span>
+                </div>
+                <nav>
+                    <ul class="pagination mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Sau</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string GetStatusBadgeClass(string status)
+    {
+        switch (status)
+        {
+            case "Đã xác nhận":
+                return "bg-success";
+            case "Chờ xác nhận":
+                return "bg-warning text-dark";
+            case "Đang giao hàng":
+                return "bg-info";
+            case "Đã hủy":
+                return "bg-danger";
+            case "Hoàn thành":
+                return "bg-primary";
+            case "Chờ thanh toán":
+                return "bg-secondary";
+            default:
+                return "bg-light text-dark";
+        }
+    }
+}
+
+@section Styles {
+    <style>
+        .orders-management {
+            padding: 1.5rem;
+            background-color: #f8fafc;
+        }
+
+        .table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            color: #64748b;
+        }
+
+        .card {
+            border-radius: 12px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .card-header {
+            border-radius: 12px 12px 0 0 !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .badge {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 0.75rem;
+        }
+
+        .table-hover tbody tr {
+            transition: background-color 0.2s;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .pagination .page-link {
+            color: #4CAF50;
+        }
+    </style>
+}

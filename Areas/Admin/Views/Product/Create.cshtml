@@ -1,0 +1,352 @@
+﻿@model MyWebApp.Models.Product
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Create New Product";
+}
+
+<div class="product-create-container">
+    <!-- Page Header -->
+    <div class="page-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="page-title">
+                <i class="fas fa-plus-circle me-2 text-success"></i>@ViewData["Title"]
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to List
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Form Card -->
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3 border-bottom">
+            <h5 class="mb-0 fw-bold">
+                <i class="fas fa-info-circle me-2 text-primary"></i>Product Information
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4"></div>
+                
+                <div class="row g-4">
+                    <!-- Left Column - Basic Info -->
+                    <div class="col-lg-6">
+                        <!-- Product Name -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Name" class="form-label fw-bold">Product Name *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-tag text-muted"></i>
+                                </span>
+                                <input asp-for="Name" class="form-control" placeholder="Enter product name" required />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+                        
+                        <!-- Price -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Price" class="form-label fw-bold">Price *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">₫</span>
+                                <input asp-for="Price" type="number" class="form-control" placeholder="0.00" required />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+                        
+                        <!-- Category -->
+                        <div class="form-group mb-4">
+                            <label asp-for="CategoryId" class="form-label fw-bold">Category *</label>
+                            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId" required>
+                                <option value="">-- Select Category --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+                        
+                        <!-- Stock Quantity -->
+                        @* <div class="form-group mb-4">
+                            <label asp-for="StockQuantity" class="form-label fw-bold">Stock Quantity</label>
+                            <input asp-for="StockQuantity" class="form-control" placeholder="Enter quantity" />
+                            <span asp-validation-for="StockQuantity" class="text-danger small"></span>
+                        </div> *@
+                    </div>
+                    
+                    <!-- Right Column - Images -->
+                    <div class="col-lg-6">
+                        <!-- Main Image Upload -->
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-bold">Main Product Image *</label>
+                            <div class="image-upload-card">
+                                <div class="image-preview-container">
+                                    <img src="https://via.placeholder.com/400x300?text=Product+Image" 
+                                         id="mainImagePreview" 
+                                         class="preview-image" />
+                                    <div class="placeholder-text">
+                                        <i class="fas fa-image fa-3x text-muted mb-2"></i>
+                                        <p class="text-muted mb-0">No image selected</p>
+                                    </div>
+                                </div>
+                                <label for="mainImageUpload" class="upload-btn btn btn-sm btn-outline-success w-100 mt-2">
+                                    <i class="fas fa-cloud-upload-alt me-2"></i>Upload Image
+                                </label>
+                                <input type="file" id="mainImageUpload" name="HinhAnhCapNhat" class="d-none" accept="image/*" required />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Full Width - Description -->
+                    <div class="col-12">
+                        <div class="form-group mb-4">
+                            <label asp-for="Description" class="form-label fw-bold">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="5" 
+                                      placeholder="Enter detailed product description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Images -->
+                    <div class="col-12">
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-bold">Additional Images</label>
+                            <div class="image-upload-card">
+                                <div class="gallery-preview-container" id="galleryPreview">
+                                    <div class="gallery-placeholder">
+                                        <i class="fas fa-images fa-3x text-muted mb-2"></i>
+                                        <p class="text-muted mb-0">No images selected</p>
+                                    </div>
+                                </div>
+                                <label for="galleryUpload" class="upload-btn btn btn-sm btn-outline-secondary w-100 mt-2">
+                                    <i class="fas fa-images me-2"></i>Upload Multiple Images
+                                </label>
+                                <input type="file" id="galleryUpload" name="DanhSachHinhAnh" class="d-none" multiple accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="col-12 mt-2">
+                        <div class="d-flex justify-content-end gap-3">
+                            <button type="reset" class="btn btn-outline-secondary px-4">
+                                <i class="fas fa-undo me-2"></i>Reset
+                            </button>
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="fas fa-save me-2"></i>Create Product
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .product-create-container {
+            padding: 1.5rem;
+            background-color: #f8fafc;
+        }
+
+        .page-header {
+            background-color: white;
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .page-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb {
+            padding: 0;
+            background-color: transparent;
+            font-size: 0.875rem;
+        }
+
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group-text {
+            background-color: #f8f9fa;
+        }
+
+        .image-upload-card {
+            border: 1px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        .image-upload-card:hover {
+            border-color: #4CAF50;
+            background-color: #f8f9fa;
+        }
+
+        .image-preview-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .placeholder-text {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .gallery-preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            min-height: 120px;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .gallery-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+
+        .upload-btn {
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .was-validated .form-control:invalid,
+        .was-validated .form-select:invalid {
+            border-color: #dc3545;
+        }
+
+        .was-validated .form-control:valid,
+        .was-validated .form-select:valid {
+            border-color: #28a745;
+        }
+    </style>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Main image preview
+        document.getElementById('mainImageUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('mainImagePreview');
+            const placeholder = document.querySelector('.image-preview-container .placeholder-text');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    if (placeholder) placeholder.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+                if (placeholder) placeholder.style.display = 'flex';
+            }
+        });
+
+        // Gallery images preview
+        document.getElementById('galleryUpload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const galleryPreview = document.getElementById('galleryPreview');
+            const placeholder = document.querySelector('.gallery-placeholder');
+            
+            galleryPreview.innerHTML = '';
+            
+            if (files.length > 0) {
+                if (placeholder) placeholder.style.display = 'none';
+                
+                for (let i = 0; i < files.length; i++) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'gallery-image';
+                        galleryPreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(files[i]);
+                }
+            } else {
+                if (placeholder) placeholder.style.display = 'flex';
+            }
+        });
+
+        // Form validation
+        (function() {
+            'use strict';
+            
+            const forms = document.querySelectorAll('.needs-validation');
+            
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+}

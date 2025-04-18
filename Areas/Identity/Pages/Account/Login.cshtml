@@ -1,0 +1,206 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Welcome Back";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
+                <div class="row g-0">
+                    <!-- Left Side - Login Form -->
+                    <div class="col-md-6 p-5">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <h2 class="fw-bold text-success">Sign In</h2>
+                                <p class="text-muted">Please enter your credentials to access your account</p>
+                            </div>
+
+                            <form id="account" method="post" class="needs-validation" novalidate>
+                                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                                
+                                <!-- Email Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-envelope text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.Email" class="form-control ps-3" autocomplete="username" 
+                                               aria-required="true" placeholder="name@example.com" />
+                                    </div>
+                                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Password Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-lock text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.Password" class="form-control ps-3" autocomplete="current-password" 
+                                               aria-required="true" placeholder="password" />
+                                    </div>
+                                    <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Remember Me & Forgot Password -->
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                                        <label class="form-check-label" asp-for="Input.RememberMe">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <a id="forgot-password" asp-page="./ForgotPassword" class="text-decoration-none small text-success">
+                                        Forgot password?
+                                    </a>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <button id="login-submit" type="submit" class="btn btn-success btn-lg w-100 py-2 mb-3">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Log In
+                                </button>
+                                
+                                <!-- Divider -->
+                                <div class="position-relative my-4">
+                                    <hr class="text-muted" />
+                                    <div class="position-absolute top-50 start-50 translate-middle bg-white px-2 small text-muted">
+                                        OR
+                                    </div>
+                                </div>
+                                
+                                <!-- Social Login -->
+                                @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                                {
+                                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div class="d-grid gap-2">
+                                            @foreach (var provider in Model.ExternalLogins!)
+                                            {
+                                                <button type="submit" class="btn btn-outline-secondary" name="provider" value="@provider.Name" 
+                                                        title="Log in using your @provider.DisplayName account">
+                                                    <i class="fab fa-@provider.DisplayName.ToLower() me-2"></i>Continue with @provider.DisplayName
+                                                </button>
+                                            }
+                                        </div>
+                                    </form>
+                                }
+                                
+                                <!-- Register Link -->
+                                <div class="text-center mt-4">
+                                    <p class="text-muted mb-0">Don't have an account? 
+                                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-success text-decoration-none fw-bold">
+                                            Sign Up
+                                        </a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Banner -->
+                    <div class="col-md-6 d-none d-md-block bg-success text-white p-5">
+                        <div class="d-flex flex-column h-100 justify-content-center">
+                            <h2 class="fw-bold mb-4">Welcome Back!</h2>
+                            <p class="lead mb-5">We're so excited to see you again!</p>
+                            <div class="features-list">
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Access your personalized dashboard</div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Manage your account settings</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Get exclusive member benefits</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resend Confirmation -->
+            <div class="text-center mt-3">
+                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="text-decoration-none small text-muted">
+                    Didn't receive confirmation email?
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .form-control {
+            border-left: 0;
+            padding-left: 0;
+        }
+        
+        .input-group-text {
+            background-color: #f8f9fa;
+            border-right: none;
+        }
+        
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            transition: all 0.3s;
+        }
+        
+        .btn-success:hover {
+            background-color: #3e8e41;
+            border-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+        
+        .features-list i {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .bg-success {
+            background-color: #4CAF50 !important;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        // Bootstrap validation
+        (function () {
+            'use strict'
+            
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+}

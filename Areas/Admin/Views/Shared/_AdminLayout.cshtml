@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Panel | PHATLEE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body class="admin-layout">
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Sidebar Toggle and Brand -->
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand fw-bold d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <div class="logo-icon bg-success rounded-circle me-2 d-flex align-items-center justify-content-center">
+                        <i class="fas fa-leaf text-white"></i>
+                    </div>
+                    <span class="d-none d-md-inline">PHATLEE <span class="text-success">Admin</span></span>
+                </a>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="d-flex align-items-center ms-auto">
+                <a class="nav-link text-white me-3" href="#" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                    </span>
+                </a>
+                
+                <!-- User Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
+                       id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://via.placeholder.com/40" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                        <div class="d-none d-md-flex flex-column align-items-start">
+                            <span class="fw-bold small">Admin User</span>
+                            <span class="text-muted xsmall">Super Admin</span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="userDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-circle me-2 text-muted"></i>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cog me-2 text-muted"></i>Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-question-circle me-2 text-muted"></i>Help
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider mx-3 my-2"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-sign-out-alt me-2 text-muted"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar and Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 d-md-block sidebar offcanvas-lg offcanvas-start bg-dark" id="sidebar">
+                <div class="offcanvas-header d-lg-none border-bottom border-secondary">
+                    <h5 class="offcanvas-title text-white">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebar"></button>
+                </div>
+                <div class="offcanvas-body px-0 pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active bg-gradient" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                <i class="fas fa-tachometer-alt me-3"></i>Dashboard
+                            </a>
+                        </li>
+                        
+                        <!-- Products Section -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#productsCollapse">
+                                <i class="fas fa-box-open me-3"></i>Products
+                                <i class="fas fa-angle-down float-end mt-1"></i>
+                            </a>
+                            <div class="collapse show" id="productsCollapse">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Products" asp-action="Index">
+                                            <i class="fas fa-list me-3"></i>All Products
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Products" asp-action="Create">
+                                            <i class="fas fa-plus-circle me-3"></i>Add New
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Products" asp-action="Inventory">
+                                            <i class="fas fa-warehouse me-3"></i>Inventory
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Users Section -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#usersCollapse">
+                                <i class="fas fa-users me-3"></i>Users
+                                <i class="fas fa-angle-down float-end mt-1"></i>
+                            </a>
+                            <div class="collapse" id="usersCollapse">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                                            <i class="fas fa-list me-3"></i>All Users
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Users" asp-action="Create">
+                                            <i class="fas fa-user-plus me-3"></i>Add New
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Users" asp-action="Roles">
+                                            <i class="fas fa-user-shield me-3"></i>Roles
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Categories -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Categories" asp-action="Index">
+                                <i class="fas fa-tags me-3"></i>Categories
+                            </a>
+                        </li>
+                        
+                        <!-- Orders -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#ordersCollapse">
+                                <i class="fas fa-shopping-cart me-3"></i>Orders
+                                <i class="fas fa-angle-down float-end mt-1"></i>
+                            </a>
+                            <div class="collapse" id="ordersCollapse">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Orders" asp-action="Index">
+                                            <i class="fas fa-list me-3"></i>All Orders
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Orders" asp-action="Pending">
+                                            <i class="fas fa-clock me-3"></i>Pending
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Orders" asp-action="Completed">
+                                            <i class="fas fa-check-circle me-3"></i>Completed
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Reports -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Reports" asp-action="Index">
+                                <i class="fas fa-chart-bar me-3"></i>Reports
+                            </a>
+                        </li>
+                        
+                        <!-- Settings -->
+                        <li class="nav-item mt-4 pt-2 border-top border-secondary">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                                <i class="fas fa-cog me-3"></i>Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-lg-10 col-md-9 ms-sm-auto px-md-4 main-content bg-light">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-3 mb-4 border-bottom">
+                    @* <div>
+                        <h1 class="h3 fw-bold mb-0">@ViewData["Title"]</h1>
+                        <nav aria-label="breadcrumb" class="d-none d-md-block mt-2">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                            </ol>
+                        </nav>
+                    </div> *@
+                    <div class="btn-toolbar mb-2 mb-md-0 gap-2">
+                        @RenderSection("Toolbar", required: false)
+                    </div>
+                </div>
+                
+                <!-- Page Content -->
+                <div class="container-fluid px-0">
+                    @RenderBody()
+                </div>
+                
+                <!-- Footer -->
+                <footer class="pt-4 mt-5 border-top text-muted small">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            &copy; @DateTime.Now.Year - PHATLEE Admin Panel
+                        </div>
+                        <div>
+                            <span class="me-3">v1.0.0</span>
+                            <span>Last updated: @DateTime.Now.ToString("MMM dd, yyyy")</span>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Styles", required: false)
+
+</body>
+</html>

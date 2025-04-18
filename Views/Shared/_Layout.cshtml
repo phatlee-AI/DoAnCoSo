@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PHATLEE</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="text-success">PHAT</span><span class="text-dark">LEE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Create">Create Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="User">Quản lý</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="dropdown">
+                <a class="nav-link position-relative" href="#" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-shopping-cart fs-5"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                        0
+                    </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-cart p-0" aria-labelledby="cartDropdown" style="min-width: 320px;">
+                    <li>
+                        <div class="cart-dropdown-header p-3 border-bottom">
+                            <h6 class="m-0">Giỏ hàng của bạn</h6>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="cart-items" class="px-3 py-2" style="max-height: 300px; overflow-y: auto;">
+                            <!-- Cart items will be loaded here -->
+                            <div class="text-center py-3">
+                                <i class="fas fa-shopping-cart fa-2x text-muted mb-2"></i>
+                                <p class="text-muted mb-0">Giỏ hàng trống</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart-dropdown-footer p-3 border-top">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tạm tính:</span>
+                                <span class="fw-bold" id="cart-subtotal">0đ</span>
+                            </div>
+                            <a href="@Url.Action("Index", "Cart")" class="btn btn-success w-100">
+                                <i class="fas fa-shopping-bag me-2"></i>Xem giỏ hàng
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner/Slider -->
+    <section class="banner-section">
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="banner-content bg-success text-white">
+                        <div class="container py-5">
+                            <h1 class="display-4 fw-bold">Let's Create an Amazing Project Together!</h1>
+                            <p class="lead">We provide the best services for your needs</p>
+                            <a href="#contact" class="btn btn-light btn-lg mt-3">Let's Talk</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="banner-content bg-dark text-white">
+                        <div class="container py-5">
+                            <h1 class="display-4 fw-bold">Innovative Solutions</h1>
+                            <p class="lead">Discover our latest products and services</p>
+                            <a href="#products" class="btn btn-success btn-lg mt-3">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    
+
+    <!-- Main Content -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    
+
+
+    <!-- Products Section -->
+    <section id="products" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Products</h2>
+        <div class="row g-4">
+            <!-- Main Product (left side) -->
+            <div class="col-lg-6">
+                <div class="main-product-card card h-100 border-0 shadow-sm">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6">
+                            <img src="https://via.placeholder.com/600x600?text=Featured+Product" class="img-fluid rounded-start h-100 w-100" alt="Featured Product" style="object-fit: cover;">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body d-flex flex-column h-100">
+                                <div class="mb-3">
+                                    <span class="badge bg-success">Featured</span>
+                                    <h3 class="card-title mt-2">Premium Eco Product</h3>
+                                    <p class="text-muted">SKU: PROD-001</p>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="rating-stars text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="ms-2">(24 reviews)</span>
+                                    </div>
+                                </div>
+                                <p class="card-text flex-grow-1">Our flagship product with premium eco-friendly materials and advanced technology for sustainable living.</p>
+                                <div>
+                                    <h4 class="text-success mb-3">$129.99</h4>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-success flex-grow-1">Add to Cart</button>
+                                        <button class="btn btn-outline-secondary">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Products (right side) -->
+            <div class="col-lg-6">
+                <div class="row g-4 h-100">
+                    <!-- Product 1 -->
+                    <div class="col-md-6">
+                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
+                            <img src="https://via.placeholder.com/400x300?text=Product+1" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Organic Solution</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(18 reviews)</span>
+                                </div>
+                                <p class="card-text text-success fw-bold">$49.99</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-6">
+                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
+                            <img src="https://via.placeholder.com/400x300?text=Product+2" class="card-img-top" alt="Product 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Green Technology</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(32 reviews)</span>
+                                </div>
+                                <p class="card-text text-success fw-bold">$99.99</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-6">
+                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
+                            <img src="https://via.placeholder.com/400x300?text=Product+3" class="card-img-top" alt="Product 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Recycled Materials</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(12 reviews)</span>
+                                </div>
+                                <p class="card-text text-success fw-bold">$19.99</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-md-6">
+                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
+                            <img src="https://via.placeholder.com/400x300?text=Product+4" class="card-img-top" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Eco-Friendly Kit</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(21 reviews)</span>
+                                </div>
+                                <p class="card-text text-success fw-bold">$59.99</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-5">
+            <a href="/Product" class="btn btn-success px-4 py-2">View All Products</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Articles</h2>
+            <div class="row" id="articleList">
+                <!-- Articles will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h4 class="text-success"><i class="fas fa-map-marker-alt me-2"></i>Our Location</h4>
+                        <p>123 Green Street, Eco City, Earth</p>
+                        
+                        <h4 class="text-success mt-4"><i class="fas fa-phone me-2"></i>Phone</h4>
+                        <p>+1 (234) 567-8900</p>
+                        
+                        <h4 class="text-success mt-4"><i class="fas fa-envelope me-2"></i>Email</h4>
+                        <p>info@phatlee.com</p>
+                        
+                        <h4 class="text-success mt-4"><i class="fas fa-clock me-2"></i>Working Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form bg-white p-4 rounded shadow-sm">
+                        <h4 class="text-success mb-4">Get In Touch</h4>
+                        <form id="supportForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-top footer text-muted bg-dark text-white">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-success">PHATLEE</h5>
+                    <p>Creating amazing projects with innovative solutions.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="/Product" class="text-white">Products</a></li>
+                        <li><a href="/Product/Create" class="text-white">Create Product</a></li>
+                        <li><a href="/Admin/User" class="text-white">Quản Lý</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Web Development</a></li>
+                        <li><a href="#" class="text-white">App Development</a></li>
+                        <li><a href="#" class="text-white">UI/UX Design</a></li>
+                        <li><a href="#" class="text-white">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest updates.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    &copy; 2025 - PHATLEE - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white">Privacy</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by PHATLEE Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Styles", required: false)
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

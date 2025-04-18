@@ -1,0 +1,241 @@
+@model MyWebApp.Models.CheckoutViewModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<div class="checkout-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="checkout-header mb-5 text-center">
+                    <h2 class="fw-bold">Thanh Toán</h2>
+                    <p class="text-muted">Vui lòng điền đầy đủ thông tin để hoàn tất đơn hàng</p>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+                    <div class="card-body p-4 p-md-5">
+                        <form asp-action="Checkout" method="post" class="needs-validation" novalidate>
+                             <div asp-validation-summary="All" class="text-danger mb-3"></div>
+    <!-- Customer Information -->
+    <div class="mb-4">
+        <h5 class="fw-bold mb-3 text-success">
+            <i class="fas fa-user-circle me-2"></i>Thông tin khách hàng
+        </h5>
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label fw-medium">Họ và tên người nhận</label>
+            <input asp-for="FullName" class="form-control py-2" placeholder="Nhập họ và tên" required />
+            <div class="invalid-feedback">
+                Vui lòng nhập tên người nhận
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label fw-medium">Số điện thoại</label>
+            <input asp-for="PhoneNumber" class="form-control py-2" placeholder="Nhập số điện thoại" required />
+            <div class="invalid-feedback">
+                Vui lòng nhập số điện thoại
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label fw-medium">Địa chỉ nhận hàng</label>
+            <input asp-for="Address" class="form-control py-2" placeholder="Nhập địa chỉ chi tiết" required />
+            <div class="invalid-feedback">
+                Vui lòng nhập địa chỉ nhận hàng
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="mb-4">
+    <h5 class="fw-bold mb-3 text-success">
+        <i class="fas fa-credit-card me-2"></i>Phương thức thanh toán
+    </h5>
+
+    <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" 
+               asp-for="PaymentMethod" 
+               value="COD" 
+               id="cod" />
+        <label class="form-check-label" for="cod">
+            Thanh toán khi nhận hàng (COD)
+        </label>
+    </div>
+
+    <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" 
+               asp-for="PaymentMethod" 
+               value="BankTransfer" 
+               id="bankTransfer" />
+        <label class="form-check-label" for="bankTransfer">
+            Chuyển khoản ngân hàng
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" 
+               asp-for="PaymentMethod" 
+               value="MoMo" 
+               id="momo" />
+        <label class="form-check-label" for="momo">
+            Ví điện tử MoMo
+        </label>
+    </div>
+</div>
+
+
+    <!-- Order Summary -->
+    <div class="mb-4">
+        <h5 class="fw-bold mb-3 text-success">
+            <i class="fas fa-receipt me-2"></i>Tóm tắt đơn hàng
+        </h5>
+
+        <div class="table-responsive mb-3">
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-start">Sản phẩm</th>
+                        <th class="text-center">Số lượng</th>
+                        <th class="text-end">Đơn giá</th>
+                        <th class="text-end">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td class="text-start">@item.Product.Name</td>
+                            <td class="text-center">@item.Quantity</td>
+                            <td class="text-end">@item.Product.Price.ToString("N0") đ</td>
+                            <td class="text-end">@((item.Product.Price * item.Quantity).ToString("N0")) đ</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="border rounded-3 p-3 bg-light">
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-between fw-bold fs-5">
+                        <span>Tổng cộng:</span>
+                        <span class="text-success">@Model.TotalAmount.ToString("N0") đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms and Submit -->
+    <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+        <label class="form-check-label" for="agreeTerms">
+            Tôi đồng ý với <a href="#" class="text-success">điều khoản và điều kiện</a> của PHATLEE
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg w-100 py-3 fw-bold">
+        <i class="fas fa-check-circle me-2"></i>Xác Nhận Thanh Toán
+    </button>
+</form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .checkout-section {
+            background-color: #f8f9fa;
+        }
+        
+        .checkout-header h2 {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .checkout-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #4CAF50;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+        }
+        
+        .form-check-input:checked {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            transition: all 0.3s;
+        }
+        
+        .btn-success:hover {
+            background-color: #3e8e41;
+            border-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+        
+        .invalid-feedback {
+            display: none;
+            color: #dc3545;
+        }
+        
+        .was-validated .form-control:invalid ~ .invalid-feedback,
+        .was-validated .form-control:invalid ~ .invalid-feedback {
+            display: block;
+        }
+        
+        .was-validated .form-control:invalid {
+            border-color: #dc3545;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            
+            var forms = document.querySelectorAll('.needs-validation')
+            
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+        
+        // Animate button on click
+        document.querySelector('button[type="submit"]').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang xử lý...';
+        });
+    </script>
+}

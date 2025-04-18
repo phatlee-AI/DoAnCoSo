@@ -1,0 +1,159 @@
+@model MyWebApp.Models.Cart
+
+@{
+    ViewData["Title"] = "Giỏ hàng của bạn";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom">
+                    <h2 class="h4 mb-0">
+                        <i class="fas fa-shopping-cart text-success me-2"></i>Giỏ hàng của bạn
+                    </h2>
+                </div>
+                
+                <div class="card-body">
+                    @if (Model?.Items == null || !Model.Items.Any())
+                    {
+                        <div class="empty-cart text-center py-5">
+                            <i class="fas fa-shopping-cart fa-4x text-muted mb-4"></i>
+                            <h4 class="text-muted">Giỏ hàng trống</h4>
+                            <p class="text-muted">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-success mt-3">
+                                <i class="fas fa-store me-2"></i>Tiếp tục mua sắm
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col" style="width: 50%">Sản phẩm</th>
+                                        <th scope="col" class="text-end">Đơn giá</th>
+                                        <th scope="col" class="text-center">Số lượng</th>
+                                        <th scope="col" class="text-end">Thành tiền</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="@item.Product?.ImageUrl" class="rounded me-3" width="80" height="80" style="object-fit: cover">
+                                                <div>
+                                                    <h6 class="mb-1">@item.Product?.Name</h6>
+                                                    <small class="text-muted">SKU: @item.Product?.Id</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-end price">
+                                            <span class="fw-bold">@item.Product?.Price.ToString("N0")<sup>đ</sup></span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="input-group input-group-sm" style="max-width: 120px">
+                                                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(@item.Id, -1)">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <input type="text" class="form-control text-center" value="@item.Quantity" id="quantity-@item.Id">
+                                                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(@item.Id, 1)">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="text-end total-price">
+                                            <span class="fw-bold text-success">@((item.Product?.Price * item.Quantity)?.ToString("N0"))<sup>đ</sup></span>
+                                        </td>
+                                        <td class="text-end">
+                                            <form asp-action="Remove" method="post" class="d-inline">
+                                                <input type="hidden" name="itemId" value="@item.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        @if (Model?.Items != null && Model.Items.Any())
+        {
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white border-bottom">
+                        <h3 class="h5 mb-0">Tóm tắt đơn hàng</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Tạm tính:</span>
+                            <span class="fw-bold">@Model.Items.Sum(i => i.Product?.Price * i.Quantity)?.ToString("N0")<sup>đ</sup></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Phí vận chuyển:</span>
+                            <span class="fw-bold">30.000<sup>đ</sup></span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="fw-bold">Tổng cộng:</span>
+                            <span class="fw-bold text-success h5">@(Model.Items.Sum(i => i.Product?.Price * i.Quantity + 30000)?.ToString("N0"))<sup>đ</sup></span>
+                        </div>
+                        <a asp-controller="Cart" asp-action="Checkout" class="btn btn-success w-100 py-2">
+                            <i class="fas fa-credit-card me-2"></i>Tiến hành thanh toán
+                        </a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary w-100 mt-2">
+                            <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function updateQuantity(itemId, change) {
+    const input = document.getElementById(`quantity-${itemId}`);
+    let newQuantity = parseInt(input.value) + change;
+    
+    if (newQuantity < 1) newQuantity = 1;
+    
+    // Gửi yêu cầu cập nhật số lượng
+    fetch(`/Cart/UpdateQuantity?itemId=${itemId}&quantity=${newQuantity}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            input.value = newQuantity;
+
+            // Cập nhật lại tổng giá trị của sản phẩm và tổng giá trị đơn hàng
+            const price = parseFloat(input.closest('tr').querySelector('.price').textContent.replace('đ', '').replace(',', '').trim());
+            const totalPriceElement = input.closest('tr').querySelector('.total-price');
+            totalPriceElement.textContent = (newQuantity * price).toFixed(0) + ' đ';
+
+            const subtotal = Array.from(document.querySelectorAll('.total-price'))
+                .reduce((total, el) => total + parseFloat(el.textContent.replace('đ', '').replace(',', '').trim()), 0);
+            
+            // Cập nhật tổng giá trị đơn hàng
+            const shippingFee = 30000;
+            document.querySelector('.order-total').textContent = (subtotal + shippingFee).toFixed(0) + ' đ';
+        }
+    })
+    .catch(error => console.error('Có lỗi xảy ra khi cập nhật số lượng!', error));
+}
+    </script>
+}

@@ -1,0 +1,292 @@
+@model MyWebApp.Models.CheckoutViewModel
+
+
+
+
+<div class="bank-transfer-page py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Header Section -->
+                <div class="text-center mb-5">
+                    <h1 class="fw-bold text-success mb-3">
+                        <i class="fas fa-money-bill-transfer me-2"></i>Hướng Dẫn Thanh Toán
+                    </h1>
+                    <p class="lead">Vui lòng thực hiện chuyển khoản theo thông tin bên dưới để hoàn tất đơn hàng</p>
+                </div>
+
+                <!-- Order Information Section -->
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white py-3">
+                        <h3 class="mb-0">
+                            <i class="fas fa-receipt me-2"></i>Thông Tin Đơn Hàng
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Mã hóa đơn:</span>
+                                    <span class="badge bg-secondary fs-6">#@Model.Id</span>
+                                </div>
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Tên người nhận:</span>
+                                    <span>@Model.FullName</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Số điện thoại:</span>
+                                    <span>@Model.PhoneNumber</span>
+                                </div>
+                                <div class="info-item mb-3">
+                                    <span class="fw-bold text-dark">Địa chỉ nhận hàng:</span>
+                                    <span>@Model.Address</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="fw-bold text-dark">Tổng tiền:</span>
+                                    <span class="text-danger fw-bold fs-5">@Model.TotalAmount.ToString("N0") đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Order Details Table -->
+                    <div class="table-responsive mt-4">
+                        <h5 class="fw-bold text-success mb-3">
+                            <i class="fas fa-box-open me-2"></i>Chi Tiết Sản Phẩm
+                        </h5>
+                        <table class="table table-bordered align-middle text-center">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ChiTietHoaDon)
+                                {
+                                    <tr>
+                                        <td>@item.Product?.Name</td>
+                                        <td>
+                                            <img src="@item.Product?.ImageUrl" alt="Ảnh sản phẩm" width="80" class="img-thumbnail" />
+                                        </td>
+                                        <td>@item.Product?.Price.ToString("N0") đ</td>
+                                        <td>@item.SoLuong</td>
+                                        <td>@((item.Product.Price * item.SoLuong).ToString("N0")) đ</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="text-end fw-bold">Tổng cộng:</td>
+                                    <td class="fw-bold text-danger">@Model.TotalAmount.ToString("N0") đ</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer Instructions -->
+                <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white py-3">
+                        <h3 class="mb-0">
+                            <i class="fas fa-university me-2"></i>Thông Tin Chuyển Khoản
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading fw-bold">
+                                <i class="fas fa-exclamation-circle me-2"></i>Vui lòng chuyển khoản chính xác số tiền:
+                            </h4>
+                            <div class="display-6 fw-bold text-center my-4 text-success">
+                                @Model.TotalAmount.ToString("N0") đ
+                            </div>
+                            <hr>
+                            <p class="mb-0">
+                                <i class="fas fa-lightbulb me-2"></i>Lưu ý: Ghi nội dung <strong>@Model.Id</strong> khi chuyển khoản
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="p-4 border rounded-3 h-100 bg-light">
+                                    <h4 class="fw-bold mb-4 text-success">
+                                        <i class="fas fa-info-circle me-2"></i>Thông Tin Tài Khoản
+                                    </h4>
+                                    <div class="bank-info-item mb-3">
+                                        <div class="fw-bold">Ngân hàng:</div>
+                                        <div>BIDV (Ngân hàng Đầu tư và Phát triển Việt Nam)</div>
+                                    </div>
+                                    <div class="bank-info-item mb-3">
+                                        <div class="fw-bold">Số tài khoản:</div>
+                                        <div class="text-primary fw-bold">7301 9145 12</div>
+                                    </div>
+                                    <div class="bank-info-item mb-3">
+                                        <div class="fw-bold">Chủ tài khoản:</div>
+                                        <div>LE THANH PHAT</div>
+                                    </div>
+                                    <div class="bank-info-item">
+                                        <div class="fw-bold">Chi nhánh:</div>
+                                        <div>Hồ Chí Minh</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-4 border rounded-3 h-100 bg-light text-center">
+                                    <h4 class="fw-bold mb-4 text-success">
+                                        <i class="fas fa-qrcode me-2"></i>Thanh Toán Bằng QR Code
+                                    </h4>
+                                    <div class="mb-3">
+                                        <img src="~/images/bank-qr-code.jpg" alt="Mã QR thanh toán" class="img-fluid rounded-3 border" style="max-height: 250px;">
+                                    </div>
+                                    <p class="text-muted small">
+                                        <i class="fas fa-mobile-screen me-1"></i> Mở ứng dụng ngân hàng và quét mã QR để thanh toán nhanh
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <h5 class="fw-bold mb-3 text-success">
+                                <i class="fas fa-image me-2"></i>Thông Tin Tài Khoản
+                            </h5>
+                            <img src="~/images/bank-account-info.jpg" alt="Thông tin tài khoản ngân hàng" class="img-fluid rounded-3 border shadow" style="max-height: 400px;">
+                            <p class="text-muted small mt-2">
+                                <i class="fas fa-info-circle me-1"></i> Tham khảo hình ảnh tài khoản ngân hàng trên ứng dụng
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Process Steps -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white py-3">
+                        <h3 class="mb-0">
+                            <i class="fas fa-list-check me-2"></i>Quy Trình Xác Nhận
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number bg-success text-white">1</div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold">Bước 1: Chuyển Khoản</h5>
+                                    <p class="text-muted mb-0">Thực hiện chuyển khoản theo thông tin tài khoản hoặc quét mã QR code bên trên</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number bg-success text-white">2</div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold">Bước 2: Xác Minh Thanh Toán</h5>
+                                    <p class="text-muted mb-0">Chụp lại biên lai chuyển khoản và gửi qua email/zalo để xác minh</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number bg-success text-white">3</div>
+                                <div class="step-content">
+                                    <h5 class="fw-bold">Bước 3: Xác Nhận Đơn Hàng</h5>
+                                    <p class="text-muted mb-0">Chúng tôi sẽ xác nhận đơn hàng qua email/sms trong vòng 1-2 giờ làm việc</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <h5 class="alert-heading fw-bold">
+                                <i class="fas fa-headset me-2"></i>Hỗ Trợ Khách Hàng
+                            </h5>
+                            <p class="mb-1">Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ:</p>
+                            <ul class="mb-0">
+                                <li>Hotline: <strong>0901 234 567</strong> (8:00 - 21:00)</li>
+                                <li>Email: <strong>support@phatlee.com</strong></li>
+                                <li>Zalo Official: <strong>PHATLEE Support</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .bank-transfer-page {
+            background-color: #f8f9fa;
+        }
+
+        .info-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .bank-info-item {
+            padding: 0.5rem 0;
+        }
+
+        .steps {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .step {
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .step:last-child {
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -60px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background-color: #4CAF50;
+        }
+
+        .step-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .bank-info-item div:first-child {
+            color: #4CAF50;
+            margin-bottom: 0.25rem;
+        }
+
+        .alert-success {
+            background-color: #e8f5e9;
+            border-color: #c8e6c9;
+        }
+    </style>
+}

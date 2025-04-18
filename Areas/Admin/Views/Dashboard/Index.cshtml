@@ -1,0 +1,404 @@
+@model MyWebApp.Areas.Admin.Models.ViewModels.DashboardViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="admin-dashboard">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h2 fw-bold mb-1">Dashboard Overview</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="text-muted">
+            <i class="fas fa-calendar-alt me-2"></i>
+            <span id="current-date">@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row g-4 mb-5">
+        <div class="col-xl-3 col-md-6">
+            <div class="card stat-card bg-primary-gradient shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase text-white-50 mb-2">Total Users</h6>
+                            <h3 class="text-white mb-0">@Model.TotalUsers</h3>
+                        </div>
+                        <div class="stat-icon bg-white-10">
+                            <i class="fas fa-users text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="text-white-75"><i class="fas fa-arrow-up me-1"></i> 12% from last month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card stat-card bg-success-gradient shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase text-white-50 mb-2">Total Products</h6>
+                            <h3 class="text-white mb-0">@Model.TotalProducts</h3>
+                        </div>
+                        <div class="stat-icon bg-white-10">
+                            <i class="fas fa-boxes text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="text-white-75"><i class="fas fa-arrow-up me-1"></i> 5 new this week</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card stat-card bg-warning-gradient shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase text-white-50 mb-2">Total Orders</h6>
+                            <h3 class="text-white mb-0">@Model.TotalOrders</h3>
+                        </div>
+                        <div class="stat-icon bg-white-10">
+                            <i class="fas fa-shopping-cart text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="text-white-75"><i class="fas fa-arrow-up me-1"></i> 8% from yesterday</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card stat-card bg-danger-gradient shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase text-white-50 mb-2">Total Revenue</h6>
+                            <h3 class="text-white mb-0">@Model.TotalRevenue.ToString("C0")</h3>
+                        </div>
+                        <div class="stat-icon bg-white-10">
+                            <i class="fas fa-dollar-sign text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="text-white-75"><i class="fas fa-arrow-up me-1"></i> 15% from last month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Chart -->
+    <div class="card shadow-sm border-0 mb-5">
+        <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-bold">
+                <i class="fas fa-chart-line me-2 text-primary"></i>Monthly Revenue
+            </h5>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="chartDropdown" data-bs-toggle="dropdown">
+                    This Year
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Last Year</a></li>
+                    <li><a class="dropdown-item" href="#">Custom Range</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-body">
+            <canvas id="revenueChart" height="120"></canvas>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Recent Orders -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-clock me-2 text-warning"></i>Recent Orders
+                    </h5>
+                    <a href="@Url.Action("Orders", "Dashboard")" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th class="text-end">Amount</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model.LatestOrders)
+                                {
+                                    <tr>
+                                        <td class="fw-bold">#@order.Id</td>
+                                        <td>@order.TenNguoiNhan</td>
+                                        <td>@order.NgayLap.ToString("dd MMM yyyy")</td>
+                                        <td class="text-end fw-bold">@order.TongTien.ToString("N0") ₫</td>
+                                        <td>
+                                            @if (order.Status == "Chờ xác nhận")
+                                            {
+                                                <span class="badge bg-warning text-dark">Pending</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-success">Completed</span>
+                                            }
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="d-flex gap-2 justify-content-end">
+                                                @if (order.Status == "Chờ xác nhận")
+                                                {
+                                                    <form asp-action="ConfirmOrder" asp-controller="Dashboard" asp-route-id="@order.Id" method="post" class="d-inline">
+                                                        <button type="submit" class="btn btn-sm btn-success">
+                                                            <i class="fas fa-check me-1"></i>Confirm
+                                                        </button>
+                                                    </form>
+                                                }
+                                                <a href="@Url.Action("OrderDetail", "Dashboard", new { id = order.Id })" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Selling Products -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-star me-2 text-success"></i>Top Selling Products
+                    </h5>
+                    <a href="@Url.Action("Products", "Dashboard")" class="btn btn-sm btn-outline-success">View All</a>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        @foreach (var item in Model.TopSellingProducts)
+                        {
+                            <div class="list-group-item border-0 px-0 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <img src="@item.ImageUrl" alt="@item.ProductName" class="rounded" width="50" height="50">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1">@item.ProductName</h6>
+                                        <small class="text-muted">@item.Categories</small>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <span class="badge bg-success rounded-pill px-3 py-2">@item.SoLuongBan sold</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .admin-dashboard {
+            padding: 1.5rem;
+            background-color: #f8fafc;
+        }
+
+        .dashboard-header {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb {
+            padding: 0;
+            background-color: transparent;
+            font-size: 0.875rem;
+        }
+
+        .stat-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .bg-success-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .bg-warning-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .bg-danger-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .bg-white-10 {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        .card {
+            border-radius: 12px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .card-header {
+            border-radius: 12px 12px 0 0 !important;
+            background-color: white;
+        }
+
+        .list-group-item {
+            transition: background-color 0.2s;
+        }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .badge {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @using Newtonsoft.Json
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Format current date
+            const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+            document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+
+            // Initialize Revenue Chart
+            const revenueMonths = @Html.Raw(JsonConvert.SerializeObject(Model.RevenueMonths ?? new List<string>()));
+            const monthlyRevenue = @Html.Raw(JsonConvert.SerializeObject(Model.MonthlyRevenue ?? new List<decimal>()));
+
+            if (revenueMonths.length > 0 && monthlyRevenue.length > 0) {
+                const ctx = document.getElementById('revenueChart').getContext('2d');
+                const revenueChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: revenueMonths,
+                        datasets: [{
+                            label: 'Revenue',
+                            data: monthlyRevenue,
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderRadius: 6,
+                            borderSkipped: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: '#0f172a',
+                                titleFont: {
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                bodyFont: {
+                                    size: 12
+                                },
+                                padding: 12,
+                                cornerRadius: 8,
+                                displayColors: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return new Intl.NumberFormat('en-US', {
+                                            style: 'currency',
+                                            currency: 'USD'
+                                        }).format(context.raw);
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    color: '#e2e8f0'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return new Intl.NumberFormat('en-US', {
+                                            style: 'currency',
+                                            currency: 'USD',
+                                            maximumFractionDigits: 0
+                                        }).format(value);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

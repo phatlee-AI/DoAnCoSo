@@ -1,0 +1,357 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MyWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MyWebApp.txmjvmkm58.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\Quan1.jpg",
+      "PackagePath": "staticwebassets\\images\\Quan1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\Quần Jeans #1.jpg",
+      "PackagePath": "staticwebassets\\images\\Quần Jeans #1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\bank-qr-code.jpg",
+      "PackagePath": "staticwebassets\\images\\bank-qr-code.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\momo-qr-code.jpg",
+      "PackagePath": "staticwebassets\\images\\momo-qr-code.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\Áo Khoác #1.jpg",
+      "PackagePath": "staticwebassets\\images\\Áo Khoác #1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\images\\Áo Thun #1.jpg",
+      "PackagePath": "staticwebassets\\images\\Áo Thun #1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_7a2454e2800442939bb9b1db05712dc5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_7a2454e2800442939bb9b1db05712dc5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_5abbce4ccc5940f4b03d6947eaa08bd6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_5abbce4ccc5940f4b03d6947eaa08bd6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_729d4b03117445e59139f2e2102e7e87.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_729d4b03117445e59139f2e2102e7e87.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_91ec483d4f3f449783ed173f0d8d4d21.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_91ec483d4f3f449783ed173f0d8d4d21.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao2_49e9d1b8851e47eb8366671b11d77e71.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao2_49e9d1b8851e47eb8366671b11d77e71.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao4_4f539374bc1244ae9f6536808f4598b2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao4_4f539374bc1244ae9f6536808f4598b2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyWebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.MyWebApp.props",
+      "PackagePath": "build\\MyWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.MyWebApp.props",
+      "PackagePath": "buildMultiTargeting\\MyWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.MyWebApp.props",
+      "PackagePath": "buildTransitive\\MyWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

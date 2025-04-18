@@ -1,0 +1,245 @@
+﻿@page
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Create Your Account";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
+                <div class="row g-0">
+                    <!-- Left Side - Registration Form -->
+                    <div class="col-md-6 p-5">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <h2 class="fw-bold text-success">Join Us</h2>
+                                <p class="text-muted">Create your account to get started</p>
+                            </div>
+
+                            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="needs-validation" novalidate>
+                                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                                
+                                <!-- Full Name Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-user text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.FullName" class="form-control ps-3" autocomplete="name" 
+                                               aria-required="true" placeholder="Your full name" />
+                                    </div>
+                                    <span asp-validation-for="Input.FullName" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Email Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-envelope text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.Email" class="form-control ps-3" autocomplete="username" 
+                                               aria-required="true" placeholder="name@example.com" />
+                                    </div>
+                                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Password Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-lock text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.Password" class="form-control ps-3" autocomplete="new-password" 
+                                               aria-required="true" placeholder="Create password" />
+                                    </div>
+                                    <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                                    <div class="form-text small text-muted">
+                                        At least 6 characters with 1 uppercase, 1 lowercase, and 1 number
+                                    </div>
+                                </div>
+                                
+                                <!-- Confirm Password Input -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-lock text-muted"></i>
+                                        </span>
+                                        <input asp-for="Input.ConfirmPassword" class="form-control ps-3" autocomplete="new-password" 
+                                               aria-required="true" placeholder="Confirm password" />
+                                    </div>
+                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Role Selection -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fas fa-user-tag text-muted"></i>
+                                        </span>
+                                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select ps-3" aria-required="true">
+                                            <option value="" disabled selected>Select your role</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Input.Role" class="text-danger small"></span>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <button id="registerSubmit" type="submit" class="btn btn-success btn-lg w-100 py-2 mb-3">
+                                    <i class="fas fa-user-plus me-2"></i>Create Account
+                                </button>
+                                
+                                <!-- Divider -->
+                                <div class="position-relative my-4">
+                                    <hr class="text-muted" />
+                                    <div class="position-absolute top-50 start-50 translate-middle bg-white px-2 small text-muted">
+                                        OR
+                                    </div>
+                                </div>
+                                
+                                <!-- Social Registration -->
+                                @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                                {
+                                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div class="d-grid gap-2">
+                                            @foreach (var provider in Model.ExternalLogins!)
+                                            {
+                                                <button type="submit" class="btn btn-outline-secondary" name="provider" value="@provider.Name" 
+                                                        title="Register using your @provider.DisplayName account">
+                                                    <i class="fab fa-@provider.DisplayName.ToLower() me-2"></i>Sign up with @provider.DisplayName
+                                                </button>
+                                            }
+                                        </div>
+                                    </form>
+                                }
+                                
+                                <!-- Login Link -->
+                                <div class="text-center mt-4">
+                                    <p class="text-muted mb-0">Already have an account? 
+                                        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-success text-decoration-none fw-bold">
+                                            Sign In
+                                        </a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Benefits Banner -->
+                    <div class="col-md-6 d-none d-md-block bg-success text-white p-5">
+                        <div class="d-flex flex-column h-100 justify-content-center">
+                            <h2 class="fw-bold mb-4">Why Join Us?</h2>
+                            <p class="lead mb-5">Become part of our growing community</p>
+                            <div class="features-list">
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Access exclusive content and features</div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Personalized experience based on your role</div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Connect with other community members</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>Get updates and special offers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .form-control, .form-select {
+            border-left: 0;
+            padding-left: 0;
+        }
+        
+        .input-group-text {
+            background-color: #f8f9fa;
+            border-right: none;
+        }
+        
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            transition: all 0.3s;
+        }
+        
+        .btn-success:hover {
+            background-color: #3e8e41;
+            border-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+        
+        .features-list i {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .bg-success {
+            background-color: #4CAF50 !important;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        // Bootstrap validation
+        (function () {
+            'use strict'
+            
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+        
+        // Password strength indicator (optional)
+        document.getElementById('Input_Password').addEventListener('input', function() {
+            // You can add password strength meter logic here
+        });
+    </script>
+}

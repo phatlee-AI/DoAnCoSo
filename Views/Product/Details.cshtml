@@ -1,0 +1,153 @@
+﻿@model MyWebApp.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow">
+                <div class="card-header bg-success text-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0"><i class="fas fa-info-circle me-2"></i>Product Details</h2>
+                        <a asp-action="Index" class="btn btn-sm btn-light">
+                            <i class="fas fa-arrow-left me-1"></i>Back to List
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="row">
+                        <!-- Main Product Image -->
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="main-product-image border rounded p-3 text-center bg-light">
+                                <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name" style="max-height: 400px; width: auto;" />
+                            </div>
+                            
+                            <!-- Additional Images Gallery -->
+                            @if (ViewBag.dshinhanh != null)
+                            {
+                                <div class="additional-images mt-4">
+                                    <h5 class="fw-bold mb-3">Additional Images</h5>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        @foreach (MyWebApp.Models.ProductImage i in ViewBag.dshinhanh)
+                                        {
+                                            <img src="@i.Url" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" />
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        
+                        <!-- Product Details -->
+                        <div class="col-md-7">
+                            <div class="product-info">
+                                <h3 class="fw-bold mb-3">@Model.Name</h3>
+                                
+                                <div class="d-flex align-items-center mb-4">
+                                    <span class="badge bg-success me-2">@Model.Category.Name</span>
+                                    <div class="rating-stars text-warning me-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-muted">(24 reviews)</span>
+                                </div>
+                                
+                                <h4 class="text-success fw-bold mb-4">$@Model.Price.ToString("0.00")</h4>
+                                
+                                <div class="product-description mb-4">
+                                    <h5 class="fw-bold">Description</h5>
+                                    <p class="text-muted">@Model.Description</p>
+                                </div>
+                                
+                                <div class="product-meta">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <span class="fw-bold">Product ID:</span>
+                                                <span class="text-muted ms-2">@Model.Id</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <span class="fw-bold">Created:</span>
+                                                <span class="text-muted ms-2">@DateTime.Now.ToString("MMMM dd, yyyy")</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex gap-2 mt-4">
+                                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary px-4">
+                                        <i class="fas fa-edit me-2"></i>Edit
+                                    </a>
+                                    <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                                        <i class="fas fa-list me-2"></i>All Products
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .main-product-image {
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        
+        .main-product-image:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .img-thumbnail {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .img-thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-info h3 {
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .product-description {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .rating-stars {
+            font-size: 1rem;
+        }
+        
+        .additional-images {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Make additional images clickable to view larger
+        $(document).ready(function() {
+            $('.img-thumbnail').click(function() {
+                const imgSrc = $(this).attr('src');
+                $('.main-product-image img').attr('src', imgSrc);
+            });
+        });
+    </script>
+}
