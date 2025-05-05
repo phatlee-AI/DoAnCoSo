@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\cecc925e-1888-4945-8d0d-b74209c5498d_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "PackagePath": "staticwebassets\\designs\\cecc925e-1888-4945-8d0d-b74209c5498d_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\e4a9bbf4-6c22-4fc5-97b2-36ed5ebf57fe_logo CMYK-01.png",
+      "PackagePath": "staticwebassets\\designs\\e4a9bbf4-6c22-4fc5-97b2-36ed5ebf57fe_logo CMYK-01.png"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -293,32 +301,40 @@
       "PackagePath": "staticwebassets\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg"
     },
     {
-      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_5abbce4ccc5940f4b03d6947eaa08bd6.jpg",
-      "PackagePath": "staticwebassets\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_5abbce4ccc5940f4b03d6947eaa08bd6.jpg"
-    },
-    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg"
-    },
-    {
-      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_729d4b03117445e59139f2e2102e7e87.jpg",
-      "PackagePath": "staticwebassets\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_729d4b03117445e59139f2e2102e7e87.jpg"
     },
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg"
     },
     {
-      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_91ec483d4f3f449783ed173f0d8d4d21.jpg",
-      "PackagePath": "staticwebassets\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_91ec483d4f3f449783ed173f0d8d4d21.jpg"
-    },
-    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_593b5a073b6d4b9580de1a64b4119d7e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_593b5a073b6d4b9580de1a64b4119d7e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_7f46ab358ac5420f85132166b32a2c61.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_7f46ab358ac5420f85132166b32a2c61.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_f44543af23f34f9f99c4697808ca2e43.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_f44543af23f34f9f99c4697808ca2e43.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao2_1345cf780e5b415ca0af70579aa01136.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao2_1345cf780e5b415ca0af70579aa01136.jpg"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao2_49e9d1b8851e47eb8366671b11d77e71.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao2_49e9d1b8851e47eb8366671b11d77e71.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao2_f45628cc009c4a6bad195f7857bf9eb5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao2_f45628cc009c4a6bad195f7857bf9eb5.jpg"
     },
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao4_4f539374bc1244ae9f6536808f4598b2.jpg",
@@ -331,6 +347,10 @@
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\oversized_t-shirt_8dd67c17b8ad4cf79393dd59c4552851.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\oversized_t-shirt_8dd67c17b8ad4cf79393dd59c4552851.glb"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyWebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

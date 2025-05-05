@@ -148,32 +148,44 @@ namespace MyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product , IFormFile? HinhAnhCapNhat, List<IFormFile>? DanhSachHinhAnh)
+        public async Task<IActionResult> Create(Product product, IFormFile? HinhAnhCapNhat, List<IFormFile>? DanhSachHinhAnh, IFormFile? model3dFile)
+{
+    if (ModelState.IsValid)
+    {
+        if (HinhAnhCapNhat != null)
         {
-            if (ModelState.IsValid)
-            {
-                if(HinhAnhCapNhat != null)
-                {
-                    product.ImageUrl = await SaveImage(HinhAnhCapNhat, "SanPham");
-                }
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                if(DanhSachHinhAnh != null)
-                {
-                    foreach(IFormFile i in DanhSachHinhAnh)
-                    {
-                        ProductImage productImage = new ProductImage();
-                        productImage.ProductId = product.Id;
-                        productImage.Url = await SaveImage(i, "SanPham");
-                        _context.ProductImages.Add(productImage);
-                        await _context.SaveChangesAsync();
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            product.ImageUrl = await SaveImage(HinhAnhCapNhat, "SanPham");
         }
+
+        if (model3dFile != null)
+        {
+            product.Model3DUrl = await SaveImage(model3dFile, "SanPham");
+        }
+
+        _context.Add(product);
+        await _context.SaveChangesAsync();
+        
+        if (DanhSachHinhAnh != null)
+        {
+            foreach (IFormFile i in DanhSachHinhAnh)
+            {
+                ProductImage productImage = new ProductImage
+                {
+                    ProductId = product.Id,
+                    Url = await SaveImage(i, "SanPham")
+                };
+                _context.ProductImages.Add(productImage);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+    return View(product);
+}
+
 
         // GET: Product/Edit/5
         [Authorize(Roles = "Admin")]

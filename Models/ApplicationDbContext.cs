@@ -18,6 +18,7 @@ namespace MyWebApp.Models
         public DbSet<ItemCart> ItemCarts { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
+        public DbSet<DesignRequest> designRequest { get; set; }
 
     }
 }

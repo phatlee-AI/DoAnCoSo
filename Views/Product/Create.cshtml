@@ -6,8 +6,8 @@
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card border-0 shadow">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
                 <div class="card-header bg-success text-white py-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Create New Product</h4>
@@ -21,11 +21,11 @@
                     <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
                         
-                        <div class="row g-3">
+                        <div class="row g-4">
                             <!-- Basic Information -->
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
-                                    <label asp-for="Name" class="form-label fw-bold">Product Name</label>
+                                    <label asp-for="Name" class="form-label fw-bold">Product Name <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-tag"></i></span>
                                         <input asp-for="Name" class="form-control" placeholder="Enter product name" required />
@@ -34,41 +34,22 @@
                                 </div>
                                 
                                 <div class="form-group mb-3">
-                                    <label asp-for="Price" class="form-label fw-bold">Price</label>
+                                    <label asp-for="Price" class="form-label fw-bold">Price <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                                        <input asp-for="Price" class="form-control" placeholder="0.00" required />
+                                        <input asp-for="Price" type="number" step="0.01" class="form-control" placeholder="0.00" required />
                                     </div>
                                     <span asp-validation-for="Price" class="text-danger small"></span>
                                 </div>
                                 
                                 <div class="form-group mb-3">
-                                    <label asp-for="CategoryId" class="form-label fw-bold">Category</label>
+                                    <label asp-for="CategoryId" class="form-label fw-bold">Category <span class="text-danger">*</span></label>
                                     <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId" required>
                                         <option value="">-- Select Category --</option>
                                     </select>
                                     <span asp-validation-for="CategoryId" class="text-danger small"></span>
                                 </div>
-                            </div>
-                            
-                            <!-- Image Upload -->
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label asp-for="ImageUrl" class="form-label fw-bold">Main Image</label>
-                                    <div class="file-upload-container border rounded p-3 text-center">
-                                        <div class="ChuaAnh mb-3">
-                                            <img src="https://via.placeholder.com/300x200?text=Product+Image" id="mainImagePreview" class="img-thumbnail" style="max-height: 150px; width: auto;" />
-                                        </div>
-                                        <label for="AnhVuaTai" class="btn btn-outline-success btn-sm">
-                                            <i class="fas fa-cloud-upload-alt me-1"></i>Choose Image
-                                        </label>
-                                        <input name="HinhAnhCapNhat" id="AnhVuaTai" type="file" class="d-none" accept="image/*" />
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Description -->
-                            <div class="col-12">
+                                
                                 <div class="form-group mb-3">
                                     <label asp-for="Description" class="form-label fw-bold">Description</label>
                                     <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter product description"></textarea>
@@ -76,28 +57,88 @@
                                 </div>
                             </div>
                             
+                            <!-- Media Upload Section -->
+                            <div class="col-md-6">
+                                <!-- Main Image Upload -->
+                                <div class="form-group mb-4">
+                                    <label asp-for="ImageUrl" class="form-label fw-bold">Main Image <span class="text-danger">*</span></label>
+                                    <div class="file-upload-container border rounded p-3 text-center bg-light">
+                                        <div class="image-preview mb-3">
+                                            <img src="https://via.placeholder.com/300x200?text=Product+Image" id="mainImagePreview" 
+                                                class="img-fluid rounded" style="max-height: 200px; width: auto;" />
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <label for="mainImageUpload" class="btn btn-outline-success btn-sm">
+                                                <i class="fas fa-cloud-upload-alt me-1"></i>Choose Image
+                                            </label>
+                                            <button type="button" id="clearMainImage" class="btn btn-outline-danger btn-sm" style="display:none;">
+                                                <i class="fas fa-trash-alt me-1"></i>Remove
+                                            </button>
+                                        </div>
+                                        <input asp-for="ImageUrl" type="hidden" />
+                                        <input name="HinhAnhCapNhat" id="mainImageUpload" type="file" class="d-none" accept="image/*" required />
+                                        <span asp-validation-for="ImageUrl" class="text-danger small d-block mt-2"></span>
+                                    </div>
+                                </div>
+                                
+                                <!-- 3D Model Upload -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label fw-bold">3D Model (.glb)</label>
+                                    <div class="file-upload-container border rounded p-3 text-center bg-light">
+                                        <div class="model-preview mb-3">
+                                            <model-viewer id="model3dPreview" src="" alt="3D model preview" 
+                                                ar ar-modes="webxr scene-viewer quick-look" 
+                                                camera-controls auto-rotate 
+                                                style="width:100%; height:200px; background-color:#f8f9fa;">
+                                                <div slot="progress-bar" class="progress-bar"></div>
+                                                <div class="placeholder-content text-center py-5">
+                                                    <i class="fas fa-cube text-muted" style="font-size: 3rem;"></i>
+                                                    <p class="small text-muted mt-2 mb-0">No 3D model selected</p>
+                                                </div>
+                                            </model-viewer>
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <label for="model3dUpload" class="btn btn-outline-info btn-sm">
+                                                <i class="fas fa-cube me-1"></i>Choose 3D Model
+                                            </label>
+                                            <button type="button" id="clear3dModel" class="btn btn-outline-danger btn-sm" style="display:none;">
+                                                <i class="fas fa-trash-alt me-1"></i>Remove
+                                            </button>
+                                        </div>
+                                        <input asp-for="Model3DUrl" type="hidden" />
+                                        <input name="model3dFile" id="model3dUpload" type="file" class="d-none" accept=".glb" />
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <!-- Additional Images -->
                             <div class="col-12">
                                 <div class="form-group mb-3">
                                     <label class="form-label fw-bold">Additional Images</label>
-                                    <div class="file-upload-container border rounded p-3">
-                                        <div class="ChuaAnhDS mb-3 d-flex flex-wrap gap-2">
-                                            <div class="placeholder-image border p-2 text-center" style="width: 120px; height: 120px;">
+                                    <div class="file-upload-container border rounded p-3 bg-light">
+                                        <div class="row g-2" id="additionalImagesPreview">
+                                            <div class="col-12 text-center py-4">
                                                 <i class="fas fa-images text-muted" style="font-size: 2rem;"></i>
-                                                <p class="small text-muted mb-0">No images selected</p>
+                                                <p class="small text-muted mb-0">No additional images selected</p>
                                             </div>
                                         </div>
-                                        <label for="AnhVuaTaiDS" class="btn btn-outline-secondary btn-sm">
-                                            <i class="fas fa-images me-1"></i>Choose Multiple Images
-                                        </label>
-                                        <input name="DanhSachHinhAnh" id="AnhVuaTaiDS" type="file" class="d-none" multiple accept="image/*" />
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <div class="form-text">You can upload up to 5 additional images</div>
+                                            <label for="additionalImagesUpload" class="btn btn-outline-secondary btn-sm">
+                                                <i class="fas fa-images me-1"></i>Choose Multiple Images
+                                            </label>
+                                           <input name="DanhSachHinhAnh" id="additionalImagesUpload" type="file" class="d-none" multiple accept="image/*" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Submit Button -->
-                            <div class="col-12 mt-4">
+                            <div class="col-12 mt-3">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="reset" class="btn btn-outline-secondary px-4 py-2">
+                                        <i class="fas fa-undo me-2"></i>Reset
+                                    </button>
                                     <button type="submit" class="btn btn-success px-4 py-2">
                                         <i class="fas fa-save me-2"></i>Create Product
                                     </button>
@@ -114,12 +155,12 @@
 @section Styles {
     <style>
         .file-upload-container {
-            background-color: #f8f9fa;
             transition: all 0.3s;
+            border-radius: 0.5rem;
         }
         
         .file-upload-container:hover {
-            background-color: #e9ecef;
+            background-color: #f1f1f1 !important;
         }
         
         .form-control, .form-select {
@@ -142,18 +183,57 @@
             border-radius: 0 !important;
         }
         
-        .placeholder-image {
+        model-viewer {
+            --progress-bar-color: #4CAF50;
+            --progress-bar-height: 5px;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            display: block;
+            width: 100%;
+            height: var(--progress-bar-height);
+            background-color: var(--progress-bar-color);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .placeholder-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f8f9fa;
+        }
+        
+        .image-thumbnail {
+            height: 120px;
+            object-fit: cover;
             border-radius: 0.25rem;
         }
         
-        .img-thumbnail {
-            object-fit: contain;
-            background-color: #f8f9fa;
+        .image-thumbnail-container {
+            position: relative;
+        }
+        
+        .remove-image-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
         }
     </style>
 }
@@ -161,43 +241,123 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     
+    <!-- Model Viewer Library -->
+    <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
     
     <script>
-        // Main image preview
-        $("#AnhVuaTai").change(function(e) {
-            let file = e.target.files[0];
+        // Main image upload handling
+        const mainImageInput = document.getElementById('mainImageUpload');
+        const mainImagePreview = document.getElementById('mainImagePreview');
+        const clearMainImageBtn = document.getElementById('clearMainImage');
+        
+        mainImageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
             if (file) {
-                let path = URL.createObjectURL(file);
-                $("#mainImagePreview").attr("src", path);
-                
-                // Remove placeholder if exists
-                $(".ChuaAnh .placeholder-image").remove();
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    mainImagePreview.src = e.target.result;
+                    clearMainImageBtn.style.display = 'inline-block';
+                };
+                reader.readAsDataURL(file);
             }
         });
         
-        // Multiple images preview
-        $("#AnhVuaTaiDS").change(function(e) {
-            let files = e.target.files;
-            $(".ChuaAnhDS").empty();
+        clearMainImageBtn.addEventListener('click', function() {
+            mainImagePreview.src = 'https://via.placeholder.com/300x200?text=Product+Image';
+            mainImageInput.value = '';
+            clearMainImageBtn.style.display = 'none';
+        });
+        
+        // 3D Model upload handling
+        const model3dInput = document.getElementById('model3dUpload');
+        const model3dPreview = document.getElementById('model3dPreview');
+        const clear3dModelBtn = document.getElementById('clear3dModel');
+        
+        model3dInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const path = URL.createObjectURL(file);
+                model3dPreview.src = path;
+                clear3dModelBtn.style.display = 'inline-block';
+                
+                // Hide placeholder
+                const placeholder = model3dPreview.querySelector('.placeholder-content');
+                if (placeholder) placeholder.style.display = 'none';
+            }
+        });
+        
+        clear3dModelBtn.addEventListener('click', function() {
+            model3dPreview.src = '';
+            model3dInput.value = '';
+            clear3dModelBtn.style.display = 'none';
+            
+            // Show placeholder
+            const placeholder = model3dPreview.querySelector('.placeholder-content');
+            if (placeholder) placeholder.style.display = 'flex';
+        });
+        
+        // Additional images upload handling
+        const additionalImagesInput = document.getElementById('additionalImagesUpload');
+        const additionalImagesPreview = document.getElementById('additionalImagesPreview');
+        
+        additionalImagesInput.addEventListener('change', function(e) {
+            const files = e.target.files;
+            additionalImagesPreview.innerHTML = '';
             
             if (files.length > 0) {
-                for (let i = 0; i < files.length; i++) {
-                    let path = URL.createObjectURL(files[i]);
-                    let imgHtml = `<img src="${path}" class="img-thumbnail" style="width: 120px; height: 120px; object-fit: cover;" />`;
-                    $(".ChuaAnhDS").append(imgHtml);
-                }
+                Array.from(files).slice(0, 5).forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-2 col-4';
+                        
+                        const container = document.createElement('div');
+                        container.className = 'image-thumbnail-container';
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'img-fluid image-thumbnail w-100';
+                        img.alt = 'Additional image ' + (index + 1);
+                        
+                        const removeBtn = document.createElement('button');
+                        removeBtn.type = 'button';
+                        removeBtn.className = 'remove-image-btn btn btn-danger btn-sm';
+                        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                        removeBtn.onclick = function() {
+                            removeImage(index);
+                        };
+                        
+                        container.appendChild(img);
+                        container.appendChild(removeBtn);
+                        col.appendChild(container);
+                        additionalImagesPreview.appendChild(col);
+                    };
+                    reader.readAsDataURL(file);
+                });
             } else {
-                // Show placeholder if no files selected
-                $(".ChuaAnhDS").html(`
-                    <div class="placeholder-image border p-2 text-center" style="width: 120px; height: 120px;">
+                additionalImagesPreview.innerHTML = `
+                    <div class="col-12 text-center py-4">
                         <i class="fas fa-images text-muted" style="font-size: 2rem;"></i>
-                        <p class="small text-muted mb-0">No images selected</p>
+                        <p class="small text-muted mb-0">No additional images selected</p>
                     </div>
-                `);
+                `;
             }
         });
         
-        // Bootstrap validation
+        function removeImage(index) {
+            const files = additionalImagesInput.files;
+            const newFiles = Array.from(files).filter((_, i) => i !== index);
+            
+            // Create new DataTransfer to update files
+            const dataTransfer = new DataTransfer();
+            newFiles.forEach(file => dataTransfer.items.add(file));
+            additionalImagesInput.files = dataTransfer.files;
+            
+            // Trigger change event to update preview
+            additionalImagesInput.dispatchEvent(new Event('change'));
+        }
+        
+        // Form validation
         (function() {
             'use strict';
             

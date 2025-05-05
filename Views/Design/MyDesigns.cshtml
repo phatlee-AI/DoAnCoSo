@@ -1,0 +1,241 @@
+@model IEnumerable<MyWebApp.Models.DesignRequest>
+
+@{
+    ViewData["Title"] = "Thiết kế của tôi";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2 class="mb-0">
+            <i class="fas fa-pencil-ruler me-2 text-success"></i>
+            @ViewData["Title"]
+        </h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="fas fa-plus me-2"></i>Tạo thiết kế mới
+        </a>
+    </div>
+    
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+            <strong>Thành công!</strong> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var design in Model)
+            {
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="row g-0 h-100">
+                            <!-- Cột hiển thị mô hình 3D -->
+                            <div class="col-md-5">
+                                <div class="h-100 p-3 d-flex align-items-center justify-content-center bg-light">
+                                    <model-viewer 
+                                        src="@design.Product?.Model3DUrl"
+                                        ar ar-modes="webxr scene-viewer quick-look" 
+                                        camera-controls 
+                                        auto-rotate
+                                        style="width:100%; height:300px;">
+                                        <div slot="progress-bar" class="progress-bar"></div>
+                                    </model-viewer>
+                                </div>
+                            </div>
+                            
+                            <!-- Cột thông tin chi tiết -->
+                            <div class="col-md-7">
+                                <div class="card-body h-100 d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="card-title mb-1">@design.Product?.Name</h4>
+                                            <p class="text-muted small mb-2">Ngày tạo: @design.CreatedDate.ToString("dd/MM/yyyy HH:mm")</p>
+                                            <span class="badge @GetStatusBadgeClass(design.Status)">
+                                                @design.Status
+                                            </span>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" 
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@design.Id">
+                                                    <i class="fas fa-edit me-2"></i>Chỉnh sửa
+                                                </a></li>
+                                                <li><a class="dropdown-item" asp-action="Details" asp-route-id="@design.Id">
+                                                    <i class="fas fa-info-circle me-2"></i>Chi tiết
+                                                </a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" 
+                                                      data-bs-target="#deleteModal-@design.Id">
+                                                    <i class="fas fa-trash-alt me-2"></i>Xóa
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="my-3">
+                                    
+                                    <!-- Thông số thiết kế -->
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Màu mặt trước</small>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    <div class="color-swatch me-2" style="background-color: @design.FrontColor;"></div>
+                                                    <span>@design.FrontColor</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Màu mặt sau</small>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    <div class="color-swatch me-2" style="background-color: @design.BackColor;"></div>
+                                                    <span>@design.BackColor</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded h-100">
+                                                <small class="text-muted d-block">Hình ảnh</small>
+                                                @if (!string.IsNullOrEmpty(design.ImagePath))
+                                                {
+                                                    <div class="mt-2 text-center">
+                                                        <img src="@design.ImagePath" class="img-thumbnail" style="max-height: 80px; width: auto;">
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Không có</span>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Văn bản</small>
+                                                <span>@(!string.IsNullOrEmpty(design.TextContent) ? design.TextContent : "Không có")</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Thông tin khách hàng -->
+                                    <div class="mt-auto pt-2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-muted d-block">Khách hàng</small>
+                                                <strong>@design.CustomerName</strong>
+                                            </div>
+                                            <div class="text-end">
+                                                <small class="text-muted d-block">Liên hệ</small>
+                                                <div>@design.CustomerPhone</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal xác nhận xóa -->
+                    <div class="modal fade" id="deleteModal-@design.Id" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Xác nhận xóa</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Bạn có chắc chắn muốn xóa thiết kế "@design.Product?.Name" này?</p>
+                                    <p class="text-muted small">Thao tác này không thể hoàn tác.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                                    <form asp-action="Delete" method="post">
+                                        <input type="hidden" name="id" value="@design.Id" />
+                                        <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center py-5">
+            <i class="fas fa-pencil-ruler fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">Bạn chưa có thiết kế nào</h5>
+            <a asp-action="Create" class="btn btn-success mt-3">
+                <i class="fas fa-plus me-2"></i>Tạo thiết kế đầu tiên
+            </a>
+        </div>
+    }
+</div>
+
+@section Styles {
+    <style>
+        .color-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        model-viewer {
+            --progress-bar-color: #4CAF50;
+            --progress-bar-height: 5px;
+        }
+        
+        .progress-bar {
+            display: block;
+            width: 100%;
+            height: var(--progress-bar-height);
+            background-color: var(--progress-bar-color);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .card {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .img-thumbnail {
+            padding: 0.25rem;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
+}
+
+@functions {
+    string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "Hoàn thành" => "bg-success",
+            "Đang thiết kế" => "bg-warning",
+            "Đã hủy" => "bg-secondary",
+            "Chờ duyệt" => "bg-info",
+            _ => "bg-primary"
+        };
+    }
+}

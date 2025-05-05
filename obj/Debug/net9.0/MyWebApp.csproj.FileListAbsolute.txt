@@ -608,3 +608,4 @@ C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\package-lock.json
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.sourcelink.json

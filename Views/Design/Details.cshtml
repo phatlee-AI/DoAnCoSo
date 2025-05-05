@@ -1,0 +1,144 @@
+@model MyWebApp.Models.DesignRequest
+
+@{
+    ViewData["Title"] = "Chi tiết thiết kế";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-success text-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="fas fa-pencil-ruler me-2"></i>
+                            @ViewData["Title"]
+                        </h4>
+                        <span class="badge @(Model.Status == "Hoàn thành" ? "bg-light text-success" : Model.Status == "Đang thiết kế" ? "bg-warning" : "bg-light text-secondary")">
+                            @Model.Status
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="row">
+                        <!-- Thông tin thiết kế -->
+                        <div class="col-lg-6">
+                            <h5 class="text-success mb-3">Thông tin sản phẩm</h5>
+                            <div class="mb-4">
+                                <p class="mb-1"><strong>Tên sản phẩm:</strong></p>
+                                <p>@Model.Product?.Name</p>
+                                
+                                <p class="mb-1"><strong>Mã thiết kế:</strong></p>
+                                <p>DSN-@Model.Id.ToString("D5")</p>
+                                
+                                <p class="mb-1"><strong>Ngày tạo:</strong></p>
+                                <p>@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</p>
+                            </div>
+                            
+                            <h5 class="text-success mb-3">Thông số thiết kế</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Màu mặt trước:</strong></p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="color-box me-2" style="background-color: @Model.FrontColor; width: 20px; height: 20px;"></div>
+                                        <span>@Model.FrontColor</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Màu mặt sau:</strong></p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="color-box me-2" style="background-color: @Model.BackColor; width: 20px; height: 20px;"></div>
+                                        <span>@Model.BackColor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <p class="mb-1"><strong>Màu viền cổ:</strong></p>
+                                <div class="d-flex align-items-center">
+                                    <div class="color-box me-2" style="background-color: @Model.CollarColor; width: 20px; height: 20px;"></div>
+                                    <span>@Model.CollarColor</span>
+                                </div>
+                            </div>
+                            
+                            @if (!string.IsNullOrEmpty(Model.TextContent))
+                            {
+                                <div class="mb-3">
+                                    <p class="mb-1"><strong>Nội dung chữ:</strong></p>
+                                    <p>@Model.TextContent</p>
+                                    
+                                    <p class="mb-1"><strong>Font chữ:</strong></p>
+                                    <p>@Model.TextFont</p>
+                                    
+                                    <p class="mb-1"><strong>Màu chữ:</strong></p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="color-box me-2" style="background-color: @Model.TextColor; width: 20px; height: 20px;"></div>
+                                        <span>@Model.TextColor</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        
+                        <!-- Xem trước thiết kế -->
+                        <div class="col-lg-6">
+                            <h5 class="text-success mb-3">Xem trước thiết kế</h5>
+                            <div class="design-preview-container mb-4">
+                                <div class="tshirt-design-preview position-relative">
+                                    <img src="/images/tshirt-template.png" class="img-fluid" alt="Áo mẫu">
+                                    <div class="design-front" style="position: absolute; top: 20%; left: 25%; width: 50%; height: 50%; background-color: @Model.FrontColor;"></div>
+                                    
+                                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                                    {
+                                        <img src="@Model.ImagePath" style="position: absolute; top: @(Model.ImagePositionY)%; left: @(Model.ImagePositionX)%; width: @(Model.ImageSize)%; transform: rotate(@(Model.ImageRotate)deg);">
+                                    }
+                                    
+                                    @if (!string.IsNullOrEmpty(Model.TextContent))
+                                    {
+                                        <div style="position: absolute; top: @(Model.TextPositionY)%; left: 25%; width: 50%; text-align: center; font-family: '@Model.TextFont'; color: @Model.TextColor; font-size: @(Model.TextSize)px;">
+                                            @Model.TextContent
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Thông tin khách hàng -->
+                    <div class="mt-4 pt-4 border-top">
+                        <h5 class="text-success mb-3">Thông tin khách hàng</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <p class="mb-1"><strong>Họ tên:</strong></p>
+                                <p>@Model.CustomerName</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <p class="mb-1"><strong>Email:</strong></p>
+                                <p>@Model.CustomerEmail</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <p class="mb-1"><strong>Số điện thoại:</strong></p>
+                                <p>@Model.CustomerPhone</p>
+                            </div>
+                        </div>
+                        
+                        @if (!string.IsNullOrEmpty(Model.CustomerNote))
+                        {
+                            <p class="mb-1"><strong>Ghi chú:</strong></p>
+                            <p>@Model.CustomerNote</p>
+                        }
+                    </div>
+                    
+                    <div class="d-flex justify-content-end mt-4">
+                        <a asp-action="MyDesigns" class="btn btn-outline-secondary me-2">
+                            <i class="fas fa-arrow-left me-1"></i>Quay lại
+                        </a>
+                        <button class="btn btn-success">
+                            <i class="fas fa-shopping-cart me-1"></i>Đặt hàng ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,456 @@
+@model MyWebApp.Models.DesignRequest
+@{
+    ViewData["Title"] = "Thiết kế sản phẩm";
+    var product = ViewBag.Product as MyWebApp.Models.Product;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-success text-white py-3">
+                    <h4 class="mb-0">
+                        <i class="fas fa-pencil-ruler me-2"></i>
+                        Thiết kế: @product?.Name
+                    </h4>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="ProductId" />
+                        
+                        <div class="row">
+                            <!-- Khu vực xem trước thiết kế -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="design-preview-container border rounded p-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="mb-0 text-success">Xem trước thiết kế</h5>
+                                        <div class="btn-group">
+                                            <button type="button" id="showFrontBtn" class="btn btn-sm btn-success active">
+                                                <i class="fas fa-tshirt me-1"></i>Mặt trước
+                                            </button>
+                                            <button type="button" id="showBackBtn" class="btn btn-sm btn-outline-success">
+                                                <i class="fas fa-tshirt me-1"></i>Mặt sau
+                                            </button>
+                                            <button type="button" id="showFullBtn" class="btn btn-sm btn-outline-success">
+                                                <i class="fas fa-cube me-1"></i>3D
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Khu vực hiển thị thiết kế -->
+                                    <div class="preview-content">
+                                        <!-- Mặt trước -->
+                                        <div id="frontView" class="design-view" style="display: block;">
+                                            <div class="tshirt-base front-view">
+                                                <!-- Lớp màu nền -->
+                                                <div class="color-layer" style="background-color: @Model.FrontColor;"></div>
+                                                
+                                                <!-- Lớp hình ảnh thiết kế -->
+                                                <div class="image-layer">
+                                                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                                                    {
+                                                        <img src="@Model.ImagePath" class="design-image" 
+                                                             style="top: @(Model.ImagePositionY)%; 
+                                                                    left: @(Model.ImagePositionX)%; 
+                                                                    width: @(Model.ImageSize)%; 
+                                                                    transform: rotate(@(Model.ImageRotate)deg);">
+                                                    }
+                                                </div>
+                                                
+                                                <!-- Lớp chữ -->
+                                                <div class="text-layer">
+                                                    @if (!string.IsNullOrEmpty(Model.TextContent))
+                                                    {
+                                                        <div class="design-text"
+                                                             style="top: @(Model.TextPositionY)%; 
+                                                                    left: 25%; 
+                                                                    font-family: '@Model.TextFont'; 
+                                                                    color: @Model.TextColor; 
+                                                                    font-size: @(Model.TextSize)px;">
+                                                            @Model.TextContent
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Mặt sau -->
+                                        <div id="backView" class="design-view" style="display: none;">
+                                            <div class="tshirt-base back-view">
+                                                <!-- Lớp màu nền -->
+                                                <div class="color-layer" style="background-color: @Model.BackColor;"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Chế độ xem 3D -->
+                                        <div id="full3dView" class="design-view" style="display: none;">
+                                            <model-viewer id="fullModelViewer" 
+                                                src="@product?.Model3DUrl"
+                                                ar ar-modes="webxr scene-viewer quick-look" 
+                                                camera-controls auto-rotate
+                                                style="width:100%; height:400px; background-color:#f8f9fa;">
+                                                <div slot="progress-bar" class="progress-bar"></div>
+                                            </model-viewer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Công cụ thiết kế -->
+                            <div class="col-lg-6">
+                                <!-- Chọn màu áo -->
+                                <div class="mb-4">
+                                    <h5 class="fw-bold mb-3 text-success">1. Chọn màu áo</h5>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="FrontColor" class="form-label">Mặt trước</label>
+                                            <div class="input-group color-picker-group">
+                                                <input type="color" asp-for="FrontColor" class="form-control form-control-color" value="@Model.FrontColor">
+                                                <input type="text" asp-for="FrontColor" class="form-control" value="@Model.FrontColor" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="BackColor" class="form-label">Mặt sau</label>
+                                            <div class="input-group color-picker-group">
+                                                <input type="color" asp-for="BackColor" class="form-control form-control-color" value="@Model.BackColor">
+                                                <input type="text" asp-for="BackColor" class="form-control" value="@Model.BackColor" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Màu viền cổ áo -->
+                                <div class="mb-4">
+                                    <h5 class="fw-bold mb-3 text-success">2. Màu viền cổ áo</h5>
+                                    <div class="input-group color-picker-group">
+                                        <input type="color" asp-for="CollarColor" class="form-control form-control-color" value="@Model.CollarColor">
+                                        <input type="text" asp-for="CollarColor" class="form-control" value="@Model.CollarColor" readonly>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tải hình ảnh -->
+                                <div class="mb-4">
+                                    <h5 class="fw-bold mb-3 text-success">3. Tải hình ảnh lên</h5>
+                                    <div class="mb-3">
+                                        <input type="file" name="designImage" id="designImageUpload" class="form-control" accept="image/*">
+                                        <span class="form-text">Vui lòng tải lên hình ảnh có định dạng PNG/JPG với nền trong suốt</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="ImagePositionX" class="form-label">Vị trí X (%)</label>
+                                            <input type="range" asp-for="ImagePositionX" class="form-range" min="0" max="100" value="@Model.ImagePositionX">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="ImagePositionY" class="form-label">Vị trí Y (%)</label>
+                                            <input type="range" asp-for="ImagePositionY" class="form-range" min="0" max="100" value="@Model.ImagePositionY">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="ImageSize" class="form-label">Kích thước (%)</label>
+                                            <input type="range" asp-for="ImageSize" class="form-range" min="10" max="200" value="@Model.ImageSize">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="ImageRotate" class="form-label">Xoay (độ)</label>
+                                            <input type="range" asp-for="ImageRotate" class="form-range" min="0" max="360" value="@Model.ImageRotate">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thêm text -->
+                                <div class="mb-4">
+                                    <h5 class="fw-bold mb-3 text-success">4. Thêm chữ (tuỳ chọn)</h5>
+                                    <div class="mb-3">
+                                        <textarea asp-for="TextContent" class="form-control" rows="2" placeholder="Nhập nội dung chữ">@Model.TextContent</textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="TextFont" class="form-label">Font chữ</label>
+                                            <select asp-for="TextFont" class="form-select">
+                                                <option value="Arial" selected="@(Model.TextFont == "Arial")">Arial</option>
+                                                <option value="Times New Roman" selected="@(Model.TextFont == "Times New Roman")">Times New Roman</option>
+                                                <option value="Courier New" selected="@(Model.TextFont == "Courier New")">Courier New</option>
+                                                <option value="Georgia" selected="@(Model.TextFont == "Georgia")">Georgia</option>
+                                                <option value="Verdana" selected="@(Model.TextFont == "Verdana")">Verdana</option>
+                                                <option value="Impact" selected="@(Model.TextFont == "Impact")">Impact</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="TextColor" class="form-label">Màu chữ</label>
+                                            <div class="input-group color-picker-group">
+                                                <input type="color" asp-for="TextColor" class="form-control form-control-color" value="@Model.TextColor">
+                                                <input type="text" asp-for="TextColor" class="form-control" value="@Model.TextColor" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="TextSize" class="form-label">Kích thước (px)</label>
+                                            <input type="range" asp-for="TextSize" class="form-range" min="10" max="50" value="@Model.TextSize">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label asp-for="TextPositionY" class="form-label">Vị trí Y (%)</label>
+                                            <input type="range" asp-for="TextPositionY" class="form-range" min="0" max="100" value="@Model.TextPositionY">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thông tin khách hàng -->
+                                <div class="mb-4">
+                                    <h5 class="fw-bold mb-3 text-success">5. Thông tin của bạn</h5>
+                                    <div class="mb-3">
+                                        <input asp-for="CustomerName" class="form-control" placeholder="Họ tên" required value="@Model.CustomerName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input asp-for="CustomerEmail" class="form-control" placeholder="Email" required value="@Model.CustomerEmail">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input asp-for="CustomerPhone" class="form-control" placeholder="Số điện thoại" required value="@Model.CustomerPhone">
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea asp-for="CustomerNote" class="form-control" rows="2" placeholder="Ghi chú thêm (nếu có)">@Model.CustomerNote</textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-success btn-lg">
+                                        <i class="fas fa-check-circle me-2"></i>Xác nhận thiết kế
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .design-preview-container {
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 500px;
+        }
+        
+        .preview-content {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-color: #f5f5f5;
+        }
+        
+        .design-view {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .tshirt-base {
+            position: relative;
+            width: 60%;
+            height: 80%;
+            margin: 0 auto;
+            top: 10%;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .front-view {
+            /* Hình dáng cơ bản của áo mặt trước */
+            border-radius: 10px 10px 30px 30px;
+        }
+        
+        .back-view {
+            /* Hình dáng cơ bản của áo mặt sau */
+            border-radius: 10px 10px 30px 30px;
+        }
+        
+        .color-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .image-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .image-layer img {
+            position: absolute;
+            max-width: 100%;
+        }
+        
+        .text-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            text-align: center;
+        }
+        
+        .design-text {
+            position: absolute;
+            width: 50%;
+            text-align: center;
+            left: 25%;
+        }
+        
+        .progress-bar {
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: #4CAF50;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .color-picker-group {
+            align-items: center;
+        }
+        
+        .color-picker-group .form-control-color {
+            width: 50px;
+            height: 38px;
+            padding: 2px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Chuyển đổi giữa các chế độ xem
+            $('#showFrontBtn').click(function() {
+                $(this).addClass('active btn-success').removeClass('btn-outline-success');
+                $('#showBackBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                $('#showFullBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                
+                $('#full3dView').hide();
+                $('#backView').hide();
+                $('#frontView').show();
+            });
+            
+            $('#showBackBtn').click(function() {
+                $(this).addClass('active btn-success').removeClass('btn-outline-success');
+                $('#showFrontBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                $('#showFullBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                
+                $('#full3dView').hide();
+                $('#frontView').hide();
+                $('#backView').show();
+            });
+            
+            $('#showFullBtn').click(function() {
+                $(this).addClass('active btn-success').removeClass('btn-outline-success');
+                $('#showFrontBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                $('#showBackBtn').addClass('btn-outline-success').removeClass('active btn-success');
+                
+                $('#frontView').hide();
+                $('#backView').hide();
+                $('#full3dView').show();
+            });
+            
+            // Cập nhật màu sắc khi thay đổi
+            $('input[name="FrontColor"]').on('input', function() {
+                const color = $(this).val();
+                $('input[name="FrontColor"][type="text"]').val(color);
+                $('#frontView .color-layer').css('background-color', color);
+            });
+            
+            $('input[name="BackColor"]').on('input', function() {
+                const color = $(this).val();
+                $('input[name="BackColor"][type="text"]').val(color);
+                $('#backView .color-layer').css('background-color', color);
+            });
+            
+            // Xử lý upload hình ảnh
+            $('#designImageUpload').change(function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        if ($('#frontView .design-image').length) {
+                            $('#frontView .design-image').attr('src', e.target.result);
+                        } else {
+                            $('#frontView .image-layer').html(`
+                                <img class="design-image" src="${e.target.result}" 
+                                     style="position: absolute; 
+                                            top: ${$('#ImagePositionY').val()}%; 
+                                            left: ${$('#ImagePositionX').val()}%; 
+                                            width: ${$('#ImageSize').val()}%; 
+                                            transform: rotate(${$('#ImageRotate').val()}deg);">
+                            `);
+                        }
+                        updateImagePosition();
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    $('#frontView .design-image').remove();
+                }
+            });
+            
+            // Cập nhật vị trí hình ảnh
+            $('input[name="ImagePositionX"], input[name="ImagePositionY"], input[name="ImageSize"], input[name="ImageRotate"]').on('input', function() {
+                updateImagePosition();
+            });
+            
+            function updateImagePosition() {
+                const image = $('#frontView .design-image');
+                if (image.length) {
+                    image.css({
+                        'left': $('input[name="ImagePositionX"]').val() + '%',
+                        'top': $('input[name="ImagePositionY"]').val() + '%',
+                        'width': $('input[name="ImageSize"]').val() + '%',
+                        'transform': 'rotate(' + $('input[name="ImageRotate"]').val() + 'deg)'
+                    });
+                }
+            }
+            
+            // Cập nhật text khi thay đổi
+            $('textarea[name="TextContent"], select[name="TextFont"], input[name="TextSize"], input[name="TextPositionY"]').on('input change', function() {
+                const text = $('textarea[name="TextContent"]').val();
+                if (text) {
+                    if ($('#frontView .design-text').length) {
+                        $('#frontView .design-text').text(text).show();
+                        $('#frontView .design-text').css({
+                            'font-family': $('select[name="TextFont"]').val(),
+                            'font-size': $('input[name="TextSize"]').val() + 'px',
+                            'top': $('input[name="TextPositionY"]').val() + '%'
+                        });
+                    } else {
+                        $('#frontView .text-layer').html(`
+                            <div class="design-text"
+                                 style="top: ${$('input[name="TextPositionY"]').val()}%; 
+                                        left: 25%; 
+                                        font-family: '${$('select[name="TextFont"]').val()}'; 
+                                        color: ${$('input[name="TextColor"]').val()}; 
+                                        font-size: ${$('input[name="TextSize"]').val()}px;">
+                                ${text}
+                            </div>
+                        `);
+                    }
+                } else {
+                    $('#frontView .design-text').hide();
+                }
+            });
+        });
+    </script>
+}
