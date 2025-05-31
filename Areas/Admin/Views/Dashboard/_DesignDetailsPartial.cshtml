@@ -1,0 +1,244 @@
+@model MyWebApp.Models.DesignRequest
+
+<div class="design-details-container">
+    <div class="row g-4">
+        <!-- Thông tin thiết kế -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-info-circle me-2 text-primary"></i>Design Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-muted mb-3">BASIC INFORMATION</h6>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-box text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Product</span>
+                                <div class="fw-bold">@Model.Product?.Name</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-user text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Customer</span>
+                                <div class="fw-bold">@Model.CustomerName</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-envelope text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Email</span>
+                                <div class="fw-bold">@Model.CustomerEmail</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Phone</span>
+                                <div class="fw-bold">@Model.CustomerPhone</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-calendar-alt text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Created Date</span>
+                                <div class="fw-bold">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-tag text-muted me-2"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <span class="text-muted small">Status</span>
+                                <div>
+                                    <span class="badge @GetStatusBadgeClass(Model.Status)">@Model.Status</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-muted mb-3">DESIGN SPECIFICATIONS</h6>
+                        <div class="color-spec mb-3">
+                            <span class="text-muted small">Front Color</span>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="color-swatch me-2" style="background-color: @Model.FrontColor;"></div>
+                                <span class="fw-bold">@Model.FrontColor</span>
+                            </div>
+                        </div>
+                        <div class="color-spec mb-3">
+                            <span class="text-muted small">Back Color</span>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="color-swatch me-2" style="background-color: @Model.BackColor;"></div>
+                                <span class="fw-bold">@Model.BackColor</span>
+                            </div>
+                        </div>
+                        <div class="color-spec mb-3">
+                            <span class="text-muted small">Collar Color</span>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="color-swatch me-2" style="background-color: @Model.CollarColor;"></div>
+                                <span class="fw-bold">@Model.CollarColor</span>
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.TextContent))
+                        {
+                            <div class="text-spec mb-3">
+                                <span class="text-muted small">Text Content</span>
+                                <div class="fw-bold">@Model.TextContent</div>
+                            </div>
+                            <div class="text-spec mb-3">
+                                <span class="text-muted small">Text Color</span>
+                                <div class="d-flex align-items-center mt-1">
+                                    <div class="color-swatch me-2" style="background-color: @Model.TextColor;"></div>
+                                    <span class="fw-bold">@Model.TextColor</span>
+                                </div>
+                            </div>
+                            <div class="text-spec">
+                                <span class="text-muted small">Text Font</span>
+                                <div class="fw-bold">@Model.TextFont</div>
+                            </div>
+                        }
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.CustomerNote))
+                    {
+                        <div>
+                            <h6 class="fw-bold text-muted mb-3">CUSTOMER NOTE</h6>
+                            <div class="bg-light p-3 rounded">
+                                <p class="mb-0">@Model.CustomerNote</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Xem trước thiết kế -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-image me-2 text-primary"></i>Design Preview
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <div class="design-preview-container border rounded p-3 mb-4">
+                            <img src="@Model.ImagePath" class="img-fluid rounded" alt="Customer Design">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="design-preview-container border rounded p-3 mb-4 text-center text-muted">
+                            <i class="fas fa-image fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0">No design image uploaded</p>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.AdminFeedbackImage))
+                    {
+                        <div class="mt-4">
+                            <h6 class="fw-bold text-muted mb-3">
+                                <i class="fas fa-paper-plane me-2 text-success"></i>Sample Sent to Customer
+                            </h6>
+                            <div class="border rounded p-3 bg-light">
+                                <img src="@Model.AdminFeedbackImage" class="img-fluid rounded" alt="Admin Sample">
+                                <div class="mt-2 text-muted small">
+                                    <i class="fas fa-clock me-1"></i>
+                                    Sent on: @Model.FeedbackDate?.ToString("dd/MM/yyyy HH:mm")
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .design-details-container {
+        padding: 1rem;
+    }
+
+    .card {
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .card-header {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .color-swatch {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+    }
+
+    .design-preview-container {
+        background-color: #f8f9fa;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .badge {
+        font-weight: 500;
+        padding: 0.35em 0.65em;
+        font-size: 0.85em;
+    }
+
+    .bg-success {
+        background-color: #10b981 !important;
+    }
+
+    .bg-warning {
+        background-color: #f59e0b !important;
+    }
+
+    .bg-info {
+        background-color: #3b82f6 !important;
+    }
+
+    .bg-primary {
+        background-color: #8b5cf6 !important;
+    }
+
+    .bg-secondary {
+        background-color: #64748b !important;
+    }
+</style>
+
+@functions {
+    string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "Hoàn thành" => "bg-success",
+            "Đang thiết kế" => "bg-warning",
+            "Đã gửi mẫu" => "bg-info",
+            "Chờ duyệt" => "bg-primary",
+            _ => "bg-secondary"
+        };
+    }
+}

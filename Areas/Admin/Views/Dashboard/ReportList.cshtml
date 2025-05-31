@@ -1,0 +1,238 @@
+@model List<MyWebApp.Models.ReportFeedback>
+@{
+    ViewData["Title"] = "Danh sách phản hồi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-0">
+                <i class="fas fa-comments me-2 text-primary"></i>@ViewData["Title"]
+            </h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a asp-action="ExportToExcel" class="btn btn-outline-success">
+                <i class="fas fa-file-excel me-1"></i>Xuất Excel
+            </a>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-white border-bottom-0 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Tất cả phản hồi</h5>
+                <div class="input-group" style="max-width: 300px;">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <button class="btn btn-success" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Người gửi</th>
+                            <th>Nội dung</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                            <th class="text-end pe-4">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in Model)
+                        {
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=@r.Name&background=random" 
+                                             class="rounded-circle me-2" width="36" height="36" alt="@r.Name">
+                                        <div>
+                                            <h6 class="mb-0 fw-semibold">@r.Name</h6>
+                                            <small class="text-muted">@r.Email</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-truncate" style="max-width: 300px;" title="@r.Message">
+                                        @r.Message
+                                    </div>
+                                </td>
+                                <td>
+                                    <small>@r.SentAt.ToString("dd/MM/yyyy HH:mm")</small>
+                                </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(r.AdminReply))
+                                    {
+                                        <span class="badge bg-success bg-opacity-10 text-success">
+                                            <i class="fas fa-check-circle me-1"></i>Đã phản hồi
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning bg-opacity-10 text-warning">
+                                            <i class="fas fa-clock me-1"></i>Chưa phản hồi
+                                        </span>
+                                    }
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <a asp-action="Reply" asp-route-id="@r.Id" 
+                                           class="btn btn-sm btn-primary rounded-circle"
+                                           data-bs-toggle="tooltip" title="Trả lời">
+                                            <i class="fas fa-reply"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-info rounded-circle"
+                                           data-bs-toggle="tooltip" title="Nhắn tin"
+                                           onclick="openChat('@r.Id', '@r.Name')">
+                                            <i class="fas fa-comment-dots"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-white border-top-0 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    Hiển thị <span class="fw-semibold">1-10</span> trong <span class="fw-semibold">@Model.Count</span> phản hồi
+                </div>
+                <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Trước</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Tiếp</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chat Modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title" id="chatModalTitle">Nhắn tin với <span id="chatUserName"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="chat-container" style="height: 400px;">
+                    <div class="chat-messages p-3" id="chatMessages" style="overflow-y: auto; height: 300px;">
+                        <!-- Chat messages will be loaded here -->
+                        <div class="text-center py-5 text-muted">
+                            <i class="fas fa-comments fa-3x mb-3"></i>
+                            <p>Bắt đầu cuộc trò chuyện với khách hàng</p>
+                        </div>
+                    </div>
+                    <div class="chat-input p-3 border-top">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="messageInput" placeholder="Nhập tin nhắn...">
+                            <button class="btn btn-success" type="button" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Initialize tooltips
+        $(function () {
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+
+        // Chat functionality
+        function openChat(userId, userName) {
+            $('#chatModalTitle span').text(userName);
+            $('#chatModal').modal('show');
+            
+            // Here you would load chat history for this user
+            // Example: loadChatHistory(userId);
+        }
+
+        $('#sendMessageBtn').click(function() {
+            const message = $('#messageInput').val();
+            if (message.trim() !== '') {
+                // Here you would send the message to server
+                appendMessage('You', message, true);
+                $('#messageInput').val('');
+            }
+        });
+
+        function appendMessage(sender, message, isAdmin) {
+            const messageClass = isAdmin ? 'text-end' : 'text-start';
+            const messageHtml = `
+                <div class="mb-3 ${messageClass}">
+                    <div class="d-flex ${isAdmin ? 'justify-content-end' : 'justify-content-start'}">
+                        <div class="message-bubble ${isAdmin ? 'bg-primary text-white' : 'bg-light'} p-3 rounded-3" 
+                             style="max-width: 70%;">
+                            <div class="fw-semibold small">${sender}</div>
+                            <div>${message}</div>
+                            <div class="text-muted xsmall mt-1">${new Date().toLocaleTimeString()}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $('#chatMessages').append(messageHtml);
+            $('#chatMessages').scrollTop($('#chatMessages')[0].scrollHeight);
+        }
+    </script>
+}
+
+<style>
+    .message-bubble {
+        position: relative;
+    }
+    .message-bubble:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        bottom: 0;
+    }
+    .bg-primary .message-bubble:after {
+        border-bottom-color: var(--bs-primary);
+        border-right: 0;
+        right: -8px;
+    }
+    .bg-light .message-bubble:after {
+        border-bottom-color: var(--bs-light);
+        border-left: 0;
+        left: -8px;
+    }
+    .chat-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+    .chat-messages::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .chat-messages::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+</style>

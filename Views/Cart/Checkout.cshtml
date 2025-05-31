@@ -13,132 +13,143 @@
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
                     <div class="card-body p-4 p-md-5">
                         <form asp-action="Checkout" method="post" class="needs-validation" novalidate>
-                             <div asp-validation-summary="All" class="text-danger mb-3"></div>
-    <!-- Customer Information -->
-    <div class="mb-4">
-        <h5 class="fw-bold mb-3 text-success">
-            <i class="fas fa-user-circle me-2"></i>Thông tin khách hàng
-        </h5>
-        <div class="mb-3">
-            <label asp-for="FullName" class="form-label fw-medium">Họ và tên người nhận</label>
-            <input asp-for="FullName" class="form-control py-2" placeholder="Nhập họ và tên" required />
-            <div class="invalid-feedback">
-                Vui lòng nhập tên người nhận
-            </div>
-        </div>
+                            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                            
+                            <!-- Customer Information -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold mb-3 text-success">
+                                    <i class="fas fa-user-circle me-2"></i>Thông tin khách hàng
+                                </h5>
+                                <div class="mb-3">
+                                    <label asp-for="FullName" class="form-label fw-medium">Họ và tên người nhận</label>
+                                    <input asp-for="FullName" class="form-control py-2" placeholder="Nhập họ và tên" required />
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập tên người nhận
+                                    </div>
+                                </div>
 
-        <div class="mb-3">
-            <label asp-for="PhoneNumber" class="form-label fw-medium">Số điện thoại</label>
-            <input asp-for="PhoneNumber" class="form-control py-2" placeholder="Nhập số điện thoại" required />
-            <div class="invalid-feedback">
-                Vui lòng nhập số điện thoại
-            </div>
-        </div>
+                                <div class="mb-3">
+                                    <label asp-for="PhoneNumber" class="form-label fw-medium">Số điện thoại</label>
+                                    <input asp-for="PhoneNumber" class="form-control py-2" placeholder="Nhập số điện thoại" required />
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập số điện thoại
+                                    </div>
+                                </div>
 
-        <div class="mb-3">
-            <label asp-for="Address" class="form-label fw-medium">Địa chỉ nhận hàng</label>
-            <input asp-for="Address" class="form-control py-2" placeholder="Nhập địa chỉ chi tiết" required />
-            <div class="invalid-feedback">
-                Vui lòng nhập địa chỉ nhận hàng
-            </div>
-        </div>
-    </div>
+                                <div class="mb-3">
+                                    <label asp-for="Address" class="form-label fw-medium">Địa chỉ nhận hàng</label>
+                                    <input asp-for="Address" class="form-control py-2" placeholder="Nhập địa chỉ chi tiết" required />
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập địa chỉ nhận hàng
+                                    </div>
+                                </div>
+                            </div>
 
-    <!-- Payment Method -->
-    <div class="mb-4">
-    <h5 class="fw-bold mb-3 text-success">
-        <i class="fas fa-credit-card me-2"></i>Phương thức thanh toán
-    </h5>
+                            <!-- Payment Method -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold mb-3 text-success">
+                                    <i class="fas fa-credit-card me-2"></i>Phương thức thanh toán
+                                </h5>
 
-    <div class="form-check mb-2">
-        <input class="form-check-input" type="radio" 
-               asp-for="PaymentMethod" 
-               value="COD" 
-               id="cod" />
-        <label class="form-check-label" for="cod">
-            Thanh toán khi nhận hàng (COD)
-        </label>
-    </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" 
+                                           asp-for="PaymentMethod" 
+                                           value="COD" 
+                                           id="cod" checked />
+                                    <label class="form-check-label" for="cod">
+                                        Thanh toán khi nhận hàng (COD)
+                                    </label>
+                                </div>
 
-    <div class="form-check mb-2">
-        <input class="form-check-input" type="radio" 
-               asp-for="PaymentMethod" 
-               value="BankTransfer" 
-               id="bankTransfer" />
-        <label class="form-check-label" for="bankTransfer">
-            Chuyển khoản ngân hàng
-        </label>
-    </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" 
+                                           asp-for="PaymentMethod" 
+                                           value="BankTransfer" 
+                                           id="bankTransfer" />
+                                    <label class="form-check-label" for="bankTransfer">
+                                        Chuyển khoản ngân hàng
+                                    </label>
+                                </div>
 
-    <div class="form-check">
-        <input class="form-check-input" type="radio" 
-               asp-for="PaymentMethod" 
-               value="MoMo" 
-               id="momo" />
-        <label class="form-check-label" for="momo">
-            Ví điện tử MoMo
-        </label>
-    </div>
-</div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" 
+                                           asp-for="PaymentMethod" 
+                                           value="MoMo" 
+                                           id="momo" />
+                                    <label class="form-check-label" for="momo">
+                                        Ví điện tử MoMo
+                                    </label>
+                                </div>
+                            </div>
 
+                            <!-- Order Summary -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold mb-3 text-success">
+                                    <i class="fas fa-receipt me-2"></i>Tóm tắt đơn hàng
+                                </h5>
 
-    <!-- Order Summary -->
-    <div class="mb-4">
-        <h5 class="fw-bold mb-3 text-success">
-            <i class="fas fa-receipt me-2"></i>Tóm tắt đơn hàng
-        </h5>
+                                <div class="table-responsive mb-3">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="text-start">Sản phẩm</th>
+                                                <th class="text-center">Số lượng</th>
+                                                <th class="text-end">Đơn giá</th>
+                                                <th class="text-end">Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Items)
+                                            {
+                                                <tr>
+                                                    <td class="text-start">@item.Product.Name</td>
+                                                    <td class="text-center">@item.Quantity</td>
+                                                    <td class="text-end">@item.Product.Price.ToString("N0") đ</td>
+                                                    <td class="text-end">@((item.Product.Price * item.Quantity).ToString("N0")) đ</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
 
-        <div class="table-responsive mb-3">
-            <table class="table table-bordered">
-                <thead class="table-light">
-                    <tr>
-                        <th class="text-start">Sản phẩm</th>
-                        <th class="text-center">Số lượng</th>
-                        <th class="text-end">Đơn giá</th>
-                        <th class="text-end">Thành tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Items)
-                    {
-                        <tr>
-                            <td class="text-start">@item.Product.Name</td>
-                            <td class="text-center">@item.Quantity</td>
-                            <td class="text-end">@item.Product.Price.ToString("N0") đ</td>
-                            <td class="text-end">@((item.Product.Price * item.Quantity).ToString("N0")) đ</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                                <div class="border rounded-3 p-3 bg-light">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Tạm tính:</span>
+                                                <span>@Model.SubTotal.ToString("N0") đ</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Phí vận chuyển:</span>
+                                                <span>30.000 đ</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Phí thiết kế:</span>
+                                                <span>50.000 đ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex justify-content-between fw-bold fs-5">
+                                                <span>Tổng cộng:</span>
+                                                <span class="text-success">@Model.TotalAmount.ToString("N0") đ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="border rounded-3 p-3 bg-light">
-            <div class="row">
-                
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-between fw-bold fs-5">
-                        <span>Tổng cộng:</span>
-                        <span class="text-success">@Model.TotalAmount.ToString("N0") đ</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <!-- Terms and Submit -->
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+                                <label class="form-check-label" for="agreeTerms">
+                                    Tôi đồng ý với <a href="#" class="text-success">điều khoản và điều kiện</a> của PHATLEE
+                                </label>
+                            </div>
 
-    <!-- Terms and Submit -->
-    <div class="form-check mb-4">
-        <input class="form-check-input" type="checkbox" id="agreeTerms" required />
-        <label class="form-check-label" for="agreeTerms">
-            Tôi đồng ý với <a href="#" class="text-success">điều khoản và điều kiện</a> của PHATLEE
-        </label>
-    </div>
-
-    <button type="submit" class="btn btn-success btn-lg w-100 py-3 fw-bold">
-        <i class="fas fa-check-circle me-2"></i>Xác Nhận Thanh Toán
-    </button>
-</form>
-
-
+                            <button type="submit" class="btn btn-success btn-lg w-100 py-3 fw-bold">
+                                <i class="fas fa-check-circle me-2"></i>Xác Nhận Thanh Toán
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

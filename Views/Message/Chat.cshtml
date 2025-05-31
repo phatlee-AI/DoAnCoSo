@@ -1,0 +1,145 @@
+@using System.Security.Claims
+@model Tuple<MyWebApp.Models.ApplicationUser, List<MyWebApp.Models.Message>>
+
+
+@{
+    ViewData["Title"] = "Tin nhắn";
+    var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    var withUser = ViewBag.WithUser as MyWebApp.Models.ApplicationUser;
+
+}
+
+<div class="container py-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white border-bottom-0 py-3">
+            <div class="d-flex align-items-center">
+                <a asp-action="Index" class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <img src="https://ui-avatars.com/api/?name=@withUser?.FullName&background=random" 
+                     class="rounded-circle me-2" width="40" height="40" alt="@withUser?.FullName">
+                <div>
+                    <h5 class="mb-0">@withUser?.FullName</h5>
+                    @* <small class="text-muted">@(withUser?.IsOnline == true ? "Đang hoạt động" : "Offline")</small> *@
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-body p-0">
+            <!-- Chat messages -->
+            <div class="chat-messages p-3" style="height: 500px; overflow-y: auto;">
+                @if (!Model.Item2.Any())
+                {
+                    <div class="text-center py-5 text-muted">
+                        <i class="fas fa-comments fa-3x mb-3"></i>
+                        <p>Bắt đầu cuộc trò chuyện với @withUser?.FullName</p>
+                    </div>
+                }
+                else
+                {
+                    @foreach (var msg in Model.Item2)
+                    {
+                        <div class="mb-3 @(msg.FromUserId == currentUserId ? "text-end" : "text-start")">
+                            <div class="d-flex @(msg.FromUserId == currentUserId ? "justify-content-end" : "justify-content-start")">
+                                @if (msg.FromUserId != currentUserId)
+                                {
+                                    <img src="https://ui-avatars.com/api/?name=@withUser?.FullName&background=random" 
+                                         class="rounded-circle me-2" width="32" height="32" alt="@withUser?.FullName">
+                                }
+                                <div>
+                                    <div class="message-bubble @(msg.FromUserId == currentUserId ? "bg-primary text-white" : "bg-light") p-3 rounded-3" 
+                                         style="max-width: 500px;">
+                                        <p class="mb-1">@msg.Content</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="@(msg.FromUserId == currentUserId ? "text-white-50" : "text-muted")">
+                                                @msg.SentAt.ToString("HH:mm")
+                                            </small>
+                                            @if (msg.FromUserId == currentUserId)
+                                            {
+                                                <small class="ms-2">
+                                                    @if (msg.IsRead)
+                                                    {
+                                                        <i class="fas fa-check-double text-info"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fas fa-check"></i>
+                                                    }
+                                                </small>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            
+            <!-- Chat input -->
+            <div class="chat-input p-3 border-top">
+                <form asp-action="Send" method="post" class="d-flex align-items-center">
+                    <input type="hidden" name="toUserId" value="@ViewBag.WithUserId" />
+                    <div class="flex-grow-1 me-2">
+                        <input type="text" name="content" class="form-control" placeholder="Nhập tin nhắn..." required />
+                    </div>
+                    <button class="btn btn-success" type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .message-bubble {
+            position: relative;
+        }
+        .message-bubble:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            bottom: 0;
+        }
+        .bg-primary.message-bubble:after {
+            border-bottom-color: var(--bs-primary);
+            border-right: 0;
+            right: -8px;
+        }
+        .bg-light.message-bubble:after {
+            border-bottom-color: var(--bs-light);
+            border-left: 0;
+            left: -8px;
+        }
+        .chat-messages {
+            scroll-behavior: smooth;
+        }
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Auto scroll to bottom
+        $(function() {
+            const messages = $('.chat-messages');
+            messages.scrollTop(messages[0].scrollHeight);
+            
+            // Optional: Real-time update with SignalR
+            // initChatHub('@currentUserId');
+        });
+    </script>
+}

@@ -68,6 +68,9 @@
                                                 <li><a class="dropdown-item" asp-action="Details" asp-route-id="@design.Id">
                                                     <i class="fas fa-info-circle me-2"></i>Chi tiết
                                                 </a></li>
+                                                <li><button class="dropdown-item copy-design-btn" data-design-id="@design.Id">
+                                                    <i class="fas fa-copy me-2"></i>Sao chép thông số
+                                                </button></li>
                                                 <li><hr class="dropdown-divider"></li>
                                                 <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" 
                                                       data-bs-target="#deleteModal-@design.Id">
@@ -86,7 +89,7 @@
                                                 <small class="text-muted d-block">Màu mặt trước</small>
                                                 <div class="d-flex align-items-center mt-1">
                                                     <div class="color-swatch me-2" style="background-color: @design.FrontColor;"></div>
-                                                    <span>@design.FrontColor</span>
+                                                    <span data-color="front">@design.FrontColor</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +98,16 @@
                                                 <small class="text-muted d-block">Màu mặt sau</small>
                                                 <div class="d-flex align-items-center mt-1">
                                                     <div class="color-swatch me-2" style="background-color: @design.BackColor;"></div>
-                                                    <span>@design.BackColor</span>
+                                                    <span data-color="back">@design.BackColor</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Màu viền cổ</small>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    <div class="color-swatch me-2" style="background-color: @design.CollarColor;"></div>
+                                                    <span data-color="collar">@design.CollarColor</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,8 +128,30 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="p-2 bg-light rounded">
-                                                <small class="text-muted d-block">Văn bản</small>
-                                                <span>@(!string.IsNullOrEmpty(design.TextContent) ? design.TextContent : "Không có")</span>
+                                                <small class="text-muted d-block">Nội dung chữ</small>
+                                                <span data-content="text">@(!string.IsNullOrEmpty(design.TextContent) ? design.TextContent : "Không có")</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Font chữ</small>
+                                                <span data-content="font">@(!string.IsNullOrEmpty(design.TextFont) ? design.TextFont : "Không có")</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="p-2 bg-light rounded">
+                                                <small class="text-muted d-block">Màu chữ</small>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    @if (!string.IsNullOrEmpty(design.TextColor))
+                                                    {
+                                                        <div class="color-swatch me-2" style="background-color: @design.TextColor;"></div>
+                                                        <span data-color="text">@design.TextColor</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-muted">Không có</span>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -219,11 +253,128 @@
             max-width: 100%;
             height: auto;
         }
+
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+        }
+
+        .toast {
+            transition: opacity 0.3s ease;
+        }
     </style>
 }
 
 @section Scripts {
     <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Add toast container to body
+            $('body').append('<div class="toast-container"></div>');
+
+            // Copy design specs to clipboard
+            $('.copy-design-btn').click(async function() {
+                const card = $(this).closest('.card');
+                const designId = $(this).data('design-id');
+                
+                // Lấy tất cả thông tin cần thiết
+                const productName = card.find('.card-title').text().trim();
+                const createdDate = card.find('.text-muted.small').text().replace('Ngày tạo: ', '').trim();
+                const status = card.find('.badge').text().trim();
+                
+                const frontColor = card.find('[data-color="front"]').text().trim();
+                const backColor = card.find('[data-color="back"]').text().trim();
+                const collarColor = card.find('[data-color="collar"]').text().trim();
+                const textContent = card.find('[data-content="text"]').text().trim();
+                const textColor = card.find('[data-color="text"]').text().trim();
+                const textFont = card.find('[data-content="font"]').text().trim();
+                
+                const imageElement = card.find('.img-thumbnail');
+                const imagePath = imageElement.length ? imageElement.attr('src') : "Không có";
+                
+                const model3DUrl = card.find('model-viewer').attr('src') || "Không có";
+                const customerName = card.find('.mt-auto strong').text().trim();
+                const customerPhone = card.find('.mt-auto div:last-child').text().trim();
+
+                // Tạo nội dung đầy đủ để copy
+                const content = `
+THÔNG TIN THIẾT KẾ
+──────────────────
+Tên sản phẩm: ${productName}
+Mã thiết kế: DSN-${designId.toString().padStart(5, '0')}
+Ngày tạo: ${createdDate}
+Trạng thái: ${status}
+
+THÔNG SỐ THIẾT KẾ
+──────────────────
+• Màu mặt trước: ${frontColor}
+• Màu mặt sau: ${backColor}
+• Màu viền cổ: ${collarColor}
+• Nội dung chữ: ${textContent !== "Không có" ? textContent : "Không có"}
+• Màu chữ: ${textColor !== "Không có" ? textColor : "Không có"}
+• Font chữ: ${textFont !== "Không có" ? textFont : "Không có"}
+• Hình ảnh: ${imagePath}
+• Mô hình 3D: ${model3DUrl}
+
+THÔNG TIN KHÁCH HÀNG
+──────────────────
+• Họ tên: ${customerName}
+• Số điện thoại: ${customerPhone}
+──────────────────
+                `;
+
+                try {
+                    // Sử dụng Clipboard API hiện đại
+                    await navigator.clipboard.writeText(content.trim());
+                    
+                    // Hiển thị thông báo thành công
+                    showToast('Đã sao chép thông số thiết kế vào clipboard!', 'success');
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                    
+                    // Fallback cho trình duyệt không hỗ trợ Clipboard API
+                    try {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = content.trim();
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        
+                        showToast('Đã sao chép thông số thiết kế!', 'success');
+                    } catch (err2) {
+                        console.error('Fallback copy failed: ', err2);
+                        showToast('Lỗi khi sao chép!', 'danger');
+                    }
+                }
+            });
+
+            // Hàm hiển thị toast thông báo
+            function showToast(message, type = 'success') {
+                const toast = $(`
+                    <div class="toast show align-items-center text-white bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2"></i>
+                                ${message}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                `);
+                
+                $('.toast-container').empty().append(toast);
+                
+                // Tự động ẩn toast sau 3 giây
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            }
+        });
+    </script>
 }
 
 @functions {

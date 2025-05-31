@@ -1,0 +1,259 @@
+@{
+    ViewData["Title"] = "Liên Hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Hero Section -->
+<section class="contact-hero bg-success text-white py-5">
+    <div class="container py-5 text-center">
+        <h1 class="display-4 fw-bold mb-4">Liên Hệ Với Chúng Tôi</h1>
+        <p class="lead mb-4">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#contact-form" class="btn btn-light btn-lg px-4">Gửi Tin Nhắn</a>
+            <a href="tel:+84987654321" class="btn btn-outline-light btn-lg px-4">
+                <i class="fas fa-phone-alt me-2"></i>Gọi Ngay
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-4">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Địa Chỉ</h4>
+                        <p class="text-muted mb-0">123 Đường ABC, Phường XYZ<br>Quận 1, TP. Hồ Chí Minh</p>
+                        <a href="#" class="btn btn-link mt-3">Xem Trên Bản Đồ <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-4">
+                            <i class="fas fa-phone-alt fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Điện Thoại</h4>
+                        <p class="text-muted mb-0">
+                            <a href="tel:+84987654321" class="text-decoration-none d-block">0987 654 321</a>
+                            <a href="tel:+842836987456" class="text-decoration-none d-block">028 3698 7456</a>
+                        </p>
+                        <a href="#" class="btn btn-link mt-3">Gọi Ngay <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-4">
+                            <i class="fas fa-envelope fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Email</h4>
+                        <p class="text-muted mb-0">
+                            <a href="mailto:info@phatlee.com" class="text-decoration-none d-block">info@phatlee.com</a>
+                            <a href="mailto:support@phatlee.com" class="text-decoration-none d-block">support@phatlee.com</a>
+                        </p>
+                        <a href="#contact-form" class="btn btn-link mt-3">Gửi Email <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-0">
+    <div class="container-fluid px-0">
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789012!2d106.12345678901234!3d10.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA3JzI0LjQiTiAxMDbCsDA3JzI0LjQiRQ!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact-form" class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold">Gửi Tin Nhắn Cho Chúng Tôi</h2>
+                            <p class="text-muted">Điền vào form bên dưới và chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất</p>
+                        </div>
+                        
+                        <form asp-controller="Home" asp-action="Report" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="name" class="form-label fw-semibold">Họ và tên *</label>
+                                    <input type="text" class="form-control" name="Name" required placeholder="Nhập họ và tên">
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label fw-semibold">Email *</label>
+                                    <input type="email" class="form-control" name="Email" required placeholder="Nhập địa chỉ email">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="form-label fw-semibold">Số điện thoại</label>
+                                <input type="tel" class="form-control" name="Phone" placeholder="Nhập số điện thoại">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="form-label fw-semibold">Chủ đề</label>
+                                <select class="form-select" name="Subject">
+                                    <option value="" selected disabled>Chọn chủ đề</option>
+                                    <option value="support">Hỗ trợ kỹ thuật</option>
+                                    <option value="sales">Tư vấn sản phẩm</option>
+                                    <option value="partnership">Hợp tác kinh doanh</option>
+                                    <option value="feedback">Phản hồi dịch vụ</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-semibold">Nội dung *</label>
+                                <textarea class="form-control" name="Message" rows="5" required placeholder="Nhập nội dung tin nhắn"></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg px-5 py-3">
+                                    <i class="fas fa-paper-plane me-2"></i>Gửi Tin Nhắn
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+                <h2 class="fw-bold">Câu Hỏi Thường Gặp</h2>
+                <p class="lead text-muted">Những câu hỏi phổ biến từ khách hàng</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Làm cách nào để liên hệ với PHATLEE?
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Bạn có thể liên hệ với chúng tôi qua điện thoại, email hoặc điền vào form liên hệ trên trang web. Đội ngũ hỗ trợ của chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Thời gian làm việc của PHATLEE là khi nào?
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Chúng tôi làm việc từ Thứ 2 đến Thứ 6, từ 8:00 sáng đến 5:30 chiều. Ngoài giờ làm việc, bạn vẫn có thể gửi yêu cầu qua email hoặc form liên hệ và chúng tôi sẽ phản hồi vào ngày làm việc tiếp theo.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Tôi có thể đến trực tiếp văn phòng không?
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Có, bạn hoàn toàn có thể đến văn phòng của chúng tôi tại địa chỉ 123 Đường ABC, Quận 1, TP.HCM. Tuy nhiên, để đảm bảo có nhân viên hỗ trợ tốt nhất, vui lòng liên hệ trước để đặt lịch hẹn.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item border-0 shadow-sm mb-3">
+                        <h3 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                PHATLEE có hỗ trợ khách hàng nước ngoài không?
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Có, chúng tôi có đội ngũ nhân viên thành thạo tiếng Anh và hỗ trợ khách hàng quốc tế. Bạn có thể liên hệ qua email bằng tiếng Anh hoặc sử dụng dịch vụ phiên dịch nếu cần.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-outline-success">Xem Thêm Câu Hỏi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-dark text-white">
+    <div class="container py-5 text-center">
+        <h2 class="fw-bold mb-4">Bạn Cần Hỗ Trợ Ngay Lập Tức?</h2>
+        <p class="lead mb-5">Đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng 24/7</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="tel:+84987654321" class="btn btn-success btn-lg px-4">
+                <i class="fas fa-phone-alt me-2"></i>Gọi Hotline
+            </a>
+            <a href="mailto:support@phatlee.com" class="btn btn-outline-light btn-lg px-4">
+                <i class="fas fa-envelope me-2"></i>Gửi Email Khẩn
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-hero {
+        background: linear-gradient(rgba(0, 100, 0, 0.8), rgba(0, 100, 0, 0.8)), url('https://via.placeholder.com/1920x1080');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .icon-box {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: rgba(25, 135, 84, 0.1);
+        color: #198754;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+        border-color: #198754;
+    }
+</style>

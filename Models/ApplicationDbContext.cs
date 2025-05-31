@@ -19,6 +19,15 @@ namespace MyWebApp.Models
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         public DbSet<DesignRequest> designRequest { get; set; }
+        public DbSet<ReportFeedback> ReportFeedbacks { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
+        // Add this to your existing ApplicationDbContext.cs
+        public DbSet<Article> Article { get; set; }
+
+
+
 
     }
 }

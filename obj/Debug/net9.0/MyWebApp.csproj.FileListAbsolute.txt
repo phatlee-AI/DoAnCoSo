@@ -457,7 +457,6 @@ C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.RazorAssemblyInfo.cache
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.RazorAssemblyInfo.cs
-C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\scopedcss\Areas\Admin\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\scopedcss\bundle\MyWebApp.styles.css
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\scopedcss\projectbundle\MyWebApp.bundle.scp.css
@@ -583,8 +582,6 @@ C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\crbq95xrdt-muycvpuwrr.gz
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\a3wtcvtcvd-87fc7y1x7t.gz
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\yr9sdyggj3-mlv21k5csn.gz
-C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\t6h9p7noyw-txmjvmkm58.gz
-C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\5zg7rpvgf1-txmjvmkm58.gz
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -600,8 +597,6 @@ C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.pdb
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.genruntimeconfig.cache
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\ref\MyWebApp.dll
-C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\fc4x9g7hx4-qr9w42wi7l.gz
-C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\lxqromdiip-pttzypr5x4.gz
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\tcxvh9u5hb-c8uvgonvem.gz
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
@@ -609,3 +604,9 @@ C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\package-lock.json
 C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\MyWebApp.sourcelink.json
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\t6h9p7noyw-eb1kfxf8b3.gz
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\5zg7rpvgf1-eb1kfxf8b3.gz
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\lxqromdiip-9pad5fhj7c.gz
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\obj\Debug\net9.0\compressed\fc4x9g7hx4-dbw2doxffi.gz
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\X.PagedList.dll
+C:\Users\jaeyo\Documents\Zalo Received Files\MyWebApp10\MyWebApp\bin\Debug\net9.0\X.PagedList.Mvc.Core.dll

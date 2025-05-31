@@ -5,8 +5,8 @@
     
     // Xử lý null cho Model
     var products = Model?.ToList() ?? new List<MyWebApp.Models.Product>();
-    var featuredProduct = products.FirstOrDefault();
-    var secondaryProducts = products.Skip(1).ToList();
+    var featuredProducts = products.Take(3).ToList(); // 3 sản phẩm nổi bật
+    var regularProducts = products.Skip(3).ToList(); // Các sản phẩm thường
 }
 
 <!-- Banner sản phẩm -->
@@ -64,328 +64,253 @@
                     <li><h6 class="dropdown-header">Danh mục</h6></li>
                     @foreach (var category in ViewBag.Categories ?? new List<Category>())
                     {
-                        <li><a class="dropdown-item" href="#">@category.Name</a></li>
+                        <li><a class="dropdown-item" asp-action="Index" asp-route-categoryId="@category.Id">@category.Name</a></li>
                     }
                     <li><hr class="dropdown-divider"></li>
                     <li><h6 class="dropdown-header">Sắp xếp</h6></li>
-                    <li><a class="dropdown-item" href="#">Giá thấp đến cao</a></li>
-                    <li><a class="dropdown-item" href="#">Giá cao đến thấp</a></li>
-                    <li><a class="dropdown-item" href="#">Mới nhất</a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="price_asc">Giá thấp đến cao</a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="price_desc">Giá cao đến thấp</a></li>
+                    <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="newest">Mới nhất</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
     <!-- Sản phẩm nổi bật -->
-    @if (featuredProduct != null)
+    @if (featuredProducts.Any())
     {
-        <div class="card mb-5 border-0 shadow-lg overflow-hidden">
-            <div class="row g-0">
-                <div class="col-md-6 position-relative">
-                    <img src="@(featuredProduct.ImageUrl ?? "/images/default-product.png")" class="img-fluid h-100 w-100" alt="@featuredProduct.Name" style="object-fit: cover; min-height: 400px;">
-                    @if (!string.IsNullOrEmpty(featuredProduct.Model3DUrl))
-                    {
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <span class="badge bg-info">
-                                <i class="fas fa-cube me-1"></i>3D MODEL
-                            </span>
-                        </div>
-                    }
-                </div>
-                <div class="col-md-6 bg-white">
-                    <div class="card-body h-100 d-flex flex-column p-4">
-                        <div>
-                            <span class="badge bg-success mb-2">NỔI BẬT</span>
-                            <h2 class="card-title">@featuredProduct.Name</h2>
-                            <p class="text-muted">@(featuredProduct.Category?.Name ?? "Chưa phân loại")</p>
-                            
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="rating-stars text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="ms-2 small">(24 đánh giá)</span>
-                            </div>
-                            
-                            <p class="card-text mb-4">@featuredProduct.Description</p>
-                            
-                            <h3 class="text-success mb-4">@featuredProduct.Price.ToString("N0")đ</h3>
-                        </div>
-                        
-                        <div class="mt-auto d-flex flex-wrap gap-2">
-                            <a asp-action="Details" asp-route-id="@featuredProduct.Id" class="btn btn-success px-4">
-                                <i class="fas fa-eye me-2"></i>Xem chi tiết
-                            </a>
-                            <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
-                                <input type="hidden" name="productId" value="@featuredProduct.Id" />
-                                <input type="hidden" name="quantity" value="1" />
-                                <button type="submit" class="btn btn-outline-success px-4">
-                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </button>
-                            </form>
-                            @if (!string.IsNullOrEmpty(featuredProduct.Model3DUrl))
-                            {
-                                <button class="btn btn-outline-primary design-btn" 
-                                        data-model-url="@featuredProduct.Model3DUrl"
-                                        data-product-id="@featuredProduct.Id"
-                                        data-product-name="@featuredProduct.Name">
-                                    <i class="fas fa-pencil-ruler me-2"></i>Thiết kế
-                                </button>
-                            }
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <div class="d-flex gap-2 ms-auto">
-                                    <a asp-action="Edit" asp-route-id="@featuredProduct.Id" class="btn btn-outline-secondary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@featuredProduct.Id" class="btn btn-outline-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-
-    <!-- Danh sách sản phẩm -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @foreach (var product in secondaryProducts)
-        {
-            <div class="col">
-                <div class="card h-100 border-0 shadow-sm product-card">
-                    <!-- Badge 3D nếu có model -->
-                    @if (!string.IsNullOrEmpty(product.Model3DUrl))
-                    {
-                        <span class="position-absolute top-0 end-0 m-2 badge bg-info">
-                            <i class="fas fa-cube me-1"></i>3D
-                        </span>
-                    }
-                    
-                    <!-- Hình ảnh sản phẩm -->
-                    <div class="product-image-container">
-                        <img src="@(product.ImageUrl ?? "/images/default-product.png")" class="card-img-top" alt="@product.Name">
-                        <div class="product-actions">
-                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-success btn-sm rounded-circle">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
-                                <input type="hidden" name="productId" value="@product.Id" />
-                                <input type="hidden" name="quantity" value="1" />
-                                <button type="submit" class="btn btn-success btn-sm rounded-circle">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                            </form>
+        <div class="mb-5">
+            <h3 class="mb-4"><i class="fas fa-star me-2 text-warning"></i>Sản phẩm nổi bật</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var product in featuredProducts)
+                {
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm featured-product">
                             @if (!string.IsNullOrEmpty(product.Model3DUrl))
                             {
-                                <button class="btn btn-primary btn-sm rounded-circle design-btn" 
-                                        data-model-url="@product.Model3DUrl"
-                                        data-product-id="@product.Id"
-                                        data-product-name="@product.Name">
-                                    <i class="fas fa-pencil-ruler"></i>
-                                </button>
+                                <span class="position-absolute top-0 end-0 m-2 badge bg-info">
+                                    <i class="fas fa-cube me-1"></i>3D
+                                </span>
                             }
-                        </div>
-                    </div>
-                    
-                    <!-- Thông tin sản phẩm -->
-                    <div class="card-body">
-                        <h5 class="card-title">@product.Name</h5>
-                        <p class="text-muted small mb-2">@(product.Category?.Name ?? "Chưa phân loại")</p>
-                        
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="rating-stars text-warning small">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="ms-2 small">(12 đánh giá)</span>
-                        </div>
-                        
-                        <p class="card-text text-truncate-3 mb-3">@product.Description</p>
-                        <h5 class="text-success mb-0">@product.Price.ToString("N0")đ</h5>
-                    </div>
-                    
-                    <!-- Nút hành động -->
-                    <div class="card-footer bg-white border-0 pt-0">
-                        <div class="d-flex justify-content-between">
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <div class="btn-group">
-                                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-outline-secondary">
-                                        <i class="fas fa-edit me-1"></i>Sửa
+                            
+                            <div class="featured-image-container">
+                                <img src="@(product.ImageUrl ?? "/images/default-product.png")" class="card-img-top" alt="@product.Name">
+                                <div class="featured-actions">
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-success btn-sm rounded-circle">
+                                        <i class="fas fa-eye"></i>
                                     </a>
-                                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-outline-danger">
-                                        <i class="fas fa-trash-alt me-1"></i>Xóa
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-success btn-sm rounded-circle">
+                                            <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                    @if (!string.IsNullOrEmpty(product.Model3DUrl))
+                                    {
+                                        <a asp-controller="Design" asp-action="Create" asp-route-productId="@product.Id" class="btn btn-primary btn-sm rounded-circle">
+                                            <i class="fas fa-pencil-ruler"></i>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title mb-1">@product.Name</h5>
+                                    <span class="badge bg-success">Nổi bật</span>
+                                </div>
+                                <p class="text-muted small mb-2">@(product.Category?.Name ?? "Chưa phân loại")</p>
+                                
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(12 đánh giá)</span>
+                                </div>
+                                
+                                <p class="card-text text-truncate-3 mb-3">@product.Description</p>
+                                <h5 class="text-success mb-0">@product.Price.ToString("N0")đ</h5>
+                            </div>
+                            
+                            <div class="card-footer bg-white border-0 pt-0">
+                                <div class="d-flex justify-content-between">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <div class="btn-group">
+                                            <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-edit me-1"></i>Sửa
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash-alt me-1"></i>Xóa
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span></span>
+                                    }
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-success">
+                                        <i class="fas fa-shopping-cart me-1"></i>Mua ngay
                                     </a>
                                 </div>
-                            }
-                            else
-                            {
-                                <span></span> <!-- Giữ khoảng trống nếu không phải admin -->
-                            }
-                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-success">
-                                <i class="fas fa-shopping-cart me-1"></i>Mua ngay
-                            </a>
-
-                            <a asp-controller="Design" asp-action="Create" asp-route-productId="@product.Id" 
-                           class="btn btn-outline-primary btn-sm">
-                            <i class="fas fa-pencil-ruler me-1"></i>Thiết kế
-                            </a>
-
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Tất cả sản phẩm -->
+    <div class="mb-5">
+        <h3 class="mb-4"><i class="fas fa-th-large me-2 text-success"></i>Tất cả sản phẩm</h3>
+        @if (regularProducts.Any())
+        {
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                @foreach (var product in regularProducts)
+                {
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm product-card">
+                            @if (!string.IsNullOrEmpty(product.Model3DUrl))
+                            {
+                                <span class="position-absolute top-0 end-0 m-2 badge bg-info">
+                                    <i class="fas fa-cube me-1"></i>3D
+                                </span>
+                            }
+                            
+                            <div class="product-image-container">
+                                <img src="@(product.ImageUrl ?? "/images/default-product.png")" class="card-img-top" alt="@product.Name">
+                                <div class="product-actions">
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-success btn-sm rounded-circle">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-success btn-sm rounded-circle">
+                                            <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                    @if (!string.IsNullOrEmpty(product.Model3DUrl))
+                                    {
+                                        <a asp-controller="Design" asp-action="Create" asp-route-productId="@product.Id" class="btn btn-primary btn-sm rounded-circle">
+                                            <i class="fas fa-pencil-ruler"></i>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">@product.Name</h5>
+                                <p class="text-muted small mb-2">@(product.Category?.Name ?? "Chưa phân loại")</p>
+                                
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="rating-stars text-warning small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ms-2 small">(12 đánh giá)</span>
+                                </div>
+                                
+                                <p class="card-text text-truncate-3 mb-3">@product.Description</p>
+                                <h5 class="text-success mb-0">@product.Price.ToString("N0")đ</h5>
+                            </div>
+                            
+                            <div class="card-footer bg-white border-0 pt-0">
+                                <div class="d-flex justify-content-between">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <div class="btn-group">
+                                            <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-edit me-1"></i>Sửa
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash-alt me-1"></i>Xóa
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span></span>
+                                    }
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-success">
+                                        <i class="fas fa-shopping-cart me-1"></i>Mua ngay
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+            <!-- Phân trang -->
+            @if (ViewBag.TotalPages > 1)
+            {
+                <nav aria-label="Page navigation" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        @if (ViewBag.CurrentPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" asp-action="Index" 
+                                   asp-route-page="@(ViewBag.CurrentPage - 1)" 
+                                   asp-route-searchString="@ViewBag.SearchString"
+                                   asp-route-categoryId="@ViewBag.CategoryId"
+                                   asp-route-sortOrder="@ViewBag.SortOrder">
+                                    &laquo;
+                                </a>
+                            </li>
+                        }
+                        
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" asp-action="Index" 
+                                   asp-route-page="@i"
+                                   asp-route-searchString="@ViewBag.SearchString"
+                                   asp-route-categoryId="@ViewBag.CategoryId"
+                                   asp-route-sortOrder="@ViewBag.SortOrder">
+                                    @i
+                                </a>
+                            </li>
+                        }
+                        
+                        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" asp-action="Index" 
+                                   asp-route-page="@(ViewBag.CurrentPage + 1)"
+                                   asp-route-searchString="@ViewBag.SearchString"
+                                   asp-route-categoryId="@ViewBag.CategoryId"
+                                   asp-route-sortOrder="@ViewBag.SortOrder">
+                                    &raquo;
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">Không tìm thấy sản phẩm nào</h5>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Create" class="btn btn-success mt-3">
+                        <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
+                    </a>
+                }
             </div>
         }
-    </div>
-
-    <!-- Xem thêm sản phẩm -->
-    @if (products.Count > 4)
-    {
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-outline-success px-4 py-2">
-                <i class="fas fa-arrow-down me-2"></i>Xem thêm sản phẩm
-            </a>
-        </div>
-    }
-    else if (!products.Any())
-    {
-        <div class="text-center py-5">
-            <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
-            <h5 class="text-muted">Không tìm thấy sản phẩm nào</h5>
-            @if (User.IsInRole("Admin"))
-            {
-                <a asp-action="Create" class="btn btn-success mt-3">
-                    <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
-                </a>
-            }
-        </div>
-    }
-</div>
-
-<!-- Modal thiết kế 3D -->
-<div class="modal fade" id="designModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-                <h5 class="modal-title" id="designModalTitle">Thiết kế sản phẩm 3D</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Đóng"></button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="row g-0 h-100">
-                    <!-- Viewer 3D -->
-                    <div class="col-lg-8 position-relative">
-                        <model-viewer id="designModelViewer" src="" alt="3D model for design" 
-                            ar ar-modes="webxr scene-viewer quick-look" 
-                            camera-controls auto-rotate 
-                            style="width:100%; height:600px;">
-                            <div slot="progress-bar" class="progress-bar"></div>
-                        </model-viewer>
-                        
-                        <!-- Công cụ điều khiển -->
-                        <div class="position-absolute top-0 start-0 m-3">
-                            <div class="btn-group-vertical shadow">
-                                <button type="button" class="btn btn-light" id="rotateModel" title="Xoay">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-light" id="zoomIn" title="Phóng to">
-                                    <i class="fas fa-search-plus"></i>
-                                </button>
-                                <button type="button" class="btn btn-light" id="zoomOut" title="Thu nhỏ">
-                                    <i class="fas fa-search-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-light" id="resetView" title="Đặt lại">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Công cụ thiết kế -->
-                    <div class="col-lg-4 border-start bg-light">
-                        <div class="h-100 d-flex flex-column">
-                            <!-- Thông tin sản phẩm -->
-                            <div class="p-3 border-bottom bg-white">
-                                <h6 id="designProductName"></h6>
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="text-success fw-bold" id="designProductPrice"></span>
-                                    <span class="badge bg-success" id="designProductCategory"></span>
-                                </div>
-                            </div>
-                            
-                            <!-- Tùy chọn thiết kế -->
-                            <div class="p-3 border-bottom">
-                                <h6 class="mb-3"><i class="fas fa-sliders-h me-2 text-success"></i>Tùy chỉnh thiết kế</h6>
-                                
-                                <!-- Màu sắc -->
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold">Màu sắc</label>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <input type="color" class="form-control form-control-color" id="modelColor" value="#4CAF50">
-                                        <button type="button" class="btn btn-sm btn-outline-success" id="randomColor">
-                                            <i class="fas fa-random"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chất liệu -->
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold">Chất liệu</label>
-                                    <select class="form-select form-select-sm" id="modelTexture">
-                                        <option value="none">Mặc định</option>
-                                        <option value="wood">Gỗ</option>
-                                        <option value="metal">Kim loại</option>
-                                        <option value="fabric">Vải</option>
-                                        <option value="leather">Da</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- Kích thước -->
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold">Kích thước</label>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <button type="button" class="btn btn-sm btn-outline-success" id="decreaseSize">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <input type="range" class="form-range flex-grow-1" min="50" max="150" value="100" id="modelSize">
-                                        <button type="button" class="btn btn-sm btn-outline-success" id="increaseSize">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="text-center small text-muted mt-1">
-                                        Tỷ lệ: <span id="sizeValue">100</span>%
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Lưu thiết kế -->
-                            <div class="p-3 mt-auto">
-                                <div class="mb-3">
-                                    <label class="form-label small fw-bold">Tên thiết kế</label>
-                                    <input type="text" class="form-control form-control-sm" id="designName" placeholder="Thiết kế của tôi">
-                                </div>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-success" id="saveDesign">
-                                        <i class="fas fa-save me-2"></i>Lưu thiết kế
-                                    </button>
-                                    <button class="btn btn-outline-success" id="exportDesign">
-                                        <i class="fas fa-download me-2"></i>Xuất hình ảnh
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -398,37 +323,45 @@
         }
         
         /* Card sản phẩm */
-        .product-card {
+        .product-card, .featured-product {
             transition: all 0.3s ease;
             border-radius: 0.5rem;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.05);
         }
         
-        .product-card:hover {
+        .product-card:hover, .featured-product:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(76, 175, 80, 0.1);
         }
         
+        .featured-product {
+            border: 2px solid #FFC107;
+        }
+        
         /* Hình ảnh sản phẩm */
-        .product-image-container {
+        .product-image-container, .featured-image-container {
             position: relative;
             overflow: hidden;
+            height: 200px;
+        }
+        
+        .featured-image-container {
             height: 250px;
         }
         
-        .product-image-container img {
+        .product-image-container img, .featured-image-container img {
             transition: transform 0.3s ease;
             object-fit: cover;
             width: 100%;
             height: 100%;
         }
         
-        .product-image-container:hover img {
+        .product-image-container:hover img, .featured-image-container:hover img {
             transform: scale(1.05);
         }
         
-        .product-actions {
+        .product-actions, .featured-actions {
             position: absolute;
             bottom: -50px;
             left: 0;
@@ -441,12 +374,12 @@
             opacity: 0;
         }
         
-        .product-card:hover .product-actions {
+        .product-card:hover .product-actions, .featured-product:hover .featured-actions {
             bottom: 10px;
             opacity: 1;
         }
         
-        .product-actions .btn {
+        .product-actions .btn, .featured-actions .btn {
             width: 36px;
             height: 36px;
             display: flex;
@@ -467,139 +400,14 @@
             letter-spacing: 2px;
         }
         
-        /* Progress bar cho model viewer */
-        #designModelViewer {
-            --progress-bar-color: #4CAF50;
-            --progress-bar-height: 5px;
+        /* Phân trang */
+        .pagination .page-item.active .page-link {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
         }
         
-        .progress-bar {
-            display: block;
-            width: 100%;
-            height: var(--progress-bar-height);
-            background-color: var(--progress-bar-color);
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .pagination .page-link {
+            color: #4CAF50;
         }
     </style>
-}
-
-@section Scripts {
-    <!-- Thư viện Model Viewer -->
-    <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
-    
-    <script>
-        // Xử lý nút thiết kế 3D
-        $(document).on('click', '.design-btn', function() {
-            const modelUrl = $(this).data('model-url');
-            const productId = $(this).data('product-id');
-            const productName = $(this).data('product-name');
-            const productPrice = $(this).closest('.card').find('.text-success').text();
-            const productCategory = $(this).closest('.card').find('.text-muted.small').text();
-            
-            // Thiết lập model 3D
-            const modelViewer = document.querySelector('#designModelViewer');
-            modelViewer.src = modelUrl;
-            
-            // Hiển thị thông tin sản phẩm
-            $('#designProductName').text(productName);
-            $('#designProductPrice').text(productPrice);
-            $('#designProductCategory').text(productCategory);
-            $('#designModalTitle').text(`Thiết kế: ${productName}`);
-            
-            // Lưu ID sản phẩm để sử dụng khi lưu
-            $('#saveDesign').data('product-id', productId);
-            
-            // Hiển thị modal
-            const designModal = new bootstrap.Modal(document.getElementById('designModal'));
-            designModal.show();
-        });
-
-        // Các hàm điều khiển model 3D
-        let currentRotation = 0;
-        let currentScale = 100;
-
-        $('#rotateModel').click(function() {
-            currentRotation += 90;
-            const modelViewer = document.querySelector('#designModelViewer');
-            modelViewer.setAttribute('orientation', `0 ${currentRotation} 0`);
-        });
-
-        $('#zoomIn').click(function() {
-            const modelViewer = document.querySelector('#designModelViewer');
-            const currentZoom = parseFloat(modelViewer.getAttribute('camera-orbit')) || 1;
-            modelViewer.setAttribute('camera-orbit', `${currentZoom * 0.8}rad`);
-        });
-
-        $('#zoomOut').click(function() {
-            const modelViewer = document.querySelector('#designModelViewer');
-            const currentZoom = parseFloat(modelViewer.getAttribute('camera-orbit')) || 1;
-            modelViewer.setAttribute('camera-orbit', `${currentZoom * 1.2}rad`);
-        });
-
-        $('#resetView').click(function() {
-            const modelViewer = document.querySelector('#designModelViewer');
-            modelViewer.setAttribute('camera-orbit', '0 0 1.5rad');
-            modelViewer.setAttribute('orientation', '0 0 0');
-            currentRotation = 0;
-        });
-
-        $('#randomColor').click(function() {
-            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            $('#modelColor').val(randomColor);
-            console.log('Áp dụng màu:', randomColor);
-        });
-
-        $('#modelSize').on('input', function() {
-            currentScale = $(this).val();
-            $('#sizeValue').text(currentScale);
-            console.log('Áp dụng tỷ lệ:', currentScale + '%');
-        });
-
-        $('#decreaseSize').click(function() {
-            const sizeInput = $('#modelSize');
-            let value = parseInt(sizeInput.val());
-            if (value > 50) {
-                sizeInput.val(value - 10).trigger('input');
-            }
-        });
-
-        $('#increaseSize').click(function() {
-            const sizeInput = $('#modelSize');
-            let value = parseInt(sizeInput.val());
-            if (value < 150) {
-                sizeInput.val(value + 10).trigger('input');
-            }
-        });
-
-        // Lưu thiết kế
-        $('#saveDesign').click(function() {
-            const productId = $(this).data('product-id');
-            const designName = $('#designName').val() || 'Thiết kế của tôi';
-            const color = $('#modelColor').val();
-            const texture = $('#modelTexture').val();
-            const size = $('#modelSize').val();
-            
-            // Gửi dữ liệu thiết kế lên server
-            console.log('Lưu thiết kế:', {
-                productId,
-                designName,
-                color,
-                texture,
-                size
-            });
-            
-            // Hiển thị thông báo
-            alert(`Đã lưu thiết kế "${designName}" cho sản phẩm ID: ${productId}`);
-            
-            // Đóng modal
-            $('#designModal').modal('hide');
-        });
-
-        // Xuất hình ảnh
-        $('#exportDesign').click(function() {
-            alert('Chức năng xuất hình ảnh sẽ được triển khai sau');
-        });
-    </script>
 }

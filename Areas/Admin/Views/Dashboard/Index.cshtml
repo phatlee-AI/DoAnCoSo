@@ -1,7 +1,15 @@
 @model MyWebApp.Areas.Admin.Models.ViewModels.DashboardViewModel
+@using Microsoft.EntityFrameworkCore
+@using MyWebApp.Models
+@inject ApplicationDbContext _context
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Dashboard";
+    var recentArticles = await _context.Article
+        .Include(a => a.Author)
+        .OrderByDescending(a => a.CreatedDate)
+        .Take(3)
+        .ToListAsync();
 }
 
 <div class="admin-dashboard">
@@ -173,7 +181,7 @@
                                                         </button>
                                                     </form>
                                                 }
-                                                <a href="@Url.Action("OrderDetail", "Dashboard", new { id = order.Id })" class="btn btn-sm btn-outline-primary">
+                                                <a href="@Url.Action("Detail", "Dashboard", new { id = order.Id })" class="btn btn-sm btn-outline-primary">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -216,6 +224,45 @@
                             </div>
                         }
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Articles Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-newspaper me-2 text-info"></i>Recent Articles
+                    </h5>
+                    <a href="@Url.Action("Index", "Article")" class="btn btn-sm btn-outline-info">Manage Articles</a>
+                </div>
+                <div class="card-body">
+                    @if (recentArticles.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var article in recentArticles)
+                            {
+                                <div class="list-group-item border-0 px-0 py-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">@article.Title</h6>
+                                            <small class="text-muted">By @article.Author?.UserName on @article.CreatedDate.ToString("dd MMM yyyy")</small>
+                                        </div>
+                                        <span class="badge @(article.IsPublished ? "bg-success" : "bg-warning text-dark")">
+                                            @(article.IsPublished ? "Published" : "Draft")
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info mb-0">No articles found. <a href="@Url.Action("Create", "Article")" class="alert-link">Create your first article</a></div>
+                    }
                 </div>
             </div>
         </div>

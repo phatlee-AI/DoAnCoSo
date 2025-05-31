@@ -42,13 +42,12 @@
                                 </div>
                                 <div class="info-item">
                                     <span class="fw-bold text-dark">Phương thức thanh toán:</span>
-                                    <span class="badge
-                                    @(Model.PaymentMethod == PaymentMethod.COD ? "bg-warning" :
-                                    Model.PaymentMethod == PaymentMethod.BankTransfer ? "bg-info" :
-                                    "bg-danger")">
-                                    @Model.PaymentMethod
+                                    <span class="badge 
+                                        @(Model.PaymentMethod == PaymentMethod.COD ? "bg-warning" :
+                                          Model.PaymentMethod == PaymentMethod.BankTransfer ? "bg-info" :
+                                          "bg-danger")">
+                                        @Model.PaymentMethod
                                     </span>
-
                                 </div>
                             </div>
                         </div>
@@ -99,7 +98,7 @@
                     <div class="card-body p-4">
                         <div class="row justify-content-end">
                             <div class="col-md-5">
-                                @* <div class="d-flex justify-content-between mb-2">
+                                <div class="d-flex justify-content-between mb-2">
                                     <span class="fw-bold">Tạm tính:</span>
                                     <span>@Model.SubTotal.ToString("N0") đ</span>
                                 </div>
@@ -107,13 +106,10 @@
                                     <span class="fw-bold">Phí vận chuyển:</span>
                                     <span>@Model.ShippingFee.ToString("N0") đ</span>
                                 </div>
-                                @if (Model.DiscountAmount > 0)
-                                {
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span class="fw-bold">Giảm giá:</span>
-                                        <span class="text-success">-@Model.DiscountAmount.ToString("N0") đ</span>
-                                    </div>
-                                } *@
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bold">Phí thiết kế:</span>
+                                    <span>@Model.DesignFee.ToString("N0") đ</span>
+                                </div>
                                 <hr class="my-2">
                                 <div class="d-flex justify-content-between fw-bold fs-5">
                                     <span>Tổng cộng:</span>

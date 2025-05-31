@@ -147,44 +147,52 @@ namespace MyWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product, IFormFile? HinhAnhCapNhat, List<IFormFile>? DanhSachHinhAnh, IFormFile? model3dFile)
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create(Product product, IFormFile? HinhAnhCapNhat, List<IFormFile>? DanhSachHinhAnh, IFormFile? model3dFile)
 {
-    if (ModelState.IsValid)
+    try
     {
-        if (HinhAnhCapNhat != null)
+        if (ModelState.IsValid)
         {
-            product.ImageUrl = await SaveImage(HinhAnhCapNhat, "SanPham");
-        }
-
-        if (model3dFile != null)
-        {
-            product.Model3DUrl = await SaveImage(model3dFile, "SanPham");
-        }
-
-        _context.Add(product);
-        await _context.SaveChangesAsync();
-        
-        if (DanhSachHinhAnh != null)
-        {
-            foreach (IFormFile i in DanhSachHinhAnh)
+            if (HinhAnhCapNhat != null)
             {
-                ProductImage productImage = new ProductImage
-                {
-                    ProductId = product.Id,
-                    Url = await SaveImage(i, "SanPham")
-                };
-                _context.ProductImages.Add(productImage);
+                product.ImageUrl = await SaveImage(HinhAnhCapNhat, "SanPham");
             }
-            await _context.SaveChangesAsync();
-        }
 
-        return RedirectToAction(nameof(Index));
+            if (model3dFile != null)
+            {
+                product.Model3DUrl = await SaveImage(model3dFile, "SanPham");
+            }
+
+            _context.Add(product);
+            await _context.SaveChangesAsync();
+
+            if (DanhSachHinhAnh != null)
+            {
+                foreach (IFormFile i in DanhSachHinhAnh)
+                {
+                    ProductImage productImage = new ProductImage
+                    {
+                        ProductId = product.Id,
+                        Url = await SaveImage(i, "SanPham")
+                    };
+                    _context.ProductImages.Add(productImage);
+                }
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+    }
+    catch (Exception ex)
+    {
+        ModelState.AddModelError("", $"Lỗi tạo sản phẩm: {ex.Message}");
     }
 
     ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
     return View(product);
 }
+
 
 
         // GET: Product/Edit/5

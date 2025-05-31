@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    @RenderSection("naviHeader", required: false)
+
 </head>
 <body class="admin-layout">
     <!-- Top Navigation -->
@@ -179,10 +181,19 @@
                         
                         <!-- Reports -->
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Reports" asp-action="Index">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="ReportList">
                                 <i class="fas fa-chart-bar me-3"></i>Reports
                             </a>
                         </li>
+
+                        <!-- Add this to the sidebar menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="DesignRequests">
+                                <i class="fas fa-pencil-ruler me-3"></i>Design Requests
+                            </a>
+                        </li>
+
+
                         
                         <!-- Settings -->
                         <li class="nav-item mt-4 pt-2 border-top border-secondary">
@@ -234,6 +245,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("Styles", required: false)
 

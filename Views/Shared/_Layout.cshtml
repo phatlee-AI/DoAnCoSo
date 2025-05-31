@@ -14,74 +14,123 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
+                <!-- Brand Logo -->
                 <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="text-success">PHAT</span><span class="text-dark">LEE</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" 
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                <!-- Main Navigation -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            <a class="nav-link text-dark" asp-controller="Product" asp-action="Index">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Create">Create Product</a>
+                            <a class="nav-link text-dark" asp-controller="Design" asp-action="MyDesign">Thiết Kế Của Tôi</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">Về Chúng Tôi</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Contact">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="User">Quản lý</a>
+                            <a class="nav-link text-dark" asp-controller="Admin" asp-action="User">Quản lý</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        
                     </ul>
-                    <div class="dropdown">
-                <a class="nav-link position-relative" href="#" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-shopping-cart fs-5"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
-                        0
-                    </span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-cart p-0" aria-labelledby="cartDropdown" style="min-width: 320px;">
-                    <li>
-                        <div class="cart-dropdown-header p-3 border-bottom">
-                            <h6 class="m-0">Giỏ hàng của bạn</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="cart-items" class="px-3 py-2" style="max-height: 300px; overflow-y: auto;">
-                            <!-- Cart items will be loaded here -->
-                            <div class="text-center py-3">
-                                <i class="fas fa-shopping-cart fa-2x text-muted mb-2"></i>
-                                <p class="text-muted mb-0">Giỏ hàng trống</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cart-dropdown-footer p-3 border-top">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Tạm tính:</span>
-                                <span class="fw-bold" id="cart-subtotal">0đ</span>
-                            </div>
-                            <a href="@Url.Action("Index", "Cart")" class="btn btn-success w-100">
-                                <i class="fas fa-shopping-bag me-2"></i>Xem giỏ hàng
+                    
+                    <!-- Right Side Navigation -->
+                    <div class="d-flex align-items-center">
+                        <!-- Notification Dropdown -->
+                        @await Component.InvokeAsync("Notification")
+                        
+                        <!-- Shopping Cart -->
+                        <div class="dropdown me-3">
+                            <a class="nav-link position-relative" href="#" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-shopping-cart fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                                    0
+                                </span>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="cartDropdown" style="min-width: 320px;">
+                                <div class="cart-dropdown-header p-3 border-bottom">
+                                    <h6 class="m-0">Giỏ hàng của bạn</h6>
+                                </div>
+                                <div id="cart-items" class="px-3 py-2" style="max-height: 300px; overflow-y: auto;">
+                                    <div class="text-center py-3">
+                                        <i class="fas fa-shopping-cart fa-2x text-muted mb-2"></i>
+                                        <p class="text-muted mb-0">Giỏ hàng trống</p>
+                                    </div>
+                                </div>
+                                <div class="cart-dropdown-footer p-3 border-top">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Tạm tính:</span>
+                                        <span class="fw-bold" id="cart-subtotal">0đ</span>
+                                    </div>
+                                    <a href="@Url.Action("Index", "Cart")" class="btn btn-success w-100">
+                                        <i class="fas fa-shopping-bag me-2"></i>Xem giỏ hàng
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-                <partial name="_LoginPartial" />
+                        
+                        <!-- User Dropdown -->
+                        <div class="dropdown">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://ui-avatars.com/api/?name=@User.Identity.Name&background=random" 
+                                         class="rounded-circle me-2" width="32" height="32" alt="User">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                                    <li>
+                                        <div class="dropdown-header py-2 px-3">
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://ui-avatars.com/api/?name=@User.Identity.Name&background=random" 
+                                                     class="rounded-circle me-2" width="48" height="48" alt="User">
+                                                <div>
+                                                    <h6 class="mb-0">@User.Identity.Name</h6>
+                                                    <small class="text-muted">Tài khoản của bạn</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><hr class="dropdown-divider mx-2 my-1"></li>
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fas fa-user-circle me-2"></i>Hồ sơ</a></li>
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Email"><i class="fas fa-envelope me-2"></i>Email</a></li>
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/ChangePassword"><i class="fas fa-key me-2"></i>Mật khẩu</a></li>
+                                    <li><hr class="dropdown-divider mx-2 my-1"></li>
+                                    <li>
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
+                                            <button type="submit" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i>Đăng xuất</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a></li>
+                                    <li class="nav-item"><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a></li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Banner/Slider -->
-    <section class="banner-section">
+    <section class="banner-section"></section>
         <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -114,8 +163,6 @@
         </div>
     </section>
 
-    
-
     <!-- Main Content -->
     <div class="container">
         <main role="main" class="pb-3">
@@ -123,162 +170,8 @@
         </main>
     </div>
     
-
-
     <!-- Products Section -->
-    <section id="products" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-5">Our Products</h2>
-        <div class="row g-4">
-            <!-- Main Product (left side) -->
-            <div class="col-lg-6">
-                <div class="main-product-card card h-100 border-0 shadow-sm">
-                    <div class="row g-0 h-100">
-                        <div class="col-md-6">
-                            <img src="https://via.placeholder.com/600x600?text=Featured+Product" class="img-fluid rounded-start h-100 w-100" alt="Featured Product" style="object-fit: cover;">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body d-flex flex-column h-100">
-                                <div class="mb-3">
-                                    <span class="badge bg-success">Featured</span>
-                                    <h3 class="card-title mt-2">Premium Eco Product</h3>
-                                    <p class="text-muted">SKU: PROD-001</p>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <div class="rating-stars text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </div>
-                                        <span class="ms-2">(24 reviews)</span>
-                                    </div>
-                                </div>
-                                <p class="card-text flex-grow-1">Our flagship product with premium eco-friendly materials and advanced technology for sustainable living.</p>
-                                <div>
-                                    <h4 class="text-success mb-3">$129.99</h4>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-success flex-grow-1">Add to Cart</button>
-                                        <button class="btn btn-outline-secondary">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Secondary Products (right side) -->
-            <div class="col-lg-6">
-                <div class="row g-4 h-100">
-                    <!-- Product 1 -->
-                    <div class="col-md-6">
-                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
-                            <img src="https://via.placeholder.com/400x300?text=Product+1" class="card-img-top" alt="Product 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Organic Solution</h5>
-                                <div class="d-flex align-items-center mb-2">
-                                    <div class="rating-stars text-warning small">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="ms-2 small">(18 reviews)</span>
-                                </div>
-                                <p class="card-text text-success fw-bold">$49.99</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-0">
-                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="col-md-6">
-                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
-                            <img src="https://via.placeholder.com/400x300?text=Product+2" class="card-img-top" alt="Product 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Green Technology</h5>
-                                <div class="d-flex align-items-center mb-2">
-                                    <div class="rating-stars text-warning small">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="ms-2 small">(32 reviews)</span>
-                                </div>
-                                <p class="card-text text-success fw-bold">$99.99</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-0">
-                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="col-md-6">
-                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
-                            <img src="https://via.placeholder.com/400x300?text=Product+3" class="card-img-top" alt="Product 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Recycled Materials</h5>
-                                <div class="d-flex align-items-center mb-2">
-                                    <div class="rating-stars text-warning small">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="ms-2 small">(12 reviews)</span>
-                                </div>
-                                <p class="card-text text-success fw-bold">$19.99</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-0">
-                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="col-md-6">
-                        <div class="secondary-product-card card h-100 border-0 shadow-sm">
-                            <img src="https://via.placeholder.com/400x300?text=Product+4" class="card-img-top" alt="Product 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Eco-Friendly Kit</h5>
-                                <div class="d-flex align-items-center mb-2">
-                                    <div class="rating-stars text-warning small">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="ms-2 small">(21 reviews)</span>
-                                </div>
-                                <p class="card-text text-success fw-bold">$59.99</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-0">
-                                <button class="btn btn-sm btn-outline-success w-100">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- View All Button -->
-        <div class="text-center mt-5">
-            <a href="/Product" class="btn btn-success px-4 py-2">View All Products</a>
-        </div>
-    </div>
-</section>
-
+    @await Component.InvokeAsync("FeaturedProducts")
     <!-- Articles Section -->
     <section id="articles" class="py-5">
         <div class="container">
@@ -289,49 +182,148 @@
         </div>
     </section>
 
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success mt-3">
+            @TempData["Success"]
+        </div>
+    }
+
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Contact Us</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="contact-info">
-                        <h4 class="text-success"><i class="fas fa-map-marker-alt me-2"></i>Our Location</h4>
-                        <p>123 Green Street, Eco City, Earth</p>
-                        
-                        <h4 class="text-success mt-4"><i class="fas fa-phone me-2"></i>Phone</h4>
-                        <p>+1 (234) 567-8900</p>
-                        
-                        <h4 class="text-success mt-4"><i class="fas fa-envelope me-2"></i>Email</h4>
-                        <p>info@phatlee.com</p>
-                        
-                        <h4 class="text-success mt-4"><i class="fas fa-clock me-2"></i>Working Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-form bg-white p-4 rounded shadow-sm">
-                        <h4 class="text-success mb-4">Get In Touch</h4>
-                        <form id="supportForm">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+    <section id="contact" class="py-5 bg-light"></section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-4">Liên hệ với chúng tôi</h2>
+                <p class="lead mb-5">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy liên hệ với chúng tôi theo thông tin bên dưới!</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Cột 1: Form liên hệ -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h4 class="mb-4 fw-bold text-success">Gửi tin nhắn cho chúng tôi</h4>
+                        <form asp-controller="Home" asp-action="Report" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="name" class="form-label fw-semibold">Tên của bạn</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-success text-white">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" class="form-control" name="Name" required placeholder="Nhập tên của bạn">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label fw-semibold">Email của bạn</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-success text-white">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control" name="Email" required placeholder="Nhập email của bạn">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-semibold">Nội dung</label>
+                                <textarea class="form-control" name="Message" rows="5" required placeholder="Nhập nội dung phản hồi"></textarea>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Subject">
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg px-4 py-2">
+                                    <i class="fas fa-paper-plane me-2"></i>Gửi phản hồi
+                                </button>
                             </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success">Send Message</button>
                         </form>
                     </div>
                 </div>
             </div>
+            
+            <!-- Cột 2: Thông tin liên hệ -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h4 class="mb-4 fw-bold text-success">Thông tin liên hệ</h4>
+                        
+                        <!-- Thông tin công ty -->
+                        <div class="mb-5">
+                            <div class="d-flex mb-3">
+                                <div class="me-3 text-success">
+                                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Địa chỉ</h5>
+                                    <p class="mb-0">123 Đường ABC, Phường XYZ<br>Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-3">
+                                <div class="me-3 text-success">
+                                    <i class="fas fa-phone-alt fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Điện thoại</h5>
+                                    <p class="mb-0">
+                                        <a href="tel:+84987654321" class="text-decoration-none">0987 654 321</a><br>
+                                        <a href="tel:+842836987456" class="text-decoration-none">028 3698 7456</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <div class="me-3 text-success">
+                                    <i class="fas fa-envelope fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Email</h5>
+                                    <p class="mb-0">
+                                        <a href="mailto:info@phatlee.com" class="text-decoration-none">info@phatlee.com</a><br>
+                                        <a href="mailto:support@phatlee.com" class="text-decoration-none">support@phatlee.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bản đồ -->
+                        <div class="mt-4">
+                            <h5 class="fw-bold mb-3">Bản đồ</h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789012!2d106.12345678901234!3d10.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA3JzI0LjQiTiAxMDbCsDA3JzI0LjQiRQ!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        
+                        <!-- Mạng xã hội -->
+                        <div class="mt-4">
+                            <h5 class="fw-bold mb-3">Kết nối với chúng tôi</h5>
+                            <div class="d-flex">
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle me-2">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle me-2">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle me-2">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="border-top footer text-muted bg-dark text-white">
@@ -396,3 +388,89 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        // Function to update notification count
+        function updateNotificationCount() {
+            $.get("/Notification/GetUnreadCount", function (count) {
+                const $badge = $("#notificationDropdown .badge");
+                if (count > 0) {
+                    $badge.text(count).show();
+                } else {
+                    $badge.hide();
+                }
+            });
+        }
+
+        // Update count immediately
+        updateNotificationCount();
+
+        // Set up periodic refresh (every 30 seconds)
+        setInterval(updateNotificationCount, 30000);
+
+        // When dropdown is shown, load notifications
+        $('#notificationDropdown').on('click', function () {
+            $.get("/Notification/GetRecentNotifications", function (notifications) {
+                const $list = $(".notification-list");
+                $list.empty();
+                
+                if (notifications && notifications.length > 0) {
+                    notifications.forEach(function (item) {
+                        $list.append(`
+                            <a class="dropdown-item d-flex py-3 border-bottom ${!item.isRead ? "bg-light" : ""}" 
+                               href="/Notification/Details/${item.id}">
+                                <div class="me-3">
+                                    <i class="${getNotificationIcon(item.type)} text-${getNotificationColor(item.type)}"></i>
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="mb-1">${item.title}</h6>
+                                        <small class="text-muted">${formatDate(item.createdAt)}</small>
+                                    </div>
+                                    <p class="mb-0 small text-truncate">${item.message}</p>
+                                    ${!item.isRead ? '<span class="badge bg-primary float-end">Mới</span>' : ''}
+                                </div>
+                            </a>
+                        `);
+                    });
+                } else {
+                    $list.append(`
+                        <div class="text-center py-4">
+                            <i class="fas fa-bell-slash fa-2x text-muted mb-2"></i>
+                            <p class="text-muted">Không có thông báo mới</p>
+                        </div>
+                    `);
+                }
+            });
+        });
+
+        function getNotificationColor(type) {
+            switch(type) {
+                case 'order': return 'success';
+                case 'message': return 'info';
+                case 'warning': return 'warning';
+                case 'system': return 'secondary';
+                default: return 'primary';
+            }
+        }
+
+        function getNotificationIcon(type) {
+            switch(type) {
+                case 'order': return 'fas fa-shopping-bag';
+                case 'message': return 'fas fa-comment';
+                case 'warning': return 'fas fa-exclamation-circle';
+                case 'system': return 'fas fa-cog';
+                default: return 'fas fa-bell';
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + 
+                   date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
+        }
+    });
+</script>
+}

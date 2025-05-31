@@ -1,0 +1,73 @@
+@model MyWebApp.Models.Article
+
+@{
+    ViewData["Title"] = "Article Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Article Details</h5>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-sm btn-secondary">Back to List</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">Title</dt>
+            <dd class="col-sm-10">@Model.Title</dd>
+            
+            <dt class="col-sm-2">Author</dt>
+            <dd class="col-sm-10">@Model.Author?.UserName</dd>
+            
+            <dt class="col-sm-2">Created Date</dt>
+            <dd class="col-sm-10">@Model.CreatedDate.ToString("f")</dd>
+            
+            <dt class="col-sm-2">Updated Date</dt>
+            <dd class="col-sm-10">@(Model.UpdatedDate?.ToString("f") ?? "Never updated")</dd>
+            
+            <dt class="col-sm-2">Status</dt>
+            <dd class="col-sm-10">
+                @if (Model.IsPublished)
+                {
+                    <span class="badge bg-success">Published</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">Draft</span>
+                }
+            </dd>
+            
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <dt class="col-sm-2">Featured Image</dt>
+                <dd class="col-sm-10">
+                    <img src="@Model.ImageUrl" alt="Featured image" style="max-height: 200px;" class="img-thumbnail" />
+                </dd>
+            }
+            
+            <dt class="col-sm-2">Summary</dt>
+            <dd class="col-sm-10">@Model.Summary</dd>
+            
+            <dt class="col-sm-2">Content</dt>
+            <dd class="col-sm-10">
+                <div class="border p-3 bg-light">
+                    @Html.Raw(Model.Content)
+                </div>
+            </dd>
+            
+            <dt class="col-sm-2">Slug</dt>
+            <dd class="col-sm-10">@Model.Slug</dd>
+            
+            <dt class="col-sm-2">Tags</dt>
+            <dd class="col-sm-10">@Model.Tags</dd>
+            
+            <dt class="col-sm-2">Meta Title</dt>
+            <dd class="col-sm-10">@Model.MetaTitle</dd>
+            
+            <dt class="col-sm-2">Meta Description</dt>
+            <dd class="col-sm-10">@Model.MetaDescription</dd>
+        </dl>
+    </div>
+</div>

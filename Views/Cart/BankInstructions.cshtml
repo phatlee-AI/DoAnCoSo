@@ -1,8 +1,5 @@
 @model MyWebApp.Models.CheckoutViewModel
 
-
-
-
 <div class="bank-transfer-page py-5 bg-light">
     <div class="container">
         <div class="row justify-content-center">
@@ -50,6 +47,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Order Details Table -->
                     <div class="table-responsive mt-4">
                         <h5 class="fw-bold text-success mb-3">
@@ -81,8 +79,20 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="4" class="text-end fw-bold">Tổng cộng:</td>
-                                    <td class="fw-bold text-danger">@Model.TotalAmount.ToString("N0") đ</td>
+                                    <td colspan="3" class="text-end fw-bold">Tạm tính:</td>
+                                    <td colspan="2" class="text-end">@Model.SubTotal.ToString("N0") đ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">Phí vận chuyển:</td>
+                                    <td colspan="2" class="text-end">30.000 đ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">Phí thiết kế:</td>
+                                    <td colspan="2" class="text-end">50.000 đ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">Tổng cộng:</td>
+                                    <td colspan="2" class="fw-bold text-danger">@Model.TotalAmount.ToString("N0") đ</td>
                                 </tr>
                             </tfoot>
                         </table>

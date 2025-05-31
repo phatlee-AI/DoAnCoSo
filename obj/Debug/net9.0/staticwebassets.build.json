@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "68bUcVNehpU4XipgybgEnrv3ZZnqmdAA+VL3hjCvLF8=",
+  "Hash": "zcmtSnw8zSR3r3PoHOnqcb+0ke5bktQnekAvxvGibWE=",
   "Source": "MyWebApp",
   "BasePath": "_content/MyWebApp",
   "Mode": "Default",
@@ -1697,12 +1697,12 @@
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-txmjvmkm58.gz",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-eb1kfxf8b3.gz",
       "SourceId": "MyWebApp",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "MyWebApp#[.{fingerprint=txmjvmkm58}]!.bundle.scp.css.gz",
+      "RelativePath": "MyWebApp#[.{fingerprint=eb1kfxf8b3}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -1711,8 +1711,8 @@
       "RelatedAsset": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MyWebApp.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "44gftgs2o7",
-      "Integrity": "VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=",
+      "Fingerprint": "7sq593nw86",
+      "Integrity": "1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MyWebApp.bundle.scp.css"
@@ -2348,12 +2348,12 @@
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-qr9w42wi7l.gz",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-dbw2doxffi.gz",
       "SourceId": "MyWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "css/site#[.{fingerprint=qr9w42wi7l}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=dbw2doxffi}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2362,8 +2362,8 @@
       "RelatedAsset": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "3fga12cbvj",
-      "Integrity": "YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY=",
+      "Fingerprint": "16954vpbfc",
+      "Integrity": "qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\css\\site.css"
@@ -2747,12 +2747,12 @@
       "OriginalItemSpec": "C:\\Users\\jaeyo\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.3\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-pttzypr5x4.gz",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-9pad5fhj7c.gz",
       "SourceId": "MyWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "js/site#[.{fingerprint=pttzypr5x4}]?.js.gz",
+      "RelativePath": "js/site#[.{fingerprint=9pad5fhj7c}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2761,8 +2761,8 @@
       "RelatedAsset": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\js\\site.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "1o5j67byl9",
-      "Integrity": "j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8=",
+      "Fingerprint": "8puqseq861",
+      "Integrity": "FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\js\\site.js"
@@ -3377,12 +3377,12 @@
       "OriginalItemSpec": "C:\\Users\\jaeyo\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.3\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-txmjvmkm58.gz",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-eb1kfxf8b3.gz",
       "SourceId": "MyWebApp",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "MyWebApp#[.{fingerprint=txmjvmkm58}]?.styles.css.gz",
+      "RelativePath": "MyWebApp#[.{fingerprint=eb1kfxf8b3}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -3391,8 +3391,8 @@
       "RelatedAsset": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "44gftgs2o7",
-      "Integrity": "VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=",
+      "Fingerprint": "7sq593nw86",
+      "Integrity": "1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css"
@@ -4021,8 +4021,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "txmjvmkm58",
-      "Integrity": "4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=",
+      "Fingerprint": "eb1kfxf8b3",
+      "Integrity": "qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css"
@@ -4042,8 +4042,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "txmjvmkm58",
-      "Integrity": "4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=",
+      "Fingerprint": "eb1kfxf8b3",
+      "Integrity": "qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MyWebApp.bundle.scp.css"
@@ -4084,11 +4084,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "qr9w42wi7l",
-      "Integrity": "irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo=",
+      "Fingerprint": "dbw2doxffi",
+      "Integrity": "GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "designs/aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4s40hc745u",
+      "Integrity": "zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\designs\\aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png"
     },
     {
       "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\cecc925e-1888-4945-8d0d-b74209c5498d_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
@@ -4131,6 +4152,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\designs\\e4a9bbf4-6c22-4fc5-97b2-36ed5ebf57fe_logo CMYK-01.png"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "designs/ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4s40hc745u",
+      "Integrity": "zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png"
     },
     {
       "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\favicon.ico",
@@ -4294,8 +4336,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pttzypr5x4",
-      "Integrity": "vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs=",
+      "Fingerprint": "9pad5fhj7c",
+      "Integrity": "bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -5561,6 +5603,90 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/design-samples/37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0vtnw4b0fc",
+      "Integrity": "7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/design-samples/5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "un9hpicqee",
+      "Integrity": "1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\design-samples\\5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/design-samples/c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0vtnw4b0fc",
+      "Integrity": "7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\design-samples\\c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/design-samples/cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "un9hpicqee",
+      "Integrity": "1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg"
+    },
+    {
       "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_7a2454e2800442939bb9b1db05712dc5.jpg",
       "SourceId": "MyWebApp",
       "SourceType": "Discovered",
@@ -5582,12 +5708,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_7a2454e2800442939bb9b1db05712dc5.jpg"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg",
       "SourceId": "MyWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "uploads/SanPham/38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628#[.{fingerprint}]?.jpg",
+      "RelativePath": "uploads/SanPham/079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5596,19 +5722,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0vtnw4b0fc",
-      "Integrity": "7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=",
+      "Fingerprint": "mmm9cdezaq",
+      "Integrity": "zlq8ekNeuHwMXBOQ06P01ca/7BWemUWs7Pe/2Jhaga4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg"
     },
     {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg",
       "SourceId": "MyWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
       "BasePath": "_content/MyWebApp",
-      "RelativePath": "uploads/SanPham/5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51#[.{fingerprint}]?.jpg",
+      "RelativePath": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5617,11 +5743,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xwemijw5cy",
-      "Integrity": "AbN0xxX5oPxNI2qsgWDiWUpTikSRYDCjDDUP/Xxbmp8=",
+      "Fingerprint": "wyy2bg8o2j",
+      "Integrity": "eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wyy2bg8o2j",
+      "Integrity": "eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg"
     },
     {
       "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg",
@@ -5643,27 +5790,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg",
-      "SourceId": "MyWebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
-      "BasePath": "_content/MyWebApp",
-      "RelativePath": "uploads/SanPham/a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae#[.{fingerprint}]?.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "0ii450hfst",
-      "Integrity": "qCspzqIGECRsX2OjygVFanoWFZRZxOvWcAFy/aMqO6Q=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg"
     },
     {
       "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg",
@@ -5874,6 +6000,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\oversized_t-shirt_8dd67c17b8ad4cf79393dd59c4552851.glb"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/SanPham/t-shirt_11c346eea62f4038997ec3a880a1ed4c#[.{fingerprint}]?.glb",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aqyjen29dn",
+      "Integrity": "kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb"
+    },
+    {
+      "Identity": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_704d1311af3d401b96bd94fa06e54b34.glb",
+      "SourceId": "MyWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\",
+      "BasePath": "_content/MyWebApp",
+      "RelativePath": "uploads/SanPham/t-shirt_704d1311af3d401b96bd94fa06e54b34#[.{fingerprint}]?.glb",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aqyjen29dn",
+      "Integrity": "kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\SanPham\\t-shirt_704d1311af3d401b96bd94fa06e54b34.glb"
     }
   ],
   "Endpoints": [
@@ -6214,12 +6382,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-qr9w42wi7l.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-dbw2doxffi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000639795266"
+          "Quality": "0.000473709143"
         }
       ],
       "ResponseHeaders": [
@@ -6229,15 +6397,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1562"
+          "Value": "2110"
         },
         {
           "Name": "ETag",
-          "Value": "\"YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY=\""
+          "Value": "\"qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6257,13 +6425,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo=\""
+          "Value": "W/\"GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo="
+          "Value": "sha256-GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E="
         }
       ]
     },
@@ -6278,7 +6446,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6087"
+          "Value": "8821"
         },
         {
           "Name": "Content-Type",
@@ -6286,11 +6454,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo=\""
+          "Value": "\"GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6300,13 +6468,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo="
+          "Value": "sha256-GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-qr9w42wi7l.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-dbw2doxffi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6315,7 +6483,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1562"
+          "Value": "2110"
         },
         {
           "Name": "Content-Type",
@@ -6323,11 +6491,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY=\""
+          "Value": "\"qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6345,18 +6513,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY="
+          "Value": "sha256-qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE="
         }
       ]
     },
     {
-      "Route": "css/site.qr9w42wi7l.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-qr9w42wi7l.gz",
+      "Route": "css/site.dbw2doxffi.css",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-dbw2doxffi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000639795266"
+          "Quality": "0.000473709143"
         }
       ],
       "ResponseHeaders": [
@@ -6366,15 +6534,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1562"
+          "Value": "2110"
         },
         {
           "Name": "ETag",
-          "Value": "\"YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY=\""
+          "Value": "\"qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6394,13 +6562,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo=\""
+          "Value": "W/\"GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "qr9w42wi7l"
+          "Value": "dbw2doxffi"
         },
         {
           "Name": "label",
@@ -6408,12 +6576,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo="
+          "Value": "sha256-GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E="
         }
       ]
     },
     {
-      "Route": "css/site.qr9w42wi7l.css",
+      "Route": "css/site.dbw2doxffi.css",
       "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6423,7 +6591,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6087"
+          "Value": "8821"
         },
         {
           "Name": "Content-Type",
@@ -6431,11 +6599,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo=\""
+          "Value": "\"GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6445,7 +6613,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "qr9w42wi7l"
+          "Value": "dbw2doxffi"
         },
         {
           "Name": "label",
@@ -6453,13 +6621,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-irqfXHHCRZ7kQtG5UTIdMBJgksIoEB3R1AzYtXE8CDo="
+          "Value": "sha256-GW3877K8KgxCq1R1MnrjFTMI0zfHmzRan0BAWeM3T5E="
         }
       ]
     },
     {
-      "Route": "css/site.qr9w42wi7l.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-qr9w42wi7l.gz",
+      "Route": "css/site.dbw2doxffi.css.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\fc4x9g7hx4-dbw2doxffi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6468,7 +6636,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1562"
+          "Value": "2110"
         },
         {
           "Name": "Content-Type",
@@ -6476,11 +6644,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY=\""
+          "Value": "\"qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 03:32:56 GMT"
+          "Value": "Fri, 30 May 2025 07:09:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6498,7 +6666,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "qr9w42wi7l"
+          "Value": "dbw2doxffi"
         },
         {
           "Name": "label",
@@ -6506,7 +6674,89 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YSXdkIs/3Xrc+pvxSkiqRwvdpL/iXbB46uy0atfhHyY="
+          "Value": "sha256-qW2I1ky4Sbkoyi0FvXyrTOQeyaUGE0OP748QEwHwcvE="
+        }
+      ]
+    },
+    {
+      "Route": "designs/aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.4s40hc745u.png",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 15:21:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4s40hc745u"
+        },
+        {
+          "Name": "label",
+          "Value": "designs/aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE="
+        }
+      ]
+    },
+    {
+      "Route": "designs/aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\aa515b35-767a-4783-90d2-a837acd7b80a_logo CMYK-01.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 15:21:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE="
         }
       ]
     },
@@ -6661,6 +6911,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Thu, 01 May 2025 10:33:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE="
+        }
+      ]
+    },
+    {
+      "Route": "designs/ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.4s40hc745u.png",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 15:42:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4s40hc745u"
+        },
+        {
+          "Name": "label",
+          "Value": "designs/ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE="
+        }
+      ]
+    },
+    {
+      "Route": "designs/ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zBbNRxpBkhKkkNxokTfpTb57rQXlcrLh0Q5qU5pTcCE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 15:42:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16033,6 +16365,167 @@
       ]
     },
     {
+      "Route": "js/site.9pad5fhj7c.js",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-9pad5fhj7c.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000258866166"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3862"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9pad5fhj7c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.9pad5fhj7c.js",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13928"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9pad5fhj7c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.9pad5fhj7c.js.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-9pad5fhj7c.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3862"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9pad5fhj7c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
       "AssetFile": "C:\\Users\\jaeyo\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.3\\staticwebassets\\js\\site.js",
       "Selectors": [],
@@ -16071,12 +16564,12 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-pttzypr5x4.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-9pad5fhj7c.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000308546745"
+          "Quality": "0.000258866166"
         }
       ],
       "ResponseHeaders": [
@@ -16086,15 +16579,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3240"
+          "Value": "3862"
         },
         {
           "Name": "ETag",
-          "Value": "\"j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8=\""
+          "Value": "\"FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16114,13 +16607,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs=\""
+          "Value": "W/\"bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs="
+          "Value": "sha256-bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY="
         }
       ]
     },
@@ -16135,7 +16628,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11565"
+          "Value": "13928"
         },
         {
           "Name": "Content-Type",
@@ -16143,11 +16636,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs=\""
+          "Value": "\"bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16157,13 +16650,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs="
+          "Value": "sha256-bQjvHORNoMljnGT9LP4KEyorisesM3+9dxNGiIyU3hY="
         }
       ]
     },
     {
       "Route": "js/site.js.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-pttzypr5x4.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-9pad5fhj7c.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16172,7 +16665,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3240"
+          "Value": "3862"
         },
         {
           "Name": "Content-Type",
@@ -16180,11 +16673,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8=\""
+          "Value": "\"FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
+          "Value": "Fri, 30 May 2025 06:49:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16202,168 +16695,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.pttzypr5x4.js",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-pttzypr5x4.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000308546745"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3240"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pttzypr5x4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.pttzypr5x4.js",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\js\\site.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "11565"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pttzypr5x4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-vddpaK1ynix4j0+QR4p6WEDarber54hKq4w+nGc4YDs="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.pttzypr5x4.js.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\lxqromdiip-pttzypr5x4.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3240"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 17:15:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pttzypr5x4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-j+oqQP5qR37KLm0mDZn4rbjEHNpLnkl61ZpLnabaCM8="
+          "Value": "sha256-FK5myR7Jm5PrCFCu4vLnPN5A0/9UbtUeqyOQo4BJJzk="
         }
       ]
     },
@@ -36253,12 +36585,12 @@
     },
     {
       "Route": "MyWebApp.bundle.scp.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-txmjvmkm58.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-eb1kfxf8b3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001602564103"
+          "Quality": "0.001550387597"
         }
       ],
       "ResponseHeaders": [
@@ -36268,15 +36600,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36296,13 +36628,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "W/\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
@@ -36317,7 +36649,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2269"
+          "Value": "1550"
         },
         {
           "Name": "Content-Type",
@@ -36325,11 +36657,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36339,13 +36671,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
     {
       "Route": "MyWebApp.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-txmjvmkm58.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-eb1kfxf8b3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36354,7 +36686,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "Content-Type",
@@ -36362,11 +36694,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36384,18 +36716,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0="
+          "Value": "sha256-1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU="
         }
       ]
     },
     {
-      "Route": "MyWebApp.styles.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-txmjvmkm58.gz",
+      "Route": "MyWebApp.eb1kfxf8b3.bundle.scp.css",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-eb1kfxf8b3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001602564103"
+          "Quality": "0.001550387597"
         }
       ],
       "ResponseHeaders": [
@@ -36405,152 +36737,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
-        }
-      ]
-    },
-    {
-      "Route": "MyWebApp.styles.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2269"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
-        }
-      ]
-    },
-    {
-      "Route": "MyWebApp.styles.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-txmjvmkm58.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "623"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0="
-        }
-      ]
-    },
-    {
-      "Route": "MyWebApp.txmjvmkm58.bundle.scp.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-txmjvmkm58.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001602564103"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "623"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36570,13 +36765,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "W/\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36584,12 +36779,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
     {
-      "Route": "MyWebApp.txmjvmkm58.bundle.scp.css",
+      "Route": "MyWebApp.eb1kfxf8b3.bundle.scp.css",
       "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MyWebApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -36599,7 +36794,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2269"
+          "Value": "1550"
         },
         {
           "Name": "Content-Type",
@@ -36607,11 +36802,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36621,7 +36816,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36629,13 +36824,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
     {
-      "Route": "MyWebApp.txmjvmkm58.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-txmjvmkm58.gz",
+      "Route": "MyWebApp.eb1kfxf8b3.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\5zg7rpvgf1-eb1kfxf8b3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36644,7 +36839,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "Content-Type",
@@ -36652,11 +36847,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36674,7 +36869,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36682,18 +36877,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0="
+          "Value": "sha256-1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU="
         }
       ]
     },
     {
-      "Route": "MyWebApp.txmjvmkm58.styles.css",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-txmjvmkm58.gz",
+      "Route": "MyWebApp.eb1kfxf8b3.styles.css",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-eb1kfxf8b3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001602564103"
+          "Quality": "0.001550387597"
         }
       ],
       "ResponseHeaders": [
@@ -36703,15 +36898,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36731,13 +36926,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "W/\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36745,12 +36940,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
     {
-      "Route": "MyWebApp.txmjvmkm58.styles.css",
+      "Route": "MyWebApp.eb1kfxf8b3.styles.css",
       "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -36760,7 +36955,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2269"
+          "Value": "1550"
         },
         {
           "Name": "Content-Type",
@@ -36768,11 +36963,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c=\""
+          "Value": "\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36782,7 +36977,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36790,13 +36985,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4VFuA1k7NPgyVavDzv8p3sSJE9M9ur1bwFXjh6plC0c="
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
         }
       ]
     },
     {
-      "Route": "MyWebApp.txmjvmkm58.styles.css.gz",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-txmjvmkm58.gz",
+      "Route": "MyWebApp.eb1kfxf8b3.styles.css.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-eb1kfxf8b3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36805,7 +37000,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "623"
+          "Value": "644"
         },
         {
           "Name": "Content-Type",
@@ -36813,11 +37008,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0=\""
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 08:48:59 GMT"
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36835,7 +37030,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "txmjvmkm58"
+          "Value": "eb1kfxf8b3"
         },
         {
           "Name": "label",
@@ -36843,7 +37038,472 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-VLzSwTO3UipseM8zdj7HeBylIuqrFMtbaVAxEpJSUp0="
+          "Value": "sha256-1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU="
+        }
+      ]
+    },
+    {
+      "Route": "MyWebApp.styles.css",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-eb1kfxf8b3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001550387597"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "644"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
+        }
+      ]
+    },
+    {
+      "Route": "MyWebApp.styles.css",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\scopedcss\\bundle\\MyWebApp.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1550"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qsaIkGFD6IRZhVVKs/j5HS7q1i54NOCmL8qkvhLQvFY="
+        }
+      ]
+    },
+    {
+      "Route": "MyWebApp.styles.css.gz",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\obj\\Debug\\net9.0\\compressed\\t6h9p7noyw-eb1kfxf8b3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "644"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:35:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1xttboIdJ29WvWoADwJrZmxSg3OCS5R/0+kplKc8dnU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.0vtnw4b0fc.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5576"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:26:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0vtnw4b0fc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/design-samples/37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5576"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:26:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3560"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:22:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.un9hpicqee.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3560"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:22:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "un9hpicqee"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/design-samples/5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.0vtnw4b0fc.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5576"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:26:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0vtnw4b0fc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/design-samples/c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\c4f09987-14ec-4c8f-8288-bd46da97145b_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5576"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:26:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3560"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:22:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/design-samples/cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.un9hpicqee.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3560"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 17:22:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "un9hpicqee"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/design-samples/cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1jNGO84gNR/yy8i22CgTbRA7GNVQAkiN59Kdwq+boj4="
         }
       ]
     },
@@ -36870,7 +37530,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:54:39 GMT"
+          "Value": "Sun, 18 May 2025 05:41:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36907,7 +37567,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:54:39 GMT"
+          "Value": "Sun, 18 May 2025 05:41:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36930,8 +37590,8 @@
       ]
     },
     {
-      "Route": "uploads/SanPham/38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.0vtnw4b0fc.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg",
+      "Route": "uploads/SanPham/079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36940,7 +37600,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5576"
+          "Value": "9507"
         },
         {
           "Name": "Content-Type",
@@ -36948,56 +37608,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
+          "Value": "\"zlq8ekNeuHwMXBOQ06P01ca/7BWemUWs7Pe/2Jhaga4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0vtnw4b0fc"
-        },
-        {
-          "Name": "label",
-          "Value": "uploads/SanPham/38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/SanPham/38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_9513cf62b96e48aeb489a986d0448628.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5576"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
+          "Value": "Fri, 30 May 2025 05:41:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37007,13 +37622,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7FbkBy+8ZzJ7mAtLXutgOOjD7nvgD+HBhfis5bCJnZY="
+          "Value": "sha256-zlq8ekNeuHwMXBOQ06P01ca/7BWemUWs7Pe/2Jhaga4="
         }
       ]
     },
     {
-      "Route": "uploads/SanPham/5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
+      "Route": "uploads/SanPham/079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.mmm9cdezaq.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -37022,7 +37637,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "54513"
+          "Value": "9507"
         },
         {
           "Name": "Content-Type",
@@ -37030,48 +37645,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AbN0xxX5oPxNI2qsgWDiWUpTikSRYDCjDDUP/Xxbmp8=\""
+          "Value": "\"zlq8ekNeuHwMXBOQ06P01ca/7BWemUWs7Pe/2Jhaga4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AbN0xxX5oPxNI2qsgWDiWUpTikSRYDCjDDUP/Xxbmp8="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/SanPham/5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.xwemijw5cy.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "54513"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AbN0xxX5oPxNI2qsgWDiWUpTikSRYDCjDDUP/Xxbmp8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
+          "Value": "Fri, 30 May 2025 05:41:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37081,15 +37659,179 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xwemijw5cy"
+          "Value": "mmm9cdezaq"
         },
         {
           "Name": "label",
-          "Value": "uploads/SanPham/5b29c0cc49a4a069b815a8aef7bcd2e9_1b5955747a174560a7cd28c465f12d51.jpg"
+          "Value": "uploads/SanPham/079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AbN0xxX5oPxNI2qsgWDiWUpTikSRYDCjDDUP/Xxbmp8="
+          "Value": "sha256-zlq8ekNeuHwMXBOQ06P01ca/7BWemUWs7Pe/2Jhaga4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25115"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.wyy2bg8o2j.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25115"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wyy2bg8o2j"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25115"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.wyy2bg8o2j.jpg",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25115"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wyy2bg8o2j"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/SanPham/7915736c2515a7ea5f0bc6f9dedb0a4e_4acf1f215631487ba3f159be4bf23129.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o="
         }
       ]
     },
@@ -37116,7 +37858,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:54:39 GMT"
+          "Value": "Sun, 18 May 2025 05:41:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37153,7 +37895,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:54:39 GMT"
+          "Value": "Sun, 18 May 2025 05:41:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37172,88 +37914,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-eDedisPzsFPpsuxSuvSf4qXaGKzehCpE8MJ66jvBb2o="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/SanPham/a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.0ii450hfst.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5389"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qCspzqIGECRsX2OjygVFanoWFZRZxOvWcAFy/aMqO6Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0ii450hfst"
-        },
-        {
-          "Name": "label",
-          "Value": "uploads/SanPham/a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qCspzqIGECRsX2OjygVFanoWFZRZxOvWcAFy/aMqO6Q="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/SanPham/a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg",
-      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\a224059b1cfb624a48036f3372adcda3_eeac40003ab641cf98c54165b54115ae.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5389"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qCspzqIGECRsX2OjygVFanoWFZRZxOvWcAFy/aMqO6Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 05 Apr 2025 14:49:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qCspzqIGECRsX2OjygVFanoWFZRZxOvWcAFy/aMqO6Q="
         }
       ]
     },
@@ -37362,7 +38022,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 08:59:31 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37399,7 +38059,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 08:59:31 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37526,7 +38186,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 09:01:08 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37563,7 +38223,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 09:01:08 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37608,7 +38268,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 09:01:08 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37653,7 +38313,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 09:01:08 GMT"
+          "Value": "Fri, 09 May 2025 05:07:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -38074,6 +38734,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-4I7X26EPS2zBHYK4+hCLYo3yQQtKQbGg3iqsk6Gkk48="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/t-shirt_11c346eea62f4038997ec3a880a1ed4c.aqyjen29dn.glb",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1819640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:17:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aqyjen29dn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/SanPham/t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1819640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 06:17:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/t-shirt_704d1311af3d401b96bd94fa06e54b34.aqyjen29dn.glb",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_704d1311af3d401b96bd94fa06e54b34.glb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1819640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aqyjen29dn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/SanPham/t-shirt_704d1311af3d401b96bd94fa06e54b34.glb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/SanPham/t-shirt_704d1311af3d401b96bd94fa06e54b34.glb",
+      "AssetFile": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_704d1311af3d401b96bd94fa06e54b34.glb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1819640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 05:41:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kiABw0BPFr5qXnUpKAY2lkadEMbdDyaeRLRV9B154jc="
         }
       ]
     }

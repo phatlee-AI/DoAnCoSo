@@ -46,3 +46,25 @@ button.accept-policy[b-qgspnya79y] {
   white-space: nowrap;
   line-height: 60px;
 }
+.notification-item[b-qgspnya79y] {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.5rem 0;
+}
+
+.notification-item.unread[b-qgspnya79y] {
+    background-color: #f8fafc;
+}
+
+.notification-item:last-child[b-qgspnya79y] {
+    border-bottom: none;
+}
+
+.notification-message[b-qgspnya79y] {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.notification-time[b-qgspnya79y] {
+    font-size: 0.75rem;
+}
+

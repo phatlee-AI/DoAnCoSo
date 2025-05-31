@@ -1,0 +1,214 @@
+@model MyWebApp.Models.Article
+
+@{
+    ViewData["Title"] = "Create New Article";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="fas fa-plus-circle me-2 text-primary"></i>Create New Article
+        </h5>
+        <a asp-action="Index" class="btn btn-sm btn-outline-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Back to List
+        </a>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+            
+            <!-- Title -->
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+                <div class="invalid-feedback">Please provide a title for the article.</div>
+            </div>
+            
+            <!-- Summary -->
+            <div class="mb-3">
+                <label asp-for="Summary" class="form-label"></label>
+                <textarea asp-for="Summary" class="form-control" rows="3" required></textarea>
+                <span asp-validation-for="Summary" class="text-danger"></span>
+                <div class="invalid-feedback">Please provide a brief summary.</div>
+            </div>
+            
+            <!-- Content with CKEditor -->
+            <div class="mb-3">
+                <label asp-for="Content" class="form-label"></label>
+                <textarea asp-for="Content" class="form-control" id="editor" required></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+                <div class="invalid-feedback">Article content is required.</div>
+            </div>
+            
+            <!-- Featured Image -->
+            <div class="mb-3">
+                <label class="form-label">Featured Image</label>
+                <div class="input-group">
+                    <input type="file" name="imageFile" class="form-control" id="imageUpload" accept="image/*">
+                    <button class="btn btn-outline-secondary" type="button" id="clearImageBtn">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+                <small class="text-muted">Recommended size: 1200x630 pixels</small>
+                <div class="mt-2" id="imagePreviewContainer" style="display:none;">
+                    <img id="imagePreview" src="#" alt="Preview" class="img-thumbnail" style="max-height: 200px;">
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Slug -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Slug" class="form-label"></label>
+                    <input asp-for="Slug" class="form-control" />
+                    <span asp-validation-for="Slug" class="text-danger"></span>
+                    <small class="text-muted">Leave empty to auto-generate from title</small>
+                </div>
+                
+                <!-- Tags -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Tags" class="form-label"></label>
+                    <input asp-for="Tags" class="form-control" placeholder="technology, business, design" />
+                    <span asp-validation-for="Tags" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Meta Title -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="MetaTitle" class="form-label"></label>
+                    <input asp-for="MetaTitle" class="form-control" />
+                    <span asp-validation-for="MetaTitle" class="text-danger"></span>
+                </div>
+                
+                <!-- Meta Description -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="MetaDescription" class="form-label"></label>
+                    <input asp-for="MetaDescription" class="form-control" />
+                    <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <!-- Publish Status -->
+            <div class="mb-4 form-check form-switch">
+                <input asp-for="IsPublished" class="form-check-input" type="checkbox" role="switch">
+                <label asp-for="IsPublished" class="form-check-label"></label>
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-secondary">
+                    <i class="fas fa-undo me-1"></i>Reset
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-1"></i>Create Article
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .ck-editor__editable {
+            min-height: 300px;
+        }
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .invalid-feedback {
+            display: none;
+        }
+        .was-validated .form-control:invalid ~ .invalid-feedback,
+        .was-validated .form-control:invalid ~ .text-danger {
+            display: block;
+        }
+    </style>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <script>
+        // Initialize CKEditor
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                toolbar: {
+                    items: [
+                        'heading', '|',
+                        'bold', 'italic', 'underline', 'strikethrough', '|',
+                        'bulletedList', 'numberedList', '|',
+                        'alignment', 'outdent', 'indent', '|',
+                        'link', 'blockQuote', 'insertTable', 'mediaEmbed', '|',
+                        'undo', 'redo', '|',
+                        'codeBlock', 'htmlEmbed', '|',
+                        'fontBackgroundColor', 'fontColor', 'fontSize', 'fontFamily', '|',
+                        'highlight', 'horizontalLine', 'removeFormat'
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+                language: 'en',
+                licenseKey: '',
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(error => {
+                console.error('Oops, something went wrong!');
+                console.error(error);
+            });
+
+        // Image preview functionality
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = event.target.result;
+                    document.getElementById('imagePreviewContainer').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Clear image selection
+        document.getElementById('clearImageBtn').addEventListener('click', function() {
+            document.getElementById('imageUpload').value = '';
+            document.getElementById('imagePreviewContainer').style.display = 'none';
+        });
+
+        // Auto-generate slug from title
+        document.getElementById('Title').addEventListener('input', function() {
+            const slugField = document.getElementById('Slug');
+            if (!slugField.value) {
+                const title = this.value;
+                const slug = title.toLowerCase()
+                    .replace(/[^\w\s-]/g, '') // Remove non-word chars
+                    .replace(/[\s]+/g, '-')    // Replace spaces with -
+                    .replace(/--+/g, '-')      // Replace multiple - with single -
+                    .substring(0, 100);        // Limit length
+                slugField.value = slug;
+            }
+        });
+
+        // Form validation
+        (function() {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+}
