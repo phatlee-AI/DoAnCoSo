@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PHATLEE</title>
+    <title>@ViewData["Title"] DESIGN3D-CREATE YOUR OWN COLOR </title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <!-- Brand Logo -->
                 <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="text-success">PHAT</span><span class="text-dark">LEE</span>
+                    <span class="text-success">DESIGN</span><span class="text-dark">3D</span>
                 </a>
                 
                 <!-- Mobile Toggle Button -->
@@ -35,7 +35,7 @@
                             <a class="nav-link text-dark" asp-controller="Product" asp-action="Index">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Design" asp-action="MyDesign">Thiết Kế Của Tôi</a>
+                            <a class="nav-link text-dark" asp-controller="Design" asp-action="MyDesigns">Thiết Kế Của Tôi</a>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">Về Chúng Tôi</a>
                         </li>
@@ -173,14 +173,14 @@
     <!-- Products Section -->
     @await Component.InvokeAsync("FeaturedProducts")
     <!-- Articles Section -->
-    <section id="articles" class="py-5">
+    @* <section id="articles" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5">Latest Articles</h2>
             <div class="row" id="articleList">
                 <!-- Articles will be loaded here via JavaScript -->
             </div>
         </div>
-    </section>
+    </section> *@
 
     @if (TempData["Success"] != null)
     {
@@ -257,7 +257,7 @@
                                 </div>
                                 <div>
                                     <h5 class="fw-bold mb-1">Địa chỉ</h5>
-                                    <p class="mb-0">123 Đường ABC, Phường XYZ<br>Quận 1, TP. Hồ Chí Minh</p>
+                                    <p class="mb-0">10/80c Song Hành Xa Lộ Hà Nội, Phường Tân Phú<br>Thủ Đức, TP. Hồ Chí Minh</p>
                                 </div>
                             </div>
                             
@@ -268,8 +268,8 @@
                                 <div>
                                     <h5 class="fw-bold mb-1">Điện thoại</h5>
                                     <p class="mb-0">
-                                        <a href="tel:+84987654321" class="text-decoration-none">0987 654 321</a><br>
-                                        <a href="tel:+842836987456" class="text-decoration-none">028 3698 7456</a>
+                                        <a href="tel:+84349040645" class="text-decoration-none">0349040645</a><br>
+                                        <a href="tel:+84355850077" class="text-decoration-none">0355850077</a>
                                     </p>
                                 </div>
                             </div>
@@ -281,8 +281,9 @@
                                 <div>
                                     <h5 class="fw-bold mb-1">Email</h5>
                                     <p class="mb-0">
-                                        <a href="mailto:info@phatlee.com" class="text-decoration-none">info@phatlee.com</a><br>
-                                        <a href="mailto:support@phatlee.com" class="text-decoration-none">support@phatlee.com</a>
+                                        <a href="mailto:lethanhphat10122004@gmail.com" class="text-decoration-none">lethanhphat10122004@gmail.com</a><br>
+                                        <a href="mailto:Quoc123@gmail.com" class="text-decoration-none">Quoc123@gmail.com</a><br>
+                                        <a href="mailto:Quan123@gmail.com" class="text-decoration-none">Quan123@gmail.com</a>
                                     </p>
                                 </div>
                             </div>
@@ -292,7 +293,7 @@
                         <div class="mt-4">
                             <h5 class="fw-bold mb-3">Bản đồ</h5>
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789012!2d106.12345678901234!3d10.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA3JzI0LjQiTiAxMDbCsDA3JzI0LjQiRQ!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.427573115688!2d106.78279807401826!3d10.855047957740718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527c3debb5aad%3A0x5fb58956eb4194d0!2zxJDhuqFpIEjhu41jIEh1dGVjaCBLaHUgRQ!5e0!3m2!1svi!2s!4v1748680437289!5m2!1svi!2s" 
                                         style="border:0;" 
                                         allowfullscreen="" 
                                         loading="lazy" 
@@ -371,10 +372,10 @@
             <hr class="my-4 bg-secondary">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    &copy; 2025 - PHATLEE - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white">Privacy</a>
+                    &copy; 2025 - DESIGN3D - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white">Privacy</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by PHATLEE Team</p>
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by DESIGN3D Team</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,371 @@
+@model MyWebApp.Models.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-primary text-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Edit Product</h4>
+                        <a asp-action="Products" class="btn btn-sm btn-light">
+                            <i class="fas fa-arrow-left me-1"></i>Back to List
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form asp-action="EditProduct" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <input type="hidden" asp-for="Id" />
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        
+                        <div class="row g-4">
+                            <!-- Basic Information -->
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Name" class="form-label fw-bold">Product Name <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                        <input asp-for="Name" class="form-control" placeholder="Enter product name" required />
+                                    </div>
+                                    <span asp-validation-for="Name" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label asp-for="Price" class="form-label fw-bold">Price <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                        <input asp-for="Price" type="number" step="0.01" class="form-control" placeholder="0.00" required />
+                                    </div>
+                                    <span asp-validation-for="Price" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label asp-for="CategoryId" class="form-label fw-bold">Category <span class="text-danger">*</span></label>
+                                    <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId" required>
+                                        <option value="">-- Select Category --</option>
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label asp-for="Description" class="form-label fw-bold">Description</label>
+                                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter product description"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Media Upload Section -->
+                            <div class="col-md-6">
+                                <!-- Main Image Upload -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label fw-bold">Main Image</label>
+                                    <div class="file-upload-container border rounded p-3 text-center bg-light">
+                                        <div class="image-preview mb-3">
+                                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                            {
+                                                <img src="@Model.ImageUrl" id="mainImagePreview" 
+                                                    class="img-fluid rounded" style="max-height: 200px; width: auto;" />
+                                            }
+                                            else
+                                            {
+                                                <img src="https://via.placeholder.com/300x200?text=Product+Image" id="mainImagePreview" 
+                                                    class="img-fluid rounded" style="max-height: 200px; width: auto;" />
+                                            }
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <label for="mainImageUpload" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-cloud-upload-alt me-1"></i>Change Image
+                                            </label>
+                                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                            {
+                                                <button type="button" id="clearMainImage" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash-alt me-1"></i>Remove
+                                                </button>
+                                            }
+                                        </div>
+                                        <input asp-for="ImageUrl" type="hidden" />
+                                        <input name="HinhAnhCapNhat" id="mainImageUpload" type="file" class="d-none" accept="image/*" />
+                                        <span asp-validation-for="ImageUrl" class="text-danger small d-block mt-2"></span>
+                                    </div>
+                                </div>
+                                
+                                <!-- 3D Model Upload -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label fw-bold">3D Model (.glb)</label>
+                                    <div class="file-upload-container border rounded p-3 text-center bg-light">
+                                        <div class="model-preview mb-3">
+                                            <model-viewer id="model3dPreview" src="@Model.Model3DUrl" alt="3D model preview" 
+                                                ar ar-modes="webxr scene-viewer quick-look" 
+                                                camera-controls auto-rotate 
+                                                style="width:100%; height:200px; background-color:#f8f9fa;">
+                                                <div slot="progress-bar" class="progress-bar"></div>
+                                                @if (string.IsNullOrEmpty(Model.Model3DUrl))
+                                                {
+                                                    <div class="placeholder-content text-center py-5">
+                                                        <i class="fas fa-cube text-muted" style="font-size: 3rem;"></i>
+                                                        <p class="small text-muted mt-2 mb-0">No 3D model selected</p>
+                                                    </div>
+                                                }
+                                            </model-viewer>
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <label for="model3dUpload" class="btn btn-outline-info btn-sm">
+                                                <i class="fas fa-cube me-1"></i>@(string.IsNullOrEmpty(Model.Model3DUrl) ? "Upload" : "Change") 3D Model
+                                            </label>
+                                            @if (!string.IsNullOrEmpty(Model.Model3DUrl))
+                                            {
+                                                <button type="button" id="clear3dModel" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash-alt me-1"></i>Remove
+                                                </button>
+                                            }
+                                        </div>
+                                        <input asp-for="Model3DUrl" type="hidden" />
+                                        <input name="model3dFile" id="model3dUpload" type="file" class="d-none" accept=".glb" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Images -->
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="form-label fw-bold">Additional Images</label>
+                                    <div class="file-upload-container border rounded p-3 bg-light">
+                                        <div class="row g-2" id="additionalImagesPreview">
+                                            @if (Model.ProductImages != null && Model.ProductImages.Any())
+                                            {
+                                                foreach (var image in Model.ProductImages)
+                                                {
+                                                    <div class="col-md-2 col-4">
+                                                        <div class="image-thumbnail-container">
+                                                            <img src="@image.Url" class="img-fluid image-thumbnail w-100" alt="Additional image" />
+                                                            <button type="button" class="remove-image-btn btn btn-danger btn-sm" data-image-id="@image.Id">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <div class="col-12 text-center py-4">
+                                                    <i class="fas fa-images text-muted" style="font-size: 2rem;"></i>
+                                                    <p class="small text-muted mb-0">No additional images selected</p>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <div class="form-text">You can upload up to 5 additional images</div>
+                                            <label for="additionalImagesUpload" class="btn btn-outline-secondary btn-sm">
+                                                <i class="fas fa-images me-1"></i>Add More Images
+                                            </label>
+                                           <input name="DanhSachHinhAnh" id="additionalImagesUpload" type="file" class="d-none" multiple accept="image/*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="col-12 mt-3">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="reset" class="btn btn-outline-secondary px-4 py-2">
+                                        <i class="fas fa-undo me-2"></i>Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-primary px-4 py-2">
+                                        <i class="fas fa-save me-2"></i>Update Product
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <!-- Giữ nguyên phần styles từ Create.cshtml -->
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <!-- Model Viewer Library -->
+    <script type="module" src="https://unpkg.com/@@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <script>
+        // Main image upload handling
+        const mainImageInput = document.getElementById('mainImageUpload');
+        const mainImagePreview = document.getElementById('mainImagePreview');
+        const clearMainImageBtn = document.getElementById('clearMainImage');
+        const mainImageHidden = document.querySelector('input[asp-for="ImageUrl"]');
+        
+        mainImageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    mainImagePreview.src = e.target.result;
+                    if (clearMainImageBtn) clearMainImageBtn.style.display = 'inline-block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        if (clearMainImageBtn) {
+            clearMainImageBtn.addEventListener('click', function() {
+                mainImagePreview.src = 'https://via.placeholder.com/300x200?text=Product+Image';
+                mainImageInput.value = '';
+                mainImageHidden.value = '';
+                if (clearMainImageBtn) clearMainImageBtn.style.display = 'none';
+            });
+        }
+        
+        // 3D Model upload handling
+        const model3dInput = document.getElementById('model3dUpload');
+        const model3dPreview = document.getElementById('model3dPreview');
+        const clear3dModelBtn = document.getElementById('clear3dModel');
+        const model3dHidden = document.querySelector('input[asp-for="Model3DUrl"]');
+        
+        model3dInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const path = URL.createObjectURL(file);
+                model3dPreview.src = path;
+                if (clear3dModelBtn) clear3dModelBtn.style.display = 'inline-block';
+                
+                // Hide placeholder
+                const placeholder = model3dPreview.querySelector('.placeholder-content');
+                if (placeholder) placeholder.style.display = 'none';
+            }
+        });
+        
+        if (clear3dModelBtn) {
+            clear3dModelBtn.addEventListener('click', function() {
+                model3dPreview.src = '';
+                model3dInput.value = '';
+                model3dHidden.value = '';
+                if (clear3dModelBtn) clear3dModelBtn.style.display = 'none';
+                
+                // Show placeholder
+                const placeholder = model3dPreview.querySelector('.placeholder-content');
+                if (placeholder) placeholder.style.display = 'flex';
+            });
+        }
+        
+        // Additional images upload handling
+        const additionalImagesInput = document.getElementById('additionalImagesUpload');
+        const additionalImagesPreview = document.getElementById('additionalImagesPreview');
+        
+        additionalImagesInput.addEventListener('change', function(e) {
+            const files = e.target.files;
+            
+            // Clear existing placeholders if any
+            if (additionalImagesPreview.querySelector('.text-center.py-4')) {
+                additionalImagesPreview.innerHTML = '';
+            }
+            
+            if (files.length > 0) {
+                Array.from(files).slice(0, 5).forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-2 col-4';
+                        
+                        const container = document.createElement('div');
+                        container.className = 'image-thumbnail-container';
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'img-fluid image-thumbnail w-100';
+                        img.alt = 'Additional image ' + (index + 1);
+                        
+                        const removeBtn = document.createElement('button');
+                        removeBtn.type = 'button';
+                        removeBtn.className = 'remove-image-btn btn btn-danger btn-sm';
+                        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                        removeBtn.onclick = function() {
+                            removeImage(index);
+                        };
+                        
+                        container.appendChild(img);
+                        container.appendChild(removeBtn);
+                        col.appendChild(container);
+                        additionalImagesPreview.appendChild(col);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+        });
+        
+        function removeImage(index) {
+            const files = additionalImagesInput.files;
+            const newFiles = Array.from(files).filter((_, i) => i !== index);
+            
+            // Create new DataTransfer to update files
+            const dataTransfer = new DataTransfer();
+            newFiles.forEach(file => dataTransfer.items.add(file));
+            additionalImagesInput.files = dataTransfer.files;
+            
+            // Trigger change event to update preview
+            additionalImagesInput.dispatchEvent(new Event('change'));
+        }
+        
+        // Handle removal of existing additional images
+        document.querySelectorAll('.remove-image-btn[data-image-id]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const imageId = this.getAttribute('data-image-id');
+                if (confirm('Are you sure you want to delete this image?')) {
+                    fetch('@Url.Action("DeleteProductImage", "Dashboard")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ id: imageId })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            this.closest('.col-md-2').remove();
+                            
+                            // If no images left, show placeholder
+                            if (additionalImagesPreview.querySelectorAll('.col-md-2').length === 0) {
+                                additionalImagesPreview.innerHTML = `
+                                    <div class="col-12 text-center py-4">
+                                        <i class="fas fa-images text-muted" style="font-size: 2rem;"></i>
+                                        <p class="small text-muted mb-0">No additional images selected</p>
+                                    </div>
+                                `;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Form validation
+        (function() {
+            'use strict';
+            
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation');
+            
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+}

@@ -21,10 +21,6 @@
       "PackagePath": "staticwebassets\\designs\\cecc925e-1888-4945-8d0d-b74209c5498d_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
     },
     {
-      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\e4a9bbf4-6c22-4fc5-97b2-36ed5ebf57fe_logo CMYK-01.png",
-      "PackagePath": "staticwebassets\\designs\\e4a9bbf4-6c22-4fc5-97b2-36ed5ebf57fe_logo CMYK-01.png"
-    },
-    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png",
       "PackagePath": "staticwebassets\\designs\\ff56e039-50b3-4007-9784-8305bb3a5166_logo CMYK-01.png"
     },
@@ -309,6 +305,34 @@
       "PackagePath": "staticwebassets\\uploads\\SanPham\\079bd4b4d84c346947561a6ce991eea9_ed86302f1d414e94b2d7c8888ee32f68.jpg"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_62dfec56af544c0ca3db3628df628acf.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_62dfec56af544c0ca3db3628df628acf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_6be8aeb79da54bbe815b530d2fe1fb99.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\38f2fcc29a81961468d7bef5c67bcbfb_6be8aeb79da54bbe815b530d2fe1fb99.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_c8eff4a1385746dea69de08d8b4a3dbf.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_c8eff4a1385746dea69de08d8b4a3dbf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_ca124c9dcf2147e39e1fc30aec6c16de.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\58d5050ef8e9b0c370b099b25fa9187a_ca124c9dcf2147e39e1fc30aec6c16de.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_e2fc7a7e8d5e47a396ceb11ba53f5e97.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\5b29c0cc49a4a069b815a8aef7bcd2e9_e2fc7a7e8d5e47a396ceb11ba53f5e97.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_2afcb1667b4d48f7be98f52222471e9f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_2afcb1667b4d48f7be98f52222471e9f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_7ee7eeb60f4f4aa3a2c6d5d5608d5b51.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\5d1223b145cde9f772ed29c21179d7c3_7ee7eeb60f4f4aa3a2c6d5d5608d5b51.jpg"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_2e3b112112f04aa093906cb37c9be69e.jpg"
     },
@@ -321,8 +345,16 @@
       "PackagePath": "staticwebassets\\uploads\\SanPham\\7915736c2515a7ea5f0bc6f9dedb0a4e_a2a427c5acaa4409919cebb58ad4549a.jpg"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_24fabd061cb94473bfeb8d3528c8dfc0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\9f1471bab8838958371bb5cc6ced2f2c_24fabd061cb94473bfeb8d3528c8dfc0.jpg"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_19f480fffe2a4f5c80392b9a979d2a94.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_511d0fd81a2c46408b889841ab2056aa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao1_511d0fd81a2c46408b889841ab2056aa.jpg"
     },
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\Ao1_593b5a073b6d4b9580de1a64b4119d7e.jpg",
@@ -353,12 +385,36 @@
       "PackagePath": "staticwebassets\\uploads\\SanPham\\Ao4_4f539374bc1244ae9f6536808f4598b2.jpg"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\c6023_2643dd5b73c4456e8b5be7305d2408d7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\c6023_2643dd5b73c4456e8b5be7305d2408d7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\cup_of_coffee_ddc7ac58223a4466acc8b4da12a9d6ce.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\cup_of_coffee_ddc7ac58223a4466acc8b4da12a9d6ce.glb"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\dickies_long_sleeve_shirt_386b0cbf6b4247cf983ceb9ae8d5eb87.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\dickies_long_sleeve_shirt_386b0cbf6b4247cf983ceb9ae8d5eb87.glb"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\download_7ee8615a935c4937938c27bb08cab318.jpg"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\jeans_denim_pants_ee612f3e75dd44fcbc233f1965bed6e5.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\jeans_denim_pants_ee612f3e75dd44fcbc233f1965bed6e5.glb"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\oversized_t-shirt_8dd67c17b8ad4cf79393dd59c4552851.glb",
       "PackagePath": "staticwebassets\\uploads\\SanPham\\oversized_t-shirt_8dd67c17b8ad4cf79393dd59c4552851.glb"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\short_pant_design_07fb56b59b06460ead39d44f38151c29.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\short_pant_design_07fb56b59b06460ead39d44f38151c29.glb"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\standard_t-shirt_4be9ec5a66974b65ad46f2429e4c24ff.glb",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\standard_t-shirt_4be9ec5a66974b65ad46f2429e4c24ff.glb"
     },
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\t-shirt_11c346eea62f4038997ec3a880a1ed4c.glb",
@@ -369,8 +425,24 @@
       "PackagePath": "staticwebassets\\uploads\\SanPham\\t-shirt_704d1311af3d401b96bd94fa06e54b34.glb"
     },
     {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\tải xuống (4)_6e92fe4f18cd4c5a8388e57e45e12a16.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\tải xuống (4)_6e92fe4f18cd4c5a8388e57e45e12a16.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\tải xuống_43e8337a635b4c46b13ce7b692f617ef.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\tải xuống_43e8337a635b4c46b13ce7b692f617ef.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\SanPham\\vn-11134207-7qukw-ljuumft94oms76_2b0e80157547435dade1a617496e166e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SanPham\\vn-11134207-7qukw-ljuumft94oms76_2b0e80157547435dade1a617496e166e.jpg"
+    },
+    {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg",
       "PackagePath": "staticwebassets\\uploads\\design-samples\\37a28448-2f4f-431e-8b8b-cc1b168170b3_38f2fcc29a81961468d7bef5c67bcbfb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\570fb66c-fadb-4311-8df5-3d72725f3591_bd6d41d8-f754-436a-9fb7-328e8f811698.png",
+      "PackagePath": "staticwebassets\\uploads\\design-samples\\570fb66c-fadb-4311-8df5-3d72725f3591_bd6d41d8-f754-436a-9fb7-328e8f811698.png"
     },
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\5ca5a90c-c173-4971-a63b-2f3e6a28d978_Áo thun.jpg",
@@ -383,6 +455,10 @@
     {
       "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg",
       "PackagePath": "staticwebassets\\uploads\\design-samples\\cbeeef10-3f33-4537-aec7-b44ecdc0ed43_Áo thun.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jaeyo\\Documents\\Zalo Received Files\\MyWebApp10\\MyWebApp\\wwwroot\\uploads\\design-samples\\fda3dd92-e59c-49d0-9ecf-a74b055af234_bd6d41d8-f754-436a-9fb7-328e8f811698.png",
+      "PackagePath": "staticwebassets\\uploads\\design-samples\\fda3dd92-e59c-49d0-9ecf-a74b055af234_bd6d41d8-f754-436a-9fb7-328e8f811698.png"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MyWebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

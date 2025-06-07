@@ -101,16 +101,18 @@
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Phí vận chuyển:</span>
-                            <span class="fw-bold">30.000<sup>đ</sup></span>
+                            <span class="fw-bold shipping-fee">30.000<sup>đ</sup></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Phí thiết kế:</span>
-                            <span class="fw-bold">50.000<sup>đ</sup></span>
+                            <span class="fw-bold design-fee">50.000<sup>đ</sup></span>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between mb-3">
                             <span class="fw-bold">Tổng cộng:</span>
-                            <span class="fw-bold text-success h5 order-total">@(Model.Items.Sum(i => i.Product?.Price * i.Quantity + 30000 + 50000)?.ToString("N0"))<sup>đ</sup></span>
+                            <span class="fw-bold text-success h5 order-total">
+                                @((Model.Items.Sum(i => i.Product?.Price * i.Quantity) + 30000 + 50000)?.ToString("N0"))<sup>đ</sup>
+                            </span>
                         </div>
                         <a asp-controller="Cart" asp-action="Checkout" class="btn btn-success w-100 py-2">
                             <i class="fas fa-credit-card me-2"></i>Tiến hành thanh toán
@@ -144,19 +146,22 @@
                 if (response.ok) {
                     input.value = newQuantity;
 
-                    // Cập nhật lại tổng giá trị của sản phẩm và tổng giá trị đơn hàng
-                    const price = parseFloat(input.closest('tr').querySelector('.price').textContent.replace('đ', '').replace(',', '').trim());
+                    // Cập nhật lại tổng giá trị của sản phẩm
+                    const price = parseFloat(input.closest('tr').querySelector('.price').textContent.replace('đ', '').replace(/\./g, '').replace(',', '').trim());
                     const totalPriceElement = input.closest('tr').querySelector('.total-price');
-                    totalPriceElement.textContent = (newQuantity * price).toLocaleString('vi-VN') + ' đ';
+                    totalPriceElement.innerHTML = (newQuantity * price).toLocaleString('vi-VN') + '<sup>đ</sup>';
 
+                    // Tính toán lại tổng giá trị đơn hàng
                     const subtotal = Array.from(document.querySelectorAll('.total-price'))
                         .reduce((total, el) => total + parseFloat(el.textContent.replace('đ', '').replace(/\./g, '').replace(',', '').trim()), 0);
                     
-                    // Cập nhật tổng giá trị đơn hàng
                     const shippingFee = 30000;
                     const designFee = 50000;
-                    document.querySelector('.subtotal').textContent = subtotal.toLocaleString('vi-VN') + ' đ';
-                    document.querySelector('.order-total').textContent = (subtotal + shippingFee + designFee).toLocaleString('vi-VN') + ' đ';
+                    const orderTotal = subtotal + shippingFee + designFee;
+                    
+                    // Cập nhật hiển thị
+                    document.querySelector('.subtotal').innerHTML = subtotal.toLocaleString('vi-VN') + '<sup>đ</sup>';
+                    document.querySelector('.order-total').innerHTML = orderTotal.toLocaleString('vi-VN') + '<sup>đ</sup>';
                 }
             })
             .catch(error => console.error('Có lỗi xảy ra khi cập nhật số lượng!', error));

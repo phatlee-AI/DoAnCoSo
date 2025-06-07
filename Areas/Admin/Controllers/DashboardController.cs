@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using MyWebApp.Models;
 using MyWebApp.Areas.Admin.Models.ViewModels;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MyWebApp.Areas.Admin.Controllers
 {
@@ -306,19 +307,250 @@ namespace MyWebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(DesignRequests));
         }
 
-public IActionResult GetDesignDetails(int id)
-{
-    var designRequest = _context.designRequest
-        .Include(d => d.Product)
-        .FirstOrDefault(d => d.Id == id);
+        public IActionResult GetDesignDetails(int id)
+        {
+            var designRequest = _context.designRequest
+                .Include(d => d.Product)
+                .FirstOrDefault(d => d.Id == id);
 
-    if (designRequest == null)
+            if (designRequest == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("_DesignDetailsPartial", designRequest);
+        }
+
+        // Thêm vào DashboardController.cs
+
+public IActionResult Products()
+{
+    var products = _context.Products
+        .Include(p => p.Category)
+        .Include(p => p.ProductImages)
+        .OrderByDescending(p => p.Id)
+        .ToList();
+
+    return View(products);
+}
+
+[HttpGet]
+public IActionResult CreateProduct()
+{
+    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name");
+    return View();
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> CreateProduct(Product product, 
+    IFormFile mainImage, 
+    List<IFormFile> additionalImages, 
+    IFormFile model3dFile)
+{
+    if (ModelState.IsValid)
+    {
+        // Xử lý upload ảnh chính
+        if (mainImage != null && mainImage.Length > 0)
+        {
+            var imagePath = await UploadFile(mainImage, "products");
+            product.ImageUrl = imagePath;
+        }
+
+        // Xử lý upload 3D model
+        if (model3dFile != null && model3dFile.Length > 0)
+        {
+            var modelPath = await UploadFile(model3dFile, "3d-models");
+            product.Model3DUrl = modelPath;
+        }
+
+        _context.Add(product);
+        await _context.SaveChangesAsync();
+
+        // Xử lý upload ảnh phụ
+        if (additionalImages != null && additionalImages.Count > 0)
+        {
+            foreach (var image in additionalImages)
+            {
+                if (image.Length > 0)
+                {
+                    var imagePath = await UploadFile(image, "products/additional");
+                    _context.ProductImages.Add(new ProductImage
+                    {
+                        ProductId = product.Id,
+                        Url = imagePath
+                    });
+                }
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        TempData["Success"] = "Product created successfully!";
+        return RedirectToAction(nameof(Products));
+    }
+
+    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+    return View(product);
+}
+
+[HttpGet]
+public async Task<IActionResult> EditProduct(int? id)
+{
+    if (id == null)
     {
         return NotFound();
     }
 
-    return PartialView("_DesignDetailsPartial", designRequest);
+    var product = await _context.Products
+        .Include(p => p.ProductImages)
+        .FirstOrDefaultAsync(p => p.Id == id);
+
+    if (product == null)
+    {
+        return NotFound();
+    }
+
+    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+    return View(product);
 }
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> EditProduct(int id, Product product, 
+    IFormFile mainImage, 
+    List<IFormFile> additionalImages, 
+    IFormFile model3dFile)
+{
+    if (id != product.Id)
+    {
+        return NotFound();
+    }
+
+    if (ModelState.IsValid)
+    {
+        try
+        {
+            var existingProduct = await _context.Products
+                .Include(p => p.ProductImages)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            // Cập nhật thông tin cơ bản
+            existingProduct.Name = product.Name;
+            existingProduct.Price = product.Price;
+            existingProduct.Description = product.Description;
+            existingProduct.CategoryId = product.CategoryId;
+
+            // Xử lý ảnh chính
+            if (mainImage != null && mainImage.Length > 0)
+            {
+                var imagePath = await UploadFile(mainImage, "products");
+                existingProduct.ImageUrl = imagePath;
+            }
+
+            // Xử lý 3D model
+            if (model3dFile != null && model3dFile.Length > 0)
+            {
+                var modelPath = await UploadFile(model3dFile, "3d-models");
+                existingProduct.Model3DUrl = modelPath;
+            }
+
+            // Xử lý ảnh phụ
+            if (additionalImages != null && additionalImages.Count > 0)
+            {
+                foreach (var image in additionalImages)
+                {
+                    if (image.Length > 0)
+                    {
+                        var imagePath = await UploadFile(image, "products/additional");
+                        _context.ProductImages.Add(new ProductImage
+                        {
+                            ProductId = existingProduct.Id,
+                            Url = imagePath
+                        });
+                    }
+                }
+            }
+
+            _context.Update(existingProduct);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Product updated successfully!";
+            return RedirectToAction(nameof(Products));
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ProductExists(product.Id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+    }
+
+    ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+    return View(product);
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> DeleteProduct(int id)
+{
+    var product = await _context.Products.FindAsync(id);
+    if (product == null)
+    {
+        return NotFound();
+    }
+
+    _context.Products.Remove(product);
+    await _context.SaveChangesAsync();
+
+    TempData["Success"] = "Product deleted successfully!";
+    return RedirectToAction(nameof(Products));
+}
+
+[HttpPost]
+public async Task<IActionResult> DeleteProductImage(int id)
+{
+    var image = await _context.ProductImages.FindAsync(id);
+    if (image == null)
+    {
+        return NotFound();
+    }
+
+    _context.ProductImages.Remove(image);
+    await _context.SaveChangesAsync();
+
+    return Ok();
+}
+
+private async Task<string> UploadFile(IFormFile file, string folder)
+{
+    var uploadsFolder = Path.Combine("wwwroot", "uploads", folder);
+    if (!Directory.Exists(uploadsFolder))
+    {
+        Directory.CreateDirectory(uploadsFolder);
+    }
+
+    var uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+    using (var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+        await file.CopyToAsync(fileStream);
+    }
+
+    return "/uploads/" + folder + "/" + uniqueFileName;
+}
+
+private bool ProductExists(int id)
+{
+    return _context.Products.Any(e => e.Id == id);
+}
+
+
 
 
 
